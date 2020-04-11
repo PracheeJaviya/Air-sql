@@ -1,23 +1,24 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 
 public class DB_Connect {
     public static String url = "jdbc:postgresql://localhost:5432/air-sql";
     private static Connection conn;
     private static String user = "panth";//Username of database
-    private static String passwd = "panth";//Password od Database
-
+    private static String passwd = "1892";//Password od Database
+    
 
     public static Connection connect() throws SQLException {
         try {
             Class.forName("org.postgresql.Driver").newInstance();
         } catch (ClassNotFoundException | IllegalAccessException | InstantiationException cnfe) {
-            System.err.println("Error: " + cnfe.getMessage());
+            JOptionPane.showMessageDialog(null, "Error");
         }
         conn = DriverManager.getConnection(url, user, passwd);
-        //  System.out.println(url);
+        JOptionPane.showMessageDialog(null, "Connected");
         return conn;
     }
 

@@ -3,6 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -13,8 +18,11 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
-    public Login() {
+    Connection conn = null;
+    
+    public Login() throws SQLException {
         initComponents();
+        conn = DB_Connect.connect();
     }
 
     /**
@@ -45,6 +53,11 @@ public class Login extends javax.swing.JFrame {
 
         submit_login_jButton.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         submit_login_jButton.setText("Login");
+        submit_login_jButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submit_login_jButtonActionPerformed(evt);
+            }
+        });
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jButton1.setText("Click Here to Register");
@@ -99,6 +112,25 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void submit_login_jButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submit_login_jButtonActionPerformed
+       
+            String SQLQuery = "SELECT *\n" +
+"	FROM userdetails WHERE username = ? and passwd = ?;";
+        try {
+            PreparedStatement pst = conn.prepareStatement(SQLQuery);
+            pst.setString(1, login_user_jTextField.getText());
+            pst.setString(2, login_paswd_jPasswordField.getText());
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                JOptionPane.showMessageDialog(null, "Log-In Succesful");
+            }else{
+                JOptionPane.showMessageDialog(null, "Please Try Again");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_submit_login_jButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -129,7 +161,11 @@ public class Login extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Login().setVisible(true);
+                try {
+                    new Login().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
