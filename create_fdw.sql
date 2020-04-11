@@ -1,5 +1,5 @@
 CREATE EXTENSION file_fdw;
-CREATE SERVER import FOREIGN DATA WRAPPER file_fdw;
+CREATE SERVER air FOREIGN DATA WRAPPER file_fdw;
 CREATE FOREIGN TABLE flight (
  fcity text,
  tcity text,
@@ -8,6 +8,6 @@ CREATE FOREIGN TABLE flight (
  dep   time,
  arr   time,
  aircraft text,
- stops text;
+ stops text
 )
-SERVER import OPTIONS ( filename 'C:/Users/prach/Documents/COLLEGE/SEM-4/DBMS/Air-sql/data.csv', format 'csv' );
+SERVER air OPTIONS ( filename 'chmod a+rX C:/Users/prach/Documents/COLLEGE/SEM-4/DBMS/Air-sql/data.csv', format 'csv' );

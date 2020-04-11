@@ -1,0 +1,1 @@
+\COPY public.flight from 'C:\Users\prach\OneDrive\Desktop\chk.csv' DELIMITER ',' CSV HEADER;
