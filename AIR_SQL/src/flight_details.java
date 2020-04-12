@@ -2,6 +2,7 @@
 import java.sql.*;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
@@ -20,6 +21,10 @@ import javax.swing.table.TableModel;
 public class flight_details extends javax.swing.JFrame {
 
     Connection conn = null;
+    String s = "";
+    String origin;
+    String dest;
+//    String date;
     /**
      * Creates new form reg_info
      */
@@ -28,11 +33,21 @@ public class flight_details extends javax.swing.JFrame {
         conn = DB_Connect.connect();
         showUser(); 
     }
+    
+    public flight_details(String from, String To){
+        origin = from;
+        dest = To;
+    }
+    
+    
+    
     public ArrayList<flight> flightLists() throws SQLException{
         ArrayList<flight> flightsList = new ArrayList<>();
         String SQLQuery = "SELECT origin, dest, flightno, freq, dep, arr, aircraft, stops\n" +
-"	FROM public.flightdetails;";
+        "FROM public.flightdetails where origin = ? and dest = ?;";
         PreparedStatement pst = conn.prepareStatement(SQLQuery);
+        pst.setString(1, origin);
+        pst.setString(2, dest);
         ResultSet rs = pst.executeQuery();
         flight flight;
         while(rs.next()){
@@ -43,6 +58,8 @@ public class flight_details extends javax.swing.JFrame {
     }
     
     public void showUser() throws SQLException{
+        System.out.println(origin);
+        System.out.println(dest);
         ArrayList<flight> list = flightLists();
         DefaultTableModel model = (DefaultTableModel) flight_jTable.getModel();
         Object row[] = new Object[8];
