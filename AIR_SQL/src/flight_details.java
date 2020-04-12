@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -43,7 +44,7 @@ public class flight_details extends javax.swing.JFrame {
     
     public void showUser() throws SQLException{
         ArrayList<flight> list = flightLists();
-        DefaultTableModel model = (DefaultTableModel) reg_jTable.getModel();
+        DefaultTableModel model = (DefaultTableModel) flight_jTable.getModel();
         Object row[] = new Object[8];
         for (int i = 0; i < list.size(); i++) {
             row[0] = list.get(i).getOrigin();
@@ -69,27 +70,39 @@ public class flight_details extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        reg_jTable = new javax.swing.JTable();
+        flight_jTable = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        reg_jTable.setModel(new javax.swing.table.DefaultTableModel(
+        flight_jTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Origin", "Destination", "Flight No.", "Frequency", "Departure", "Arrival", "Aircraft", "Stops"
+                "Origin", "Destination", "Flight No.", "Frequency", "Departure", "Arrival", "Aircraft", "Stops", "Book"
             }
         ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, true
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(reg_jTable);
+        flight_jTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                flight_jTableMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(flight_jTable);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -104,6 +117,22 @@ public class flight_details extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void flight_jTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_flight_jTableMouseClicked
+        int i = flight_jTable.getSelectedRow();
+        TableModel model = flight_jTable.getModel();
+        int selectedRowIndex = flight_jTable.getSelectedRow();
+        String origin = model.getValueAt(selectedRowIndex, 0).toString();
+        String dest = model.getValueAt(selectedRowIndex, 1).toString();
+        String flightno = model.getValueAt(selectedRowIndex, 2).toString();
+        String freq = model.getValueAt(selectedRowIndex, 3).toString();
+        String dep = model.getValueAt(selectedRowIndex, 4).toString();
+        String arr = model.getValueAt(selectedRowIndex, 5).toString();
+        String aircraft = model.getValueAt(selectedRowIndex, 6).toString();
+        String stops = model.getValueAt(selectedRowIndex, 7).toString();
+        
+        new show_flight(origin, dest, flightno, freq, dep, arr, aircraft, stops).setVisible(true);
+    }//GEN-LAST:event_flight_jTableMouseClicked
 
     /**
      * @param args the command line arguments
@@ -146,7 +175,7 @@ public class flight_details extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable flight_jTable;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable reg_jTable;
     // End of variables declaration//GEN-END:variables
 }
