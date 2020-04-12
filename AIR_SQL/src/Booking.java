@@ -165,9 +165,13 @@ public class Booking extends javax.swing.JFrame {
     }//GEN-LAST:event_year_jComboBoxActionPerformed
 
     private void booking_submit_jButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_booking_submit_jButtonActionPerformed
-        String origin = from_jComboBox.toString();
-        String dest = to_jComboBox.toString();
-        new flight_details(origin, dest).setVisible(true);        
+        String origin;
+        origin = from_jComboBox.getSelectedItem().toString();
+        String dest;
+        dest = to_jComboBox.getSelectedItem().toString();
+        flight_details fd1 = new flight_details(origin, dest);
+        fd1.setLocationRelativeTo(null);
+        fd1.setVisible(true);
     }//GEN-LAST:event_booking_submit_jButtonActionPerformed
 
     /**

@@ -21,7 +21,6 @@ import javax.swing.table.TableModel;
 public class flight_details extends javax.swing.JFrame {
 
     Connection conn = null;
-    String s = "";
     String origin;
     String dest;
 //    String date;
@@ -30,36 +29,37 @@ public class flight_details extends javax.swing.JFrame {
      */
     public flight_details() throws SQLException {
         initComponents();
-        conn = DB_Connect.connect();
-        showUser(); 
     }
     
-    public flight_details(String from, String To){
-        origin = from;
-        dest = To;
+    public flight_details(String from, String To) throws SQLException{
+        this.origin = from;
+        this.dest = To;
+        initComponents();
+        conn = DB_Connect.connect();
+        showUser(); 
     }
     
     
     
     public ArrayList<flight> flightLists() throws SQLException{
+        System.out.println(origin);
+        System.out.println(dest);
         ArrayList<flight> flightsList = new ArrayList<>();
         String SQLQuery = "SELECT origin, dest, flightno, freq, dep, arr, aircraft, stops\n" +
-        "FROM public.flightdetails where origin = ? and dest = ?;";
+"	FROM public.flightdetails where origin = ? and dest = ?;";
         PreparedStatement pst = conn.prepareStatement(SQLQuery);
         pst.setString(1, origin);
         pst.setString(2, dest);
         ResultSet rs = pst.executeQuery();
-        flight flight;
+        flight Flight;
         while(rs.next()){
-            flight = new flight(rs.getString("origin"), rs.getString("dest"), rs.getString("flightno"), rs.getString("freq"), rs.getString("dep"), rs.getString("arr"), rs.getString("aircraft"), rs.getInt("stops"));
-            flightsList.add(flight);
+            Flight = new flight(rs.getString("origin"), rs.getString("dest"), rs.getString("flightno"), rs.getString("freq"), rs.getString("dep"), rs.getString("arr"), rs.getString("aircraft"), rs.getInt("stops"));
+            flightsList.add(Flight);
         }
         return flightsList;
     }
     
     public void showUser() throws SQLException{
-        System.out.println(origin);
-        System.out.println(dest);
         ArrayList<flight> list = flightLists();
         DefaultTableModel model = (DefaultTableModel) flight_jTable.getModel();
         Object row[] = new Object[8];
