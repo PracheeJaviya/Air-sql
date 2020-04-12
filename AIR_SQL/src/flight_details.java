@@ -23,6 +23,9 @@ public class flight_details extends javax.swing.JFrame {
     Connection conn = null;
     String origin;
     String dest;
+    String date;
+    int passng;
+    String ebclass;
 //    String date;
     /**
      * Creates new form reg_info
@@ -31,7 +34,7 @@ public class flight_details extends javax.swing.JFrame {
         initComponents();
     }
     
-    public flight_details(String from, String To) throws SQLException{
+    public flight_details(String from, String To, String date, int passng, String ebclass) throws SQLException{
         this.origin = from;
         this.dest = To;
         initComponents();

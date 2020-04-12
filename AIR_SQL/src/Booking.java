@@ -10,7 +10,6 @@ import javax.swing.ButtonGroup;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Panth
@@ -45,8 +44,8 @@ public class Booking extends javax.swing.JFrame {
         month_jComboBox = new javax.swing.JComboBox<>();
         year_jComboBox = new javax.swing.JComboBox<>();
         booking_submit_jButton = new javax.swing.JButton();
-        booking_class_jComboBox = new javax.swing.JComboBox<>();
-        passg_book_jTextField = new javax.swing.JTextField();
+        ebclass_jComboBox = new javax.swing.JComboBox<>();
+        passng_jTextField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -88,7 +87,7 @@ public class Booking extends javax.swing.JFrame {
             }
         });
 
-        booking_class_jComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Economy", "Business" }));
+        ebclass_jComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Economy", "Business" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -109,10 +108,10 @@ public class Booking extends javax.swing.JFrame {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(from_jComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(to_jComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(booking_class_jComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ebclass_jComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(passg_book_jTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(passng_jTextField, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(day_jComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(18, 18, 18)
                                 .addComponent(month_jComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -143,11 +142,11 @@ public class Booking extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(passg_book_jTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(passng_jTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
-                    .addComponent(booking_class_jComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ebclass_jComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addComponent(booking_submit_jButton)
                 .addContainerGap(40, Short.MAX_VALUE))
@@ -169,14 +168,25 @@ public class Booking extends javax.swing.JFrame {
         origin = from_jComboBox.getSelectedItem().toString();
         String dest;
         dest = to_jComboBox.getSelectedItem().toString();
-        flight_details fd1 = new flight_details(origin, dest);
-        fd1.setLocationRelativeTo(null);
-        fd1.setVisible(true);
+        flight_details fd1;
+        String date;
+        date  = day_jComboBox.getSelectedItem().toString() + "/" + month_jComboBox.getSelectedItem().toString() + "/" + year_jComboBox.getSelectedItem().toString();
+        String passng1 = passng_jTextField.getText();
+        int passng;
+        passng = Integer.parseInt(passng1);
+        String ebclass;
+        ebclass = ebclass_jComboBox.getSelectedItem().toString();
+        try {
+            fd1 = new flight_details(origin, dest, date, passng, ebclass);
+            fd1.setLocationRelativeTo(null);
+            fd1.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(Booking.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_booking_submit_jButtonActionPerformed
 
     /**
      */
-  
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -210,9 +220,9 @@ public class Booking extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> booking_class_jComboBox;
     private javax.swing.JButton booking_submit_jButton;
     private javax.swing.JComboBox<String> day_jComboBox;
+    private javax.swing.JComboBox<String> ebclass_jComboBox;
     private javax.swing.JComboBox<String> from_jComboBox;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -221,7 +231,7 @@ public class Booking extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JComboBox<String> month_jComboBox;
-    private javax.swing.JTextField passg_book_jTextField;
+    private javax.swing.JTextField passng_jTextField;
     private javax.swing.JComboBox<String> to_jComboBox;
     private javax.swing.JComboBox<String> year_jComboBox;
     // End of variables declaration//GEN-END:variables
