@@ -1,13 +1,17 @@
-CREATE OR REPLACE FUNCTION usnm_chk()
-  RETURNS trigger AS
-  $$
+create or REPLACE function usnmchk(usernm varchar) returns integer AS
+$$
+declare
+flag integer := 0;
+cnt integer;
+usnm varchar;
 BEGIN
-
-IF EXISTS (SELECT username FROM userdetails
-           WHERE (username)
-           = (NEW.username)) THEN
-   RETURN NULL;
-END IF;
-RETURN NEW;
-END
-$$LANGUAGE plpgsql;
+  select count(username) from userdetails into cnt;
+  for i in 1..cnt loop
+    select username into usnm from userdetails where i=index;
+    if usernm like usnm  THEN
+      flag := 1;
+    end if;
+    end loop;
+  return flag;
+end
+$$language plpgsql;

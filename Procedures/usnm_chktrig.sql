@@ -1,4 +1,5 @@
+-- trigger used for validating
 CREATE TRIGGER usnm_chktrig
-BEFORE INSERT  OF col1, col2, col3, col4  -- fire only when relevant
+BEFORE INSERT  OF username  -- fire only when relevant
 ON userdetails
 FOR EACH ROW EXECUTE PROCEDURE usnm_chk();
