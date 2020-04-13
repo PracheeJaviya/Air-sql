@@ -18,7 +18,7 @@ public class DB_Connect {
             JOptionPane.showMessageDialog(null, "Error");
         }
         conn = DriverManager.getConnection(url, user, passwd);
-        JOptionPane.showMessageDialog(null, "Connected");
+        System.out.println("Connected");
         return conn;
     }
 

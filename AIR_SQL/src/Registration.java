@@ -245,6 +245,13 @@ public class Registration extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(Registration.class.getName()).log(Level.SEVERE, null, ex);
         }
+        try {
+            new Login().setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(Registration.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        dispose();
+        
         
     }//GEN-LAST:event_submit_reg_jTextFieldActionPerformed
 
