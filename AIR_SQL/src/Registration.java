@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 public class Registration extends javax.swing.JFrame {
 
     Connection conn = null;
-    
+
     public Registration() throws SQLException {
         initComponents();
         conn = DB_Connect.connect();
@@ -222,6 +222,19 @@ public class Registration extends javax.swing.JFrame {
             pst.setString(9, email_reg_jTextField.getText());
             pst.setString(10, DOB);
 
+            //CHECK IF PASSWORDS MATCH
+            CallableStatement PASSCHK =conn.prepareCall("{?=call passchk(?,?)}");
+            PASSCHK.setString(2,pass_reg_jTextField.getText());
+            PASSCHK.setString(3,conpass_reg_jTextField.getText());
+            PASSCHK.registerOutParameter(1, Types.INTEGER);
+            PASSCHK.execute();
+            Integer passret = PASSCHK.getInt(1);
+//            if(passret==1)
+//                pst.execute();
+//            else
+//                System.out.println("passwords dont match");
+
+
             //CHECK USERNAME
             CallableStatement USNMCHK =conn.prepareCall("{?=call usnmchk(?)}");
             USNMCHK.setString(2,user_reg_jTextField.getText());
@@ -256,10 +269,10 @@ public class Registration extends javax.swing.JFrame {
 //            else
 //                System.out.println("MOBILE NUMBER INCORRECT");
 
-              if(mobret==1 && usnmret==0 && mailret==1)
+              if(mobret==1 && usnmret==0 && mailret==1 && passret==1)
                   pst.execute();
               else
-                  System.out.println("SOMETHING IS WRONG");
+                  System.out.println("SOMETHING IS WRONG");             //dialog box
 
 
 
@@ -267,7 +280,7 @@ public class Registration extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(Registration.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }//GEN-LAST:event_submit_reg_jTextFieldActionPerformed
 
 
@@ -275,7 +288,7 @@ public class Registration extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
