@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ButtonGroup;
+import org.jdatepicker.impl.*;
+import org.jdatepicker.util.*;
+import org.jdatepicker.*;
 
 
 
@@ -157,6 +160,12 @@ public class Booking extends javax.swing.JFrame {
         dest = to_jComboBox.getSelectedItem().toString();
         flight_details fd1;
         String date;
+
+        UtilDateModel mode1 = new UtilDateModel();
+        JDatePanelImpl datePanel = new JDatePanelImpl(mode1,null);
+        JDatePickerImpl datePicker = new JDatePickerImpl(datePanel,null);
+        // frame.add(datePicker);  //add JFRAME here
+
         date  = day_jComboBox.getSelectedItem().toString() + "/" + month_jComboBox.getSelectedItem().toString() + "/" + year_jComboBox.getSelectedItem().toString();
         String passng1 = passng_jTextField.getText();
         int passng;
