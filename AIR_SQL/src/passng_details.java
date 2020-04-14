@@ -184,10 +184,8 @@ public class passng_details extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new passng_details().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new passng_details().setVisible(true);
         });
     }
 
