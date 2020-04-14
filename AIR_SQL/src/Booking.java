@@ -168,12 +168,10 @@ public class Booking extends javax.swing.JFrame {
 
         date  = day_jComboBox.getSelectedItem().toString() + "/" + month_jComboBox.getSelectedItem().toString() + "/" + year_jComboBox.getSelectedItem().toString();
         String passng1 = passng_jTextField.getText();
-        int passng;
-        passng = Integer.parseInt(passng1);
         String ebclass;
         ebclass = ebclass_jComboBox.getSelectedItem().toString();
         try {
-            fd1 = new flight_details(origin, dest, date, passng, ebclass);
+            fd1 = new flight_details(origin, dest, date, passng1, ebclass);
             fd1.setLocationRelativeTo(null);
             fd1.setVisible(true);
         } catch (SQLException ex) {
