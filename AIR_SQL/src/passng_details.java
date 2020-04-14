@@ -13,8 +13,31 @@ public class passng_details extends javax.swing.JFrame {
     /**
      * Creates new form passng_details
      */
+    
+    String origin;
+    String dest;
+    String flightno;
+    String s_passng;
+    String dep;
+    String arr;
+    int passng;
+    String refno;
+    
+    
     public passng_details() {
         initComponents();
+    }
+    
+    public passng_details(String origin, String dest, String flightno, String s_passng, String dep, String arr, String refno){
+        this.origin = origin;
+        this.dest = dest;
+        this.flightno = flightno;
+        this.arr = arr;
+        this.dep = dep;
+        this.s_passng = s_passng;
+        this.refno = refno;
+        passng = Integer.parseInt(s_passng);
+        
     }
 
     /**
@@ -26,6 +49,7 @@ public class passng_details extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         passdetails_name = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -61,6 +85,11 @@ public class passng_details extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jButton1.setText("Submit");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -123,6 +152,10 @@ public class passng_details extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+            dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -159,6 +192,7 @@ public class passng_details extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
