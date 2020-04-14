@@ -24,7 +24,7 @@ public class flight_details extends javax.swing.JFrame {
     String origin;
     String dest;
     String date;
-    int passng;
+    String passng;
     String ebclass;
 //    String date;
     /**
@@ -34,9 +34,12 @@ public class flight_details extends javax.swing.JFrame {
         initComponents();
     }
     
-    public flight_details(String from, String To, String date, int passng, String ebclass) throws SQLException{
+    public flight_details(String from, String To, String date, String passng, String ebclass) throws SQLException{
         this.origin = from;
         this.dest = To;
+        this.passng = passng;
+        this.ebclass = ebclass;
+        this.date = date;
         initComponents();
         conn = DB_Connect.connect();
         showUser(); 
@@ -145,13 +148,13 @@ public class flight_details extends javax.swing.JFrame {
         String origin = model.getValueAt(selectedRowIndex, 0).toString();
         String dest = model.getValueAt(selectedRowIndex, 1).toString();
         String flightno = model.getValueAt(selectedRowIndex, 2).toString();
-        String freq = model.getValueAt(selectedRowIndex, 3).toString();
+        String s_freq = model.getValueAt(selectedRowIndex, 3).toString();
         String dep = model.getValueAt(selectedRowIndex, 4).toString();
         String arr = model.getValueAt(selectedRowIndex, 5).toString();
         String aircraft = model.getValueAt(selectedRowIndex, 6).toString();
         String stops = model.getValueAt(selectedRowIndex, 7).toString();
         
-        new show_flight(origin, dest, flightno, freq, dep, arr, aircraft, stops).setVisible(true);
+        new show_flight(origin, dest, flightno, passng, dep, arr, aircraft, stops).setVisible(true);
     }//GEN-LAST:event_flight_jTableMouseClicked
 
     /**
