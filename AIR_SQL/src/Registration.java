@@ -47,7 +47,7 @@ public class Registration extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         pass_reg_jPasswordField = new javax.swing.JPasswordField();
-        cpas_reg_jPasswordField = new javax.swing.JPasswordField();
+        cpass_reg_jPasswordField = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -136,7 +136,7 @@ public class Registration extends javax.swing.JFrame {
                                     .addComponent(city_reg_jTextField)
                                     .addComponent(jScrollPane1)
                                     .addComponent(pass_reg_jPasswordField)
-                                    .addComponent(cpas_reg_jPasswordField))
+                                    .addComponent(cpass_reg_jPasswordField))
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(123, 123, 123)
@@ -161,7 +161,7 @@ public class Registration extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(cpas_reg_jPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cpass_reg_jPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -225,8 +225,8 @@ public class Registration extends javax.swing.JFrame {
 
             //CHECK IF PASSWORDS MATCH
             CallableStatement PASSCHK =conn.prepareCall("{?=call passchk(?,?)}");
-            PASSCHK.setString(2,pass_reg_jTextField.getText());
-            PASSCHK.setString(3,conpass_reg_jTextField.getText());
+            PASSCHK.setString(2,pass_reg_jPasswordField.getText());
+            PASSCHK.setString(3,cpass_reg_jPasswordField.getText());
             PASSCHK.registerOutParameter(1, Types.INTEGER);
             PASSCHK.execute();
             Integer passret = PASSCHK.getInt(1);
@@ -269,13 +269,11 @@ public class Registration extends javax.swing.JFrame {
 //                pst.execute();
 //            else
 //                System.out.println("MOBILE NUMBER INCORRECT");
-<<<<<<< HEAD
 
               if(mobret==1 && usnmret==0 && mailret==1 && passret==1)
                   pst.execute();
               else
-                  System.out.println("SOMETHING IS WRONG");             //dialog box
-=======
+                  System.out.println("SOMETHING IS WRONG");
               if(mobret==0)
                   JOptionPane.showMessageDialog(null, "Check your Mobile Number");
               else if(usnmret==1)
@@ -284,8 +282,6 @@ public class Registration extends javax.swing.JFrame {
                   JOptionPane.showMessageDialog(null, "PLease check your email");
               else if(mobret==1 && usnmret==0 && mailret==1)
                   pst.executeQuery();
-                  
->>>>>>> be515a4804c5c64ca98e57e536c08e7c4d6d9d86
 
 
 
@@ -293,17 +289,11 @@ public class Registration extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(Registration.class.getName()).log(Level.SEVERE, null, ex);
         }
-<<<<<<< HEAD
-
-=======
         try {
             new Login().setVisible(true);
         } catch (SQLException ex) {
             Logger.getLogger(Registration.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
->>>>>>> be515a4804c5c64ca98e57e536c08e7c4d6d9d86
     }//GEN-LAST:event_submit_reg_jTextFieldActionPerformed
 
 
@@ -347,7 +337,7 @@ public class Registration extends javax.swing.JFrame {
     private javax.swing.JTextArea addr_reg_jTextArea;
     private javax.swing.JTextField city_reg_jTextField;
     private javax.swing.JTextField country_reg_jTextField;
-    private javax.swing.JPasswordField cpas_reg_jPasswordField;
+    private javax.swing.JPasswordField cpass_reg_jPasswordField;
     private javax.swing.JTextField day_reg_jTextField;
     private javax.swing.JTextField email_reg_jTextField;
     private javax.swing.JLabel jLabel1;
