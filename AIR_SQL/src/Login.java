@@ -130,8 +130,9 @@ public class Login extends javax.swing.JFrame {
             pst.setString(2, login_paswd_jPasswordField.getText());
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {
+                String luser = rs.getString("username");
                 JOptionPane.showMessageDialog(null, "Log-In Succesful");
-                User_Pilot u1 = new User_Pilot();
+                User_Pilot u1 = new User_Pilot(luser);
                 u1.setVisible(true);
             }else{
                 JOptionPane.showMessageDialog(null, "Please Try Again");
@@ -143,6 +144,7 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
+            dispose();
             Registration r1 = new Registration();
             r1.setVisible(true);
         } catch (SQLException ex) {

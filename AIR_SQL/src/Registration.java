@@ -33,8 +33,6 @@ public class Registration extends javax.swing.JFrame {
         submit_reg_jTextField = new javax.swing.JButton();
         name_reg_jTextField = new javax.swing.JTextField();
         user_reg_jTextField = new javax.swing.JTextField();
-        pass_reg_jTextField = new javax.swing.JTextField();
-        conpass_reg_jTextField = new javax.swing.JTextField();
         mobile_reg_jTextField = new javax.swing.JTextField();
         email_reg_jTextField = new javax.swing.JTextField();
         state_reg_jTextField = new javax.swing.JTextField();
@@ -48,6 +46,8 @@ public class Registration extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
+        pass_reg_jPasswordField = new javax.swing.JPasswordField();
+        cpas_reg_jPasswordField = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -113,18 +113,6 @@ public class Registration extends javax.swing.JFrame {
                             .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(name_reg_jTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
-                                .addComponent(user_reg_jTextField)
-                                .addComponent(pass_reg_jTextField)
-                                .addComponent(conpass_reg_jTextField)
-                                .addComponent(mobile_reg_jTextField)
-                                .addComponent(email_reg_jTextField)
-                                .addComponent(state_reg_jTextField)
-                                .addComponent(country_reg_jTextField)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(city_reg_jTextField, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
@@ -136,7 +124,20 @@ public class Registration extends javax.swing.JFrame {
                                 .addGap(40, 40, 40)
                                 .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(year_reg_jTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(year_reg_jTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(name_reg_jTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
+                                    .addComponent(user_reg_jTextField)
+                                    .addComponent(mobile_reg_jTextField)
+                                    .addComponent(email_reg_jTextField)
+                                    .addComponent(state_reg_jTextField)
+                                    .addComponent(country_reg_jTextField)
+                                    .addComponent(city_reg_jTextField)
+                                    .addComponent(jScrollPane1)
+                                    .addComponent(pass_reg_jPasswordField)
+                                    .addComponent(cpas_reg_jPasswordField))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(123, 123, 123)
                         .addComponent(submit_reg_jTextField)))
@@ -149,18 +150,18 @@ public class Registration extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(name_reg_jTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 24, Short.MAX_VALUE)
+                .addGap(18, 21, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(user_reg_jTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(21, 21, 21)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
-                    .addComponent(pass_reg_jTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pass_reg_jPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(conpass_reg_jTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cpas_reg_jPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -217,7 +218,7 @@ public class Registration extends javax.swing.JFrame {
             pst.setString(4, state_reg_jTextField.getText());
             pst.setString(5, country_reg_jTextField.getText());
             pst.setString(6, user_reg_jTextField.getText());
-            pst.setString(7, pass_reg_jTextField.getText());
+            pst.setString(7, pass_reg_jPasswordField.getText());
             pst.setString(8, mobile_reg_jTextField.getText());
             pst.setString(9, email_reg_jTextField.getText());
             pst.setString(10, DOB);
@@ -268,11 +269,23 @@ public class Registration extends javax.swing.JFrame {
 //                pst.execute();
 //            else
 //                System.out.println("MOBILE NUMBER INCORRECT");
+<<<<<<< HEAD
 
               if(mobret==1 && usnmret==0 && mailret==1 && passret==1)
                   pst.execute();
               else
                   System.out.println("SOMETHING IS WRONG");             //dialog box
+=======
+              if(mobret==0)
+                  JOptionPane.showMessageDialog(null, "Check your Mobile Number");
+              else if(usnmret==1)
+                  JOptionPane.showMessageDialog(null, "Username taken");
+              else if(mailret==0)
+                  JOptionPane.showMessageDialog(null, "PLease check your email");
+              else if(mobret==1 && usnmret==0 && mailret==1)
+                  pst.executeQuery();
+                  
+>>>>>>> be515a4804c5c64ca98e57e536c08e7c4d6d9d86
 
 
 
@@ -280,7 +293,17 @@ public class Registration extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(Registration.class.getName()).log(Level.SEVERE, null, ex);
         }
+<<<<<<< HEAD
 
+=======
+        try {
+            new Login().setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(Registration.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+>>>>>>> be515a4804c5c64ca98e57e536c08e7c4d6d9d86
     }//GEN-LAST:event_submit_reg_jTextFieldActionPerformed
 
 
@@ -323,8 +346,8 @@ public class Registration extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea addr_reg_jTextArea;
     private javax.swing.JTextField city_reg_jTextField;
-    private javax.swing.JTextField conpass_reg_jTextField;
     private javax.swing.JTextField country_reg_jTextField;
+    private javax.swing.JPasswordField cpas_reg_jPasswordField;
     private javax.swing.JTextField day_reg_jTextField;
     private javax.swing.JTextField email_reg_jTextField;
     private javax.swing.JLabel jLabel1;
@@ -345,7 +368,7 @@ public class Registration extends javax.swing.JFrame {
     private javax.swing.JTextField mobile_reg_jTextField;
     private javax.swing.JTextField month_reg_jTextField;
     private javax.swing.JTextField name_reg_jTextField;
-    private javax.swing.JTextField pass_reg_jTextField;
+    private javax.swing.JPasswordField pass_reg_jPasswordField;
     private javax.swing.JTextField state_reg_jTextField;
     private javax.swing.JButton submit_reg_jTextField;
     private javax.swing.JTextField user_reg_jTextField;

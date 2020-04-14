@@ -7,8 +7,8 @@ import javax.swing.JOptionPane;
 public class DB_Connect {
     public static String url = "jdbc:postgresql://localhost:5432/air-sql";
     private static Connection conn;
-    private static String user = "postgres";//Username of database
-    private static String passwd = "postgres";//Password od Database
+    private static String user = "panth";//Username of database
+    private static String passwd = "1892";//Password od Database
     
 
     public static Connection connect() throws SQLException {
@@ -18,7 +18,7 @@ public class DB_Connect {
             JOptionPane.showMessageDialog(null, "Error");
         }
         conn = DriverManager.getConnection(url, user, passwd);
-        JOptionPane.showMessageDialog(null, "Connected");
+        System.out.println("Connected");
         return conn;
     }
 

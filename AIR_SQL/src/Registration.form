@@ -42,20 +42,6 @@
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="name_reg_jTextField" pref="179" max="32767" attributes="0"/>
-                              <Component id="user_reg_jTextField" max="32767" attributes="0"/>
-                              <Component id="pass_reg_jTextField" alignment="0" max="32767" attributes="0"/>
-                              <Component id="conpass_reg_jTextField" alignment="0" max="32767" attributes="0"/>
-                              <Component id="mobile_reg_jTextField" alignment="0" max="32767" attributes="0"/>
-                              <Component id="email_reg_jTextField" alignment="0" max="32767" attributes="0"/>
-                              <Component id="state_reg_jTextField" alignment="0" max="32767" attributes="0"/>
-                              <Component id="country_reg_jTextField" alignment="0" max="32767" attributes="0"/>
-                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="city_reg_jTextField" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel9" min="-2" pref="31" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -68,6 +54,21 @@
                               <Component id="jLabel14" min="-2" pref="36" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="year_reg_jTextField" min="-2" pref="36" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="name_reg_jTextField" pref="179" max="32767" attributes="0"/>
+                                  <Component id="user_reg_jTextField" max="32767" attributes="0"/>
+                                  <Component id="mobile_reg_jTextField" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="email_reg_jTextField" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="state_reg_jTextField" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="country_reg_jTextField" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="city_reg_jTextField" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="pass_reg_jPasswordField" max="32767" attributes="0"/>
+                                  <Component id="cpas_reg_jPasswordField" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -88,20 +89,20 @@
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="name_reg_jTextField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" pref="24" max="32767" attributes="0"/>
+              <EmptySpace type="separate" pref="21" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="user_reg_jTextField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="pass_reg_jTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                  <Component id="pass_reg_jPasswordField" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="conpass_reg_jTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cpas_reg_jPasswordField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -226,10 +227,6 @@
     </Component>
     <Component class="javax.swing.JTextField" name="user_reg_jTextField">
     </Component>
-    <Component class="javax.swing.JTextField" name="pass_reg_jTextField">
-    </Component>
-    <Component class="javax.swing.JTextField" name="conpass_reg_jTextField">
-    </Component>
     <Component class="javax.swing.JTextField" name="mobile_reg_jTextField">
     </Component>
     <Component class="javax.swing.JTextField" name="email_reg_jTextField">
@@ -275,6 +272,10 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Year :"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="pass_reg_jPasswordField">
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="cpas_reg_jPasswordField">
     </Component>
   </SubComponents>
 </Form>
