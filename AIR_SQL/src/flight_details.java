@@ -23,7 +23,7 @@ public class flight_details extends javax.swing.JFrame {
     Connection conn = null;
     String origin;
     String dest;
-    String date;
+    int date;
     String passng;
     String ebclass;
 //    String date;
@@ -34,12 +34,12 @@ public class flight_details extends javax.swing.JFrame {
         initComponents();
     }
     
-    public flight_details(String from, String To, String date, String passng, String ebclass) throws SQLException{
+    public flight_details(String from, String To, int fdate, String passng, String ebclass) throws SQLException{
         this.origin = from;
         this.dest = To;
         this.passng = passng;
         this.ebclass = ebclass;
-        this.date = date;
+        this.date = fdate;
         initComponents();
         conn = DB_Connect.connect();
         showUser(); 
@@ -51,11 +51,12 @@ public class flight_details extends javax.swing.JFrame {
         System.out.println(origin);
         System.out.println(dest);
         ArrayList<flight> flightsList = new ArrayList<>();
-        String SQLQuery = "SELECT origin, dest, flightno, freq, dep, arr, aircraft, stops\n" +
-"	FROM public.flightdetails where origin = ? and dest = ?;";
+        String SQLQuery = "SELECT origin, dest, flightno ,freq, dep, arr, aircraft, stops\n" +
+"	FROM public.flightdetails where origin = ? and dest = ? and freq LIKE '%6%' ;";
         PreparedStatement pst = conn.prepareStatement(SQLQuery);
         pst.setString(1, origin);
         pst.setString(2, dest);
+      // pst.setInt(3, date);
         ResultSet rs = pst.executeQuery();
         flight Flight;
         while(rs.next()){
@@ -67,6 +68,7 @@ public class flight_details extends javax.swing.JFrame {
     
     public void showUser() throws SQLException{
         ArrayList<flight> list = flightLists();
+        System.out.println(list.size());
         DefaultTableModel model = (DefaultTableModel) flight_jTable.getModel();
         Object row[] = new Object[8];
         for (int i = 0; i < list.size(); i++) {
