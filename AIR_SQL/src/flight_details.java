@@ -33,7 +33,7 @@ public class flight_details extends javax.swing.JFrame {
     public flight_details() throws SQLException {
         initComponents();
     }
-    
+
     public flight_details(String from, String To, int fdate, String passng, String ebclass) throws SQLException{
         this.origin = from;
         this.dest = To;
@@ -42,11 +42,11 @@ public class flight_details extends javax.swing.JFrame {
         this.date = fdate;
         initComponents();
         conn = DB_Connect.connect();
-        showUser(); 
+        showUser();
     }
-    
-    
-    
+
+
+
     public ArrayList<flight> flightLists() throws SQLException{
         System.out.println(origin);
         System.out.println(dest);
@@ -54,7 +54,7 @@ public class flight_details extends javax.swing.JFrame {
         flight Flight;
         if (date==1)
         {
-            String SQLQuery = "SELECT origin, dest, flightno ,freq, dep, arr, aircraft, stops\n" +
+            String SQLQuery = "SELECT origin, dest, flightno ,fare, dep, arr, aircraft, stops\n" +
                     "FROM public.flightdetails where origin = ? and dest = ? and freq LIKE '%1%' ;";
             PreparedStatement pst = conn.prepareStatement(SQLQuery);
             pst.setString(1, origin);
@@ -63,14 +63,14 @@ public class flight_details extends javax.swing.JFrame {
             ResultSet rs = pst.executeQuery();
 
             while(rs.next()){
-                Flight = new flight(rs.getString("origin"), rs.getString("dest"), rs.getString("flightno"), rs.getString("freq"), rs.getString("dep"), rs.getString("arr"), rs.getString("aircraft"), rs.getInt("stops"));
+                Flight = new flight(rs.getString("origin"), rs.getString("dest"), rs.getString("flightno"), rs.getString("fare"), rs.getString("dep"), rs.getString("arr"), rs.getString("aircraft"), rs.getInt("stops"));
                 flightsList.add(Flight);
             }
 
         }
         else if (date==2)
         {
-            String SQLQuery = "SELECT origin, dest, flightno ,freq, dep, arr, aircraft, stops\n" +
+            String SQLQuery = "SELECT origin, dest, flightno ,fare, dep, arr, aircraft, stops\n" +
                     "FROM public.flightdetails where origin = ? and dest = ? and freq LIKE '%2%' ;";
             PreparedStatement pst = conn.prepareStatement(SQLQuery);
             pst.setString(1, origin);
@@ -79,13 +79,13 @@ public class flight_details extends javax.swing.JFrame {
             ResultSet rs = pst.executeQuery();
 
             while(rs.next()){
-                Flight = new flight(rs.getString("origin"), rs.getString("dest"), rs.getString("flightno"), rs.getString("freq"), rs.getString("dep"), rs.getString("arr"), rs.getString("aircraft"), rs.getInt("stops"));
+                Flight = new flight(rs.getString("origin"), rs.getString("dest"), rs.getString("flightno"), rs.getString("fare"), rs.getString("dep"), rs.getString("arr"), rs.getString("aircraft"), rs.getInt("stops"));
                 flightsList.add(Flight);
             }
         }
         else if (date==3)
         {
-            String SQLQuery = "SELECT origin, dest, flightno ,freq, dep, arr, aircraft, stops\n" +
+            String SQLQuery = "SELECT origin, dest, flightno ,fare, dep, arr, aircraft, stops\n" +
                     "FROM public.flightdetails where origin = ? and dest = ? and freq LIKE '%3%' ;";
             PreparedStatement pst = conn.prepareStatement(SQLQuery);
             pst.setString(1, origin);
@@ -93,13 +93,13 @@ public class flight_details extends javax.swing.JFrame {
             // pst.setInt(3, date);
             ResultSet rs = pst.executeQuery();
             while(rs.next()){
-                Flight = new flight(rs.getString("origin"), rs.getString("dest"), rs.getString("flightno"), rs.getString("freq"), rs.getString("dep"), rs.getString("arr"), rs.getString("aircraft"), rs.getInt("stops"));
+                Flight = new flight(rs.getString("origin"), rs.getString("dest"), rs.getString("flightno"), rs.getString("fare"), rs.getString("dep"), rs.getString("arr"), rs.getString("aircraft"), rs.getInt("stops"));
                 flightsList.add(Flight);
             }
         }
         else if (date==4)
         {
-            String SQLQuery = "SELECT origin, dest, flightno ,freq, dep, arr, aircraft, stops\n" +
+            String SQLQuery = "SELECT origin, dest, flightno ,fare, dep, arr, aircraft, stops\n" +
                     "FROM public.flightdetails where origin = ? and dest = ? and freq LIKE '%4%' ;";
             PreparedStatement pst = conn.prepareStatement(SQLQuery);
             pst.setString(1, origin);
@@ -107,13 +107,13 @@ public class flight_details extends javax.swing.JFrame {
             // pst.setInt(3, date);
             ResultSet rs = pst.executeQuery();
             while(rs.next()){
-                Flight = new flight(rs.getString("origin"), rs.getString("dest"), rs.getString("flightno"), rs.getString("freq"), rs.getString("dep"), rs.getString("arr"), rs.getString("aircraft"), rs.getInt("stops"));
+                Flight = new flight(rs.getString("origin"), rs.getString("dest"), rs.getString("flightno"), rs.getString("fare"), rs.getString("dep"), rs.getString("arr"), rs.getString("aircraft"), rs.getInt("stops"));
                 flightsList.add(Flight);
             }
         }
-       else if (date==5)
+        else if (date==5)
         {
-            String SQLQuery = "SELECT origin, dest, flightno ,freq, dep, arr, aircraft, stops\n" +
+            String SQLQuery = "SELECT origin, dest, flightno ,fare, dep, arr, aircraft, stops\n" +
                     "FROM public.flightdetails where origin = ? and dest = ? and freq LIKE '%5%' ;";
             PreparedStatement pst = conn.prepareStatement(SQLQuery);
             pst.setString(1, origin);
@@ -121,13 +121,13 @@ public class flight_details extends javax.swing.JFrame {
             // pst.setInt(3, date);
             ResultSet rs = pst.executeQuery();
             while(rs.next()){
-                Flight = new flight(rs.getString("origin"), rs.getString("dest"), rs.getString("flightno"), rs.getString("freq"), rs.getString("dep"), rs.getString("arr"), rs.getString("aircraft"), rs.getInt("stops"));
+                Flight = new flight(rs.getString("origin"), rs.getString("dest"), rs.getString("flightno"), rs.getString("fare"), rs.getString("dep"), rs.getString("arr"), rs.getString("aircraft"), rs.getInt("stops"));
                 flightsList.add(Flight);
             }
         }
         else if (date==6)
         {
-            String SQLQuery = "SELECT origin, dest, flightno ,freq, dep, arr, aircraft, stops\n" +
+            String SQLQuery = "SELECT origin, dest, flightno ,fare, dep, arr, aircraft, stops\n" +
                     "FROM public.flightdetails where origin = ? and dest = ? and freq LIKE '%6%' ;";
             PreparedStatement pst = conn.prepareStatement(SQLQuery);
             pst.setString(1, origin);
@@ -135,13 +135,13 @@ public class flight_details extends javax.swing.JFrame {
             // pst.setInt(3, date);
             ResultSet rs = pst.executeQuery();
             while(rs.next()){
-                Flight = new flight(rs.getString("origin"), rs.getString("dest"), rs.getString("flightno"), rs.getString("freq"), rs.getString("dep"), rs.getString("arr"), rs.getString("aircraft"), rs.getInt("stops"));
+                Flight = new flight(rs.getString("origin"), rs.getString("dest"), rs.getString("flightno"), rs.getString("fare"), rs.getString("dep"), rs.getString("arr"), rs.getString("aircraft"), rs.getInt("stops"));
                 flightsList.add(Flight);
             }
         }
         else
         {
-            String SQLQuery = "SELECT origin, dest, flightno ,freq, dep, arr, aircraft, stops\n" +
+            String SQLQuery = "SELECT origin, dest, flightno ,fare, dep, arr, aircraft, stops\n" +
                     "FROM public.flightdetails where origin = ? and dest = ? and freq LIKE '%7%' ;";
             PreparedStatement pst = conn.prepareStatement(SQLQuery);
             pst.setString(1, origin);
@@ -149,13 +149,13 @@ public class flight_details extends javax.swing.JFrame {
             // pst.setInt(3, date);
             ResultSet rs = pst.executeQuery();
             while(rs.next()){
-                Flight = new flight(rs.getString("origin"), rs.getString("dest"), rs.getString("flightno"), rs.getString("freq"), rs.getString("dep"), rs.getString("arr"), rs.getString("aircraft"), rs.getInt("stops"));
+                Flight = new flight(rs.getString("origin"), rs.getString("dest"), rs.getString("flightno"), rs.getString("fare"), rs.getString("dep"), rs.getString("arr"), rs.getString("aircraft"), rs.getInt("stops"));
                 flightsList.add(Flight);
             }
         }
         return flightsList;
     }
-    
+
     public void showUser() throws SQLException{
         ArrayList<flight> list = flightLists();
         System.out.println(list.size());
@@ -171,17 +171,12 @@ public class flight_details extends javax.swing.JFrame {
             row[6] = list.get(i).getAircraft();
             row[7] = list.get(i).getStops();
             model.addRow(row);
-            
+
         }
     }
-    
-    /**
-     * This method is called from within the constructor to initialize the form.
-     * WARNING: Do NOT modify this code. The content of this method is always
-     * regenerated by the Form Editor.
-     */
+
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -190,18 +185,18 @@ public class flight_details extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         flight_jTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+                new Object [][] {
 
-            },
-            new String [] {
-                "Origin", "Destination", "Flight No.", "Frequency", "Departure", "Arrival", "Aircraft", "Stops", "Book"
-            }
+                },
+                new String [] {
+                        "Origin", "Destination", "Flight No.", "Fare", "Departure", "Arrival", "Aircraft", "Stops", "Book"
+                }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
+                    java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, true
+                    false, false, false, false, false, false, false, false, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -222,18 +217,18 @@ public class flight_details extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 738, Short.MAX_VALUE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 738, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 399, Short.MAX_VALUE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 399, Short.MAX_VALUE)
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }// </editor-fold>
 
-    private void flight_jTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_flight_jTableMouseClicked
+    private void flight_jTableMouseClicked(java.awt.event.MouseEvent evt) {
         int i = flight_jTable.getSelectedRow();
         TableModel model = flight_jTable.getModel();
         int selectedRowIndex = flight_jTable.getSelectedRow();
@@ -245,9 +240,9 @@ public class flight_details extends javax.swing.JFrame {
         String arr = model.getValueAt(selectedRowIndex, 5).toString();
         String aircraft = model.getValueAt(selectedRowIndex, 6).toString();
         String stops = model.getValueAt(selectedRowIndex, 7).toString();
-        
+
         new show_flight(origin, dest, flightno, passng, dep, arr, aircraft, stops).setVisible(true);
-    }//GEN-LAST:event_flight_jTableMouseClicked
+    }
 
     /**
      * @param args the command line arguments
@@ -256,7 +251,7 @@ public class flight_details extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -289,8 +284,8 @@ public class flight_details extends javax.swing.JFrame {
         });
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // Variables declaration - do not modify
     private javax.swing.JTable flight_jTable;
     private javax.swing.JScrollPane jScrollPane1;
-    // End of variables declaration//GEN-END:variables
+    // End of variables declaration
 }

@@ -47,7 +47,7 @@
                 <Column editable="false" title="Origin" type="java.lang.Object"/>
                 <Column editable="false" title="Destination" type="java.lang.Object"/>
                 <Column editable="false" title="Flight No." type="java.lang.Object"/>
-                <Column editable="false" title="Frequency" type="java.lang.Object"/>
+                <Column editable="false" title="Fare" type="java.lang.Object"/>
                 <Column editable="false" title="Departure" type="java.lang.Object"/>
                 <Column editable="false" title="Arrival" type="java.lang.Object"/>
                 <Column editable="false" title="Aircraft" type="java.lang.Object"/>
