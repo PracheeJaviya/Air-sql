@@ -134,7 +134,7 @@ public class Bookings extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-String origin = from_jComboBox.getSelectedItem().toString();
+        String origin = from_jComboBox.getSelectedItem().toString();
         String dest = to_jComboBox.getSelectedItem().toString();
         flight_avail fd1;
         int fdate;
