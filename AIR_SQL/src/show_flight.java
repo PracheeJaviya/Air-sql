@@ -216,6 +216,8 @@ public class show_flight extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void submit_showflightsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submit_showflightsActionPerformed
+        refno = BCode.bcode(5);
+        
         for (int i = 0; i < passng; i++) {
             new passng_details(origin, dest, flightno, s_passng, dep, arr, refno).setVisible(true);
         }

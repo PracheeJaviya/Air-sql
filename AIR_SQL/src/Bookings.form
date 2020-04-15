@@ -34,22 +34,15 @@
                           <Component id="jLabel1" max="32767" attributes="0"/>
                           <Component id="jLabel5" alignment="0" max="32767" attributes="0"/>
                       </Group>
+                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="to_jComboBox" max="32767" attributes="0"/>
-                                      <Component id="jDateChooser1" max="32767" attributes="0"/>
-                                      <Component id="from_jComboBox" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Component id="passng_jTextField" alignment="0" min="-2" pref="55" max="-2" attributes="0"/>
-                              </Group>
+                          <Component id="ebclass_jComboBox" min="-2" pref="118" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="to_jComboBox" max="32767" attributes="0"/>
+                              <Component id="jDateChooser1" max="32767" attributes="0"/>
+                              <Component id="from_jComboBox" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                              <Component id="ebclass_jComboBox" min="-2" pref="118" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="passng_jTextField" alignment="0" min="-2" pref="55" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
