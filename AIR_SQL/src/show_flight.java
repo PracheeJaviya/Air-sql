@@ -34,7 +34,7 @@ public class show_flight extends javax.swing.JFrame {
         this.arr = arr;
         this.dep = dep;
         this.dest = dest;
-        this.flightno = flightno;        
+        this.flightno = flightno;
         passng = Integer.parseInt(s_passng);
         total = Integer.parseInt(fare)*passng;
         s_total = Integer.toString(total);

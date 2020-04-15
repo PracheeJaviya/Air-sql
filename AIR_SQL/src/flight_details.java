@@ -229,8 +229,9 @@ public class flight_details extends javax.swing.JFrame {
         String arr = model.getValueAt(selectedRowIndex, 5).toString();
         String aircraft = model.getValueAt(selectedRowIndex, 6).toString();
         String stops = model.getValueAt(selectedRowIndex, 7).toString();
+        String efare = model.getValueAt(selectedRowIndex,8).toString();
 
-        new show_flight(origin, dest, flightno, passng, dep, arr, aircraft, stops).setVisible(true);
+        new show_flight(origin, dest, flightno, passng, dep, arr, aircraft, stops,efare).setVisible(true);
     }
 
     /**

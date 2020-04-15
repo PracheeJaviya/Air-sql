@@ -1,12 +1,10 @@
-<<<<<<< HEAD
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
-=======
->>>>>>> ba9a39ff8a7785622a3ac510bcf709d00417fd3e
 class flight {
 
     public flight(String origin, String dest, String flightno, String dep, String arr, String aircraft, int stops,int efare,int bfare) {
