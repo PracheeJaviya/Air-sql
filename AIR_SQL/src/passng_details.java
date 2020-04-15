@@ -27,6 +27,8 @@ public class passng_details extends javax.swing.JFrame {
     }
 
     public passng_details(String origin, String dest, String flightno, String s_passng, String dep, String arr, String refno) {
+        
+        initComponents();
         this.origin = origin;
         this.dest = dest;
         this.flightno = flightno;
@@ -35,6 +37,7 @@ public class passng_details extends javax.swing.JFrame {
         this.s_passng = s_passng;
         this.refno = refno;
         passng = Integer.parseInt(s_passng);
+        jLabel4.setText(refno);
 
     }
 
@@ -136,8 +139,7 @@ public class passng_details extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        jLabel4.setText(refno);
-        
+
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 

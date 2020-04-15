@@ -251,10 +251,8 @@ public class show_flight extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new show_flight().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new show_flight().setVisible(true);
         });
     }
 
