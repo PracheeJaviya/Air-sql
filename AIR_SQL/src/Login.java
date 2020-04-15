@@ -132,8 +132,15 @@ public class Login extends javax.swing.JFrame {
             if (rs.next()) {
                 String luser = rs.getString("username");
                 JOptionPane.showMessageDialog(null, "Log-In Succesful");
+                String SQLquery = "UPDATE userdetails SET logon = ? where username = ?";
+                PreparedStatement pst1 = conn.prepareStatement(SQLquery);
+                pst1.setInt(1, 1);
+                pst1.setString(2, luser);
+                pst1.executeUpdate();
                 User_Pilot u1 = new User_Pilot(luser);
                 u1.setVisible(true);
+                u1.setLocationRelativeTo(null);
+                dispose();
             }else{
                 JOptionPane.showMessageDialog(null, "Please Try Again");
             }
@@ -147,6 +154,7 @@ public class Login extends javax.swing.JFrame {
             dispose();
             Registration r1 = new Registration();
             r1.setVisible(true);
+            r1.setLocationRelativeTo(null);
         } catch (SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -183,7 +191,9 @@ public class Login extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    new Login().setVisible(true);
+                    Login lg1 = new Login();
+                    lg1.setVisible(true);
+                    lg1.setLocationRelativeTo(null);
                 } catch (SQLException ex) {
                     Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
                 }

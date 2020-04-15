@@ -3,11 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/prach/Documents/COLLEGE/SEM-4/DBMS/Air-sql/AIR_SQL/src/show_flight.java</file>
             <file>file:/C:/Users/prach/Documents/COLLEGE/SEM-4/DBMS/Air-sql/AIR_SQL/src/passng_details.java</file>
             <file>file:/C:/Users/prach/Documents/COLLEGE/SEM-4/DBMS/Air-sql/AIR_SQL/src/User_Pilot.java</file>
             <file>file:/C:/Users/prach/Documents/COLLEGE/SEM-4/DBMS/Air-sql/AIR_SQL/src/Booking.java</file>
             <file>file:/C:/Users/prach/Documents/COLLEGE/SEM-4/DBMS/Air-sql/AIR_SQL/src/flight_details.java</file>
+=======
+            <file>file:/C:/Users/patel/Desktop/CLG/Sem%20-%204/DBMS/Air-sql/AIR_SQL/src/passng_details.java</file>
+            <file>file:/C:/Users/patel/Desktop/CLG/Sem%20-%204/DBMS/Air-sql/AIR_SQL/src/Registration.java</file>
+            <file>file:/C:/Users/patel/Desktop/CLG/Sem%20-%204/DBMS/Air-sql/AIR_SQL/src/flight_avail.java</file>
+            <file>file:/C:/Users/patel/Desktop/CLG/Sem%20-%204/DBMS/Air-sql/AIR_SQL/src/Bookings.java</file>
+            <file>file:/C:/Users/patel/Desktop/CLG/Sem%20-%204/DBMS/Air-sql/AIR_SQL/src/User_Pilot.java</file>
+            <file>file:/C:/Users/patel/Desktop/CLG/Sem%20-%204/DBMS/Air-sql/AIR_SQL/src/show_flight.java</file>
+            <file>file:/C:/Users/patel/Desktop/CLG/Sem%20-%204/DBMS/Air-sql/AIR_SQL/src/Login.java</file>
+>>>>>>> ba9a39ff8a7785622a3ac510bcf709d00417fd3e
         </group>
     </open-files>
 </project-private>

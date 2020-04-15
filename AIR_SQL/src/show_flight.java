@@ -13,7 +13,7 @@ public class show_flight extends javax.swing.JFrame {
     /**
      * Creates new form show_flight
      */
-    String s_price;
+    String s_total;
     String origin;
     String dest;
     String arr;
@@ -21,16 +21,23 @@ public class show_flight extends javax.swing.JFrame {
     String s_passng;
     String refno;
     String flightno;
-    int price;
+    int total;
     int passng;
     public show_flight() {
         initComponents();
     }
     
-    public show_flight(String origin, String dest, String flightno, String s_passng, String dep, String arr, String aircraft, String stops){
+    public show_flight(String origin, String dest, String flightno, String s_passng, String dep, String arr, String aircraft, String stops, String fare){
         initComponents();
-        price  = 500*Integer.parseInt(s_passng);
-        s_price = String.valueOf(price);
+        this.s_passng = s_passng;
+        this.origin = origin;
+        this.arr = arr;
+        this.dep = dep;
+        this.dest = dest;
+        this.flightno = flightno;        
+        passng = Integer.parseInt(s_passng);
+        total = Integer.parseInt(fare)*passng;
+        s_total = Integer.toString(total);
         jTextField1.setText(origin);
         jTextField2.setText(dest);
         jTextField3.setText(flightno);
@@ -39,14 +46,7 @@ public class show_flight extends javax.swing.JFrame {
         jTextField6.setText(arr);
         jTextField7.setText(aircraft);
         jTextField8.setText(stops);
-        jTextField4.setText(s_price);
-        passng = Integer.parseInt(s_passng);
-        this.s_passng = s_passng;
-        this.origin = origin;
-        this.arr = arr;
-        this.dep = dep;
-        this.dest = dest;
-        this.flightno = flightno;
+        jTextField4.setText(s_total);
     }
 
     /**
@@ -78,7 +78,7 @@ public class show_flight extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         submit_showflights = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Origin :");
 
@@ -216,8 +216,12 @@ public class show_flight extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void submit_showflightsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submit_showflightsActionPerformed
+        refno = BCode.bcode(5);
+        
         for (int i = 0; i < passng; i++) {
-            new passng_details(origin, dest, flightno, s_passng, dep, arr, refno).setVisible(true);
+            passng_details pd1 = new passng_details(origin, dest, flightno, s_passng, dep, arr, refno);
+            pd1.setVisible(true);
+            pd1.setLocationRelativeTo(null);
         }
     }//GEN-LAST:event_submit_showflightsActionPerformed
 
@@ -249,10 +253,8 @@ public class show_flight extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new show_flight().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new show_flight().setVisible(true);
         });
     }
 
