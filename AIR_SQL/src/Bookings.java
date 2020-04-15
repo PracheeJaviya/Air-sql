@@ -45,7 +45,7 @@ public class Bookings extends javax.swing.JFrame {
         ebclass_jComboBox = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("From :");
 
@@ -158,8 +158,8 @@ public class Bookings extends javax.swing.JFrame {
         ebclass = ebclass_jComboBox.getSelectedItem().toString();
         try {
             fd1 = new flight_avail(origin, dest, fdate, passng1, ebclass);
-            fd1.setLocationRelativeTo(null);
             fd1.setVisible(true);
+            fd1.setLocationRelativeTo(null);
         } catch (SQLException ex) {
             Logger.getLogger(Bookings.class.getName()).log(Level.SEVERE, null, ex);
         }        // TODO add your handling code here:

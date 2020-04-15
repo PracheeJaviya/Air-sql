@@ -78,7 +78,7 @@ public class show_flight extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         submit_showflights = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Origin :");
 
@@ -219,7 +219,9 @@ public class show_flight extends javax.swing.JFrame {
         refno = BCode.bcode(5);
         
         for (int i = 0; i < passng; i++) {
-            new passng_details(origin, dest, flightno, s_passng, dep, arr, refno).setVisible(true);
+            passng_details pd1 = new passng_details(origin, dest, flightno, s_passng, dep, arr, refno);
+            pd1.setVisible(true);
+            pd1.setLocationRelativeTo(null);
         }
     }//GEN-LAST:event_submit_showflightsActionPerformed
 

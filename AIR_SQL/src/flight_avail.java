@@ -57,7 +57,7 @@ public class flight_avail extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         flight_jTable = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         flight_jTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -113,9 +113,13 @@ public class flight_avail extends javax.swing.JFrame {
         String efare = model.getValueAt(selectedRowIndex, 7).toString();
         String bfare = model.getValueAt(selectedRowIndex, 8).toString();
         if (ebclass == "Economy") {
-            new show_flight(origin, dest, flightno, passng, dep, arr, aircraft, stops, efare).setVisible(true);
+            show_flight sf1 = new show_flight(origin, dest, flightno, passng, dep, arr, aircraft, stops, efare);
+            sf1.setVisible(true);
+            sf1.setLocationRelativeTo(null);
         }else{
-            new show_flight(origin, dest, flightno, passng, dep, arr, aircraft, stops, bfare).setVisible(true);
+            show_flight sf1 = new show_flight(origin, dest, flightno, passng, dep, arr, aircraft, stops, bfare);
+            sf1.setVisible(true);
+            sf1.setLocationRelativeTo(null);
         }
     }//GEN-LAST:event_flight_jTableMouseClicked
 
