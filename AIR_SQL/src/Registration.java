@@ -1,5 +1,9 @@
 
+import com.toedter.calendar.JDateChooser;
+
 import java.sql.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -190,6 +194,18 @@ public class Registration extends javax.swing.JFrame {
             pst.setString(10, jDateChooser1.getDate().toString());
             pst.setInt(11, logon);
 
+            //CHECK AGE
+            String date = jDateChooser1.getDate().toString();
+//            JDateChooser dob = new JDateChooser();
+//            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+//            String birthday=dateFormat.format(dob);
+//            System.out.println(birthday);
+            CallableStatement AGECHK=conn.prepareCall("{?=call dobchk(?)}");
+            AGECHK.setString(2,date);
+            AGECHK.registerOutParameter(1,Types.INTEGER);
+            AGECHK.execute();
+            Integer ageret=AGECHK.getInt(1);
+
             //CHECK IF PASSWORDS MATCH
             CallableStatement PASSCHK =conn.prepareCall("{?=call passchk(?,?)}");
             PASSCHK.setString(2,pass_reg_jPasswordField.getText());
@@ -197,10 +213,7 @@ public class Registration extends javax.swing.JFrame {
             PASSCHK.registerOutParameter(1, Types.INTEGER);
             PASSCHK.execute();
             Integer passret = PASSCHK.getInt(1);
-//            if(passret==1)
-//                pst.execute();
-//            else
-//                System.out.println("passwords dont match");
+
 
 
             //CHECK USERNAME
@@ -209,10 +222,7 @@ public class Registration extends javax.swing.JFrame {
             USNMCHK.registerOutParameter(1, Types.INTEGER);
             USNMCHK.execute();
             Integer usnmret = USNMCHK.getInt(1);
-//            if(usnmret==0)
-//                pst.execute();
-//            else
-//                System.out.println("USERNAME TAKEN");
+
 
 
             // CHECK EMAIL ID
@@ -221,10 +231,7 @@ public class Registration extends javax.swing.JFrame {
             MAILCHK.registerOutParameter(1, Types.INTEGER);
             MAILCHK.execute();
             Integer mailret = MAILCHK.getInt(1);
-//            if(mailret==1)
-//                pst.execute();
-//            else
-//                System.out.println("MAIL ADDRESS INCORRECT");
+
 
             // CHECK MOBILE NUMBER
             CallableStatement MOBCHK =conn.prepareCall("{?=call mobchk(?)}");
@@ -232,10 +239,7 @@ public class Registration extends javax.swing.JFrame {
             MOBCHK.registerOutParameter(1, Types.INTEGER);
             MOBCHK.execute();
             Integer mobret = MOBCHK.getInt(1);
-//            if(mobret==1)
-//                pst.execute();
-//            else
-//                System.out.println("MOBILE NUMBER INCORRECT");
+
 
 
               if(mobret==0)
@@ -244,7 +248,11 @@ public class Registration extends javax.swing.JFrame {
                   JOptionPane.showMessageDialog(null, "Username taken");
               else if(mailret==0)
                   JOptionPane.showMessageDialog(null, "PLease check your email");
-              else if(mobret==1 && usnmret==0 && mailret==1)
+              else if (passret==0)
+                  JOptionPane.showMessageDialog(null, "Passwords do not match");
+              else if (ageret==0)
+                  JOptionPane.showMessageDialog(null, "Underage");
+              else if(mobret==1 && usnmret==0 && mailret==1 && passret==1)
                   pst.executeQuery();
 
 

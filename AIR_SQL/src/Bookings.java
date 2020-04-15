@@ -152,7 +152,6 @@ public class Bookings extends javax.swing.JFrame {
         else
             fdate =7;
 
-        //date  = day_jComboBox.getSelectedItem().toString() + "/" + month_jComboBox.getSelectedItem().toString() + "/" + year_jComboBox.getSelectedItem().toString();
         String passng1 = passng_jTextField.getText();
         String ebclass;
         ebclass = ebclass_jComboBox.getSelectedItem().toString();
