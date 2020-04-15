@@ -1,6 +1,7 @@
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -134,6 +135,8 @@ public class Bookings extends javax.swing.JFrame {
         String dest = to_jComboBox.getSelectedItem().toString();
         flight_avail fd1;
         int fdate;
+        System.out.println(new Date());
+        jDateChooser1.setMinSelectableDate(new Date());
         java.util.Date d = jDateChooser1.getDate();
         String date1=d.toString();
         String day=date1.substring(0, 2);
