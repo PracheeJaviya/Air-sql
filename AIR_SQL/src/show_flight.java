@@ -13,7 +13,7 @@ public class show_flight extends javax.swing.JFrame {
     /**
      * Creates new form show_flight
      */
-    String s_price;
+    String s_total;
     String origin;
     String dest;
     String arr;
@@ -21,16 +21,23 @@ public class show_flight extends javax.swing.JFrame {
     String s_passng;
     String refno;
     String flightno;
-    int price;
+    int total;
     int passng;
     public show_flight() {
         initComponents();
     }
     
-    public show_flight(String origin, String dest, String flightno, String s_passng, String dep, String arr, String aircraft, String stops){
+    public show_flight(String origin, String dest, String flightno, String s_passng, String dep, String arr, String aircraft, String stops, String fare){
         initComponents();
-        price  = 500*Integer.parseInt(s_passng);
-        s_price = String.valueOf(price);
+        this.s_passng = s_passng;
+        this.origin = origin;
+        this.arr = arr;
+        this.dep = dep;
+        this.dest = dest;
+        this.flightno = flightno;        
+        passng = Integer.parseInt(s_passng);
+        total = Integer.parseInt(fare)*passng;
+        s_total = Integer.toString(total);
         jTextField1.setText(origin);
         jTextField2.setText(dest);
         jTextField3.setText(flightno);
@@ -39,14 +46,7 @@ public class show_flight extends javax.swing.JFrame {
         jTextField6.setText(arr);
         jTextField7.setText(aircraft);
         jTextField8.setText(stops);
-        jTextField4.setText(s_price);
-        passng = Integer.parseInt(s_passng);
-        this.s_passng = s_passng;
-        this.origin = origin;
-        this.arr = arr;
-        this.dep = dep;
-        this.dest = dest;
-        this.flightno = flightno;
+        jTextField4.setText(s_total);
     }
 
     /**
