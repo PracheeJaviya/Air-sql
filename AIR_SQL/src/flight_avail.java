@@ -64,11 +64,11 @@ public class flight_avail extends javax.swing.JFrame {
 
             },
             new String [] {
-                "From", "To", "Flight No.", "Departure", "Arrival", "Aircraft", "Stops"
+                "From", "To", "Flight No.", "Departure", "Arrival", "Aircraft", "Stops", "Economy", "Business"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, true
+                false, false, false, false, false, false, false, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
