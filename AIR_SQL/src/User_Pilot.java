@@ -97,7 +97,7 @@ public class User_Pilot extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Booking b1 = new Booking();
+        Bookings b1 = new Bookings();
         b1.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 

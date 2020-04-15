@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jLabel4" pref="72" max="32767" attributes="0"/>
+                          <Component id="jLabel3" max="32767" attributes="0"/>
+                          <Component id="jLabel2" max="32767" attributes="0"/>
+                          <Component id="jLabel1" max="32767" attributes="0"/>
+                          <Component id="jLabel5" alignment="0" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="to_jComboBox" max="32767" attributes="0"/>
+                                      <Component id="jDateChooser1" max="32767" attributes="0"/>
+                                      <Component id="from_jComboBox" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Component id="passng_jTextField" alignment="0" min="-2" pref="55" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                              <Component id="ebclass_jComboBox" min="-2" pref="118" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="130" max="-2" attributes="0"/>
+                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace pref="66" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="from_jComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="to_jComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jDateChooser1" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                  <Component id="passng_jTextField" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="ebclass_jComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="39" max="32767" attributes="0"/>
+              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="From :"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="from_jComboBox">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="129">
+            <StringItem index="0" value="Abu Dhabi"/>
+            <StringItem index="1" value="AgartalaAgatti"/>
+            <StringItem index="2" value="Agra"/>
+            <StringItem index="3" value="Ahmedabad"/>
+            <StringItem index="4" value="Aizawl"/>
+            <StringItem index="5" value="Allahabad"/>
+            <StringItem index="6" value="Amritsar"/>
+            <StringItem index="7" value="Aurangabad"/>
+            <StringItem index="8" value="Bagdogra"/>
+            <StringItem index="9" value="Bahrain"/>
+            <StringItem index="10" value="Bangkok"/>
+            <StringItem index="11" value="Belgaum"/>
+            <StringItem index="12" value="Bengaluru"/>
+            <StringItem index="13" value="Bhatinda"/>
+            <StringItem index="14" value="Bhavnagar"/>
+            <StringItem index="15" value="Bhopal"/>
+            <StringItem index="16" value="Bhubaneswar"/>
+            <StringItem index="17" value="Bhuj"/>
+            <StringItem index="18" value="Bikaner"/>
+            <StringItem index="19" value="Birmingham"/>
+            <StringItem index="20" value="Chandigarh"/>
+            <StringItem index="21" value="Chennai"/>
+            <StringItem index="22" value="Chicago"/>
+            <StringItem index="23" value="Coimbatore"/>
+            <StringItem index="24" value="Colombo"/>
+            <StringItem index="25" value="Copenhagen"/>
+            <StringItem index="26" value="Dammam"/>
+            <StringItem index="27" value="Dehra Dun"/>
+            <StringItem index="28" value="Delhi"/>
+            <StringItem index="29" value="Dhaka"/>
+            <StringItem index="30" value="Dharamshala"/>
+            <StringItem index="31" value="Dimapur"/>
+            <StringItem index="32" value="DIU"/>
+            <StringItem index="33" value="Doha"/>
+            <StringItem index="34" value="Dubai"/>
+            <StringItem index="35" value="Durgapur"/>
+            <StringItem index="36" value="Frankfurt"/>
+            <StringItem index="37" value="Gaya"/>
+            <StringItem index="38" value="Goa"/>
+            <StringItem index="39" value="Gorakhpur"/>
+            <StringItem index="40" value="Guwahati"/>
+            <StringItem index="41" value="Gwalior"/>
+            <StringItem index="42" value="Hong Kong"/>
+            <StringItem index="43" value="Hubli"/>
+            <StringItem index="44" value="Hyderabad"/>
+            <StringItem index="45" value="Imphal"/>
+            <StringItem index="46" value="Indore"/>
+            <StringItem index="47" value="Jabalpur"/>
+            <StringItem index="48" value="Jaffna"/>
+            <StringItem index="49" value="Jaipur"/>
+            <StringItem index="50" value="Jammu"/>
+            <StringItem index="51" value="Jamnagar"/>
+            <StringItem index="52" value="Jeddah"/>
+            <StringItem index="53" value="Jharsuguda"/>
+            <StringItem index="54" value="Jodhpur"/>
+            <StringItem index="55" value="Kabul"/>
+            <StringItem index="56" value="Gulbarga"/>
+            <StringItem index="57" value="Kandla "/>
+            <StringItem index="58" value="Kathmandu"/>
+            <StringItem index="59" value="Khajuraho"/>
+            <StringItem index="60" value="Kochi"/>
+            <StringItem index="61" value="Kolhapur"/>
+            <StringItem index="62" value="Kolkata"/>
+            <StringItem index="63" value="Kozhikode"/>
+            <StringItem index="64" value="Kullu"/>
+            <StringItem index="65" value="Kuwait"/>
+            <StringItem index="66" value="Leh"/>
+            <StringItem index="67" value="Lilabari"/>
+            <StringItem index="68" value="London"/>
+            <StringItem index="69" value="Lucknow"/>
+            <StringItem index="70" value="Ludhiana"/>
+            <StringItem index="71" value="Madrid"/>
+            <StringItem index="72" value="Madurai"/>
+            <StringItem index="73" value="Male"/>
+            <StringItem index="74" value="Mangalore"/>
+            <StringItem index="75" value="Melbourne"/>
+            <StringItem index="76" value="Milan"/>
+            <StringItem index="77" value="Mumbai"/>
+            <StringItem index="78" value="Muscat"/>
+            <StringItem index="79" value="Mysore"/>
+            <StringItem index="80" value="Nagpur"/>
+            <StringItem index="81" value="Nairobi"/>
+            <StringItem index="82" value="Nanded"/>
+            <StringItem index="83" value="Nasik"/>
+            <StringItem index="84" value="New York"/>
+            <StringItem index="85" value="Newark"/>
+            <StringItem index="86" value="Pantnagar"/>
+            <StringItem index="87" value="Paris"/>
+            <StringItem index="88" value="Pasighat"/>
+            <StringItem index="89" value="Pathankot"/>
+            <StringItem index="90" value="Patna"/>
+            <StringItem index="91" value="Port Blair"/>
+            <StringItem index="92" value="Pune"/>
+            <StringItem index="93" value="Raipur"/>
+            <StringItem index="94" value="Rajkot"/>
+            <StringItem index="95" value="Ranchi"/>
+            <StringItem index="96" value="Riyadh"/>
+            <StringItem index="97" value="Rome"/>
+            <StringItem index="98" value="San Francisco"/>
+            <StringItem index="99" value="Seoul"/>
+            <StringItem index="100" value="Shanghai"/>
+            <StringItem index="101" value="Sharjah"/>
+            <StringItem index="102" value="Shirdi"/>
+            <StringItem index="103" value="Silchar"/>
+            <StringItem index="104" value="Shimla"/>
+            <StringItem index="105" value="Singapore"/>
+            <StringItem index="106" value="Srinagar"/>
+            <StringItem index="107" value="Srckholm"/>
+            <StringItem index="108" value="Surat"/>
+            <StringItem index="109" value="Sydney"/>
+            <StringItem index="110" value="Tel Aviv"/>
+            <StringItem index="111" value="Tezpur"/>
+            <StringItem index="112" value="Thiruvananthapuram"/>
+            <StringItem index="113" value="Tiruchirapalli"/>
+            <StringItem index="114" value="Tirupati"/>
+            <StringItem index="115" value="Tokyo"/>
+            <StringItem index="116" value="Toronto"/>
+            <StringItem index="117" value="Udaipur"/>
+            <StringItem index="118" value="Vadodara"/>
+            <StringItem index="119" value="Varanasi"/>
+            <StringItem index="120" value="Vienna"/>
+            <StringItem index="121" value="Vijayawada"/>
+            <StringItem index="122" value="Visakhapatnam"/>
+            <StringItem index="123" value="Washington"/>
+            <StringItem index="124" value="Yangon"/>
+            <StringItem index="125" value=" "/>
+            <StringItem index="126" value=" "/>
+            <StringItem index="127" value=" "/>
+            <StringItem index="128" value=" "/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="To :"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="to_jComboBox">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="129">
+            <StringItem index="0" value="Abu Dhabi"/>
+            <StringItem index="1" value="AgartalaAgatti"/>
+            <StringItem index="2" value="Agra"/>
+            <StringItem index="3" value="Ahmedabad"/>
+            <StringItem index="4" value="Aizawl"/>
+            <StringItem index="5" value="Allahabad"/>
+            <StringItem index="6" value="Amritsar"/>
+            <StringItem index="7" value="Aurangabad"/>
+            <StringItem index="8" value="Bagdogra"/>
+            <StringItem index="9" value="Bahrain"/>
+            <StringItem index="10" value="Bangkok"/>
+            <StringItem index="11" value="Belgaum"/>
+            <StringItem index="12" value="Bengaluru"/>
+            <StringItem index="13" value="Bhatinda"/>
+            <StringItem index="14" value="Bhavnagar"/>
+            <StringItem index="15" value="Bhopal"/>
+            <StringItem index="16" value="Bhubaneswar"/>
+            <StringItem index="17" value="Bhuj"/>
+            <StringItem index="18" value="Bikaner"/>
+            <StringItem index="19" value="Birmingham"/>
+            <StringItem index="20" value="Chandigarh"/>
+            <StringItem index="21" value="Chennai"/>
+            <StringItem index="22" value="Chicago"/>
+            <StringItem index="23" value="Coimbatore"/>
+            <StringItem index="24" value="Colombo"/>
+            <StringItem index="25" value="Copenhagen"/>
+            <StringItem index="26" value="Dammam"/>
+            <StringItem index="27" value="Dehra Dun"/>
+            <StringItem index="28" value="Delhi"/>
+            <StringItem index="29" value="Dhaka"/>
+            <StringItem index="30" value="Dharamshala"/>
+            <StringItem index="31" value="Dimapur"/>
+            <StringItem index="32" value="DIU"/>
+            <StringItem index="33" value="Doha"/>
+            <StringItem index="34" value="Dubai"/>
+            <StringItem index="35" value="Durgapur"/>
+            <StringItem index="36" value="Frankfurt"/>
+            <StringItem index="37" value="Gaya"/>
+            <StringItem index="38" value="Goa"/>
+            <StringItem index="39" value="Gorakhpur"/>
+            <StringItem index="40" value="Guwahati"/>
+            <StringItem index="41" value="Gwalior"/>
+            <StringItem index="42" value="Hong Kong"/>
+            <StringItem index="43" value="Hubli"/>
+            <StringItem index="44" value="Hyderabad"/>
+            <StringItem index="45" value="Imphal"/>
+            <StringItem index="46" value="Indore"/>
+            <StringItem index="47" value="Jabalpur"/>
+            <StringItem index="48" value="Jaffna"/>
+            <StringItem index="49" value="Jaipur"/>
+            <StringItem index="50" value="Jammu"/>
+            <StringItem index="51" value="Jamnagar"/>
+            <StringItem index="52" value="Jeddah"/>
+            <StringItem index="53" value="Jharsuguda"/>
+            <StringItem index="54" value="Jodhpur"/>
+            <StringItem index="55" value="Kabul"/>
+            <StringItem index="56" value="Gulbarga"/>
+            <StringItem index="57" value="Kandla "/>
+            <StringItem index="58" value="Kathmandu"/>
+            <StringItem index="59" value="Khajuraho"/>
+            <StringItem index="60" value="Kochi"/>
+            <StringItem index="61" value="Kolhapur"/>
+            <StringItem index="62" value="Kolkata"/>
+            <StringItem index="63" value="Kozhikode"/>
+            <StringItem index="64" value="Kullu"/>
+            <StringItem index="65" value="Kuwait"/>
+            <StringItem index="66" value="Leh"/>
+            <StringItem index="67" value="Lilabari"/>
+            <StringItem index="68" value="London"/>
+            <StringItem index="69" value="Lucknow"/>
+            <StringItem index="70" value="Ludhiana"/>
+            <StringItem index="71" value="Madrid"/>
+            <StringItem index="72" value="Madurai"/>
+            <StringItem index="73" value="Male"/>
+            <StringItem index="74" value="Mangalore"/>
+            <StringItem index="75" value="Melbourne"/>
+            <StringItem index="76" value="Milan"/>
+            <StringItem index="77" value="Mumbai"/>
+            <StringItem index="78" value="Muscat"/>
+            <StringItem index="79" value="Mysore"/>
+            <StringItem index="80" value="Nagpur"/>
+            <StringItem index="81" value="Nairobi"/>
+            <StringItem index="82" value="Nanded"/>
+            <StringItem index="83" value="Nasik"/>
+            <StringItem index="84" value="New York"/>
+            <StringItem index="85" value="Newark"/>
+            <StringItem index="86" value="Pantnagar"/>
+            <StringItem index="87" value="Paris"/>
+            <StringItem index="88" value="Pasighat"/>
+            <StringItem index="89" value="Pathankot"/>
+            <StringItem index="90" value="Patna"/>
+            <StringItem index="91" value="Port Blair"/>
+            <StringItem index="92" value="Pune"/>
+            <StringItem index="93" value="Raipur"/>
+            <StringItem index="94" value="Rajkot"/>
+            <StringItem index="95" value="Ranchi"/>
+            <StringItem index="96" value="Riyadh"/>
+            <StringItem index="97" value="Rome"/>
+            <StringItem index="98" value="San Francisco"/>
+            <StringItem index="99" value="Seoul"/>
+            <StringItem index="100" value="Shanghai"/>
+            <StringItem index="101" value="Sharjah"/>
+            <StringItem index="102" value="Shirdi"/>
+            <StringItem index="103" value="Silchar"/>
+            <StringItem index="104" value="Shimla"/>
+            <StringItem index="105" value="Singapore"/>
+            <StringItem index="106" value="Srinagar"/>
+            <StringItem index="107" value="Srckholm"/>
+            <StringItem index="108" value="Surat"/>
+            <StringItem index="109" value="Sydney"/>
+            <StringItem index="110" value="Tel Aviv"/>
+            <StringItem index="111" value="Tezpur"/>
+            <StringItem index="112" value="Thiruvananthapuram"/>
+            <StringItem index="113" value="Tiruchirapalli"/>
+            <StringItem index="114" value="Tirupati"/>
+            <StringItem index="115" value="Tokyo"/>
+            <StringItem index="116" value="Toronto"/>
+            <StringItem index="117" value="Udaipur"/>
+            <StringItem index="118" value="Vadodara"/>
+            <StringItem index="119" value="Varanasi"/>
+            <StringItem index="120" value="Vienna"/>
+            <StringItem index="121" value="Vijayawada"/>
+            <StringItem index="122" value="Visakhapatnam"/>
+            <StringItem index="123" value="Washington"/>
+            <StringItem index="124" value="Yangon"/>
+            <StringItem index="125" value=" "/>
+            <StringItem index="126" value=" "/>
+            <StringItem index="127" value=" "/>
+            <StringItem index="128" value=" "/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel3">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Date :"/>
+      </Properties>
+    </Component>
+    <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser1">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel4">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Passengers :"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="passng_jTextField">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel5">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Class :"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="ebclass_jComboBox">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="2">
+            <StringItem index="0" value="Economy"/>
+            <StringItem index="1" value="Business"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton1">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="10" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Submit"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+      </Events>
+    </Component>
+  </SubComponents>
+</Form>
