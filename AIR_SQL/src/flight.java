@@ -1,6 +1,6 @@
 class flight {
 
-    public flight(String origin, String dest, String flightno, String dep, String arr, String aircraft, int stops,int efare,int bfare) {
+    public flight(String origin, String dest, String flightno, String dep, String arr, String aircraft, int stops,int efare,int bfare,int index) {
         this.origin = origin;
         this.dest = dest;
         this.flightno = flightno;
@@ -11,6 +11,11 @@ class flight {
         this.stops = stops;
         this.efare = efare;
         this.bfare = bfare;
+        this.index = index;
+    }
+
+    public int getIndex() {
+        return index;
     }
 
     public String getOrigin() {
@@ -53,7 +58,7 @@ class flight {
         return bfare;
     }
     private String origin, dest, flightno, freq, dep, arr, aircraft;
-    private int stops,efare,bfare;
+    private int stops,efare,bfare,index;
 
     
 }

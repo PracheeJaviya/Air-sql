@@ -64,11 +64,11 @@ public class flight_avail extends javax.swing.JFrame {
 
             },
             new String [] {
-                "From", "To", "Flight No.", "Departure", "Arrival", "Aircraft", "Stops", "Economy", "Business"
+                "From", "To", "Flight No.", "Departure", "Arrival", "Aircraft", "Stops", "Economy", "Business", "Flight Index"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, true, true
+                false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -112,24 +112,35 @@ public class flight_avail extends javax.swing.JFrame {
         String stops = model.getValueAt(selectedRowIndex, 6).toString();
         String efare = model.getValueAt(selectedRowIndex, 7).toString();
         String bfare = model.getValueAt(selectedRowIndex, 8).toString();
+        String index = model.getValueAt(selectedRowIndex, 9).toString();
         if (ebclass == "Economy") {
-            show_flight sf1 = new show_flight(origin, dest, flightno, passng, dep, arr, aircraft, stops, efare);
-            sf1.setVisible(true);
-            sf1.setLocationRelativeTo(null);
-        }else{
-            show_flight sf1 = new show_flight(origin, dest, flightno, passng, dep, arr, aircraft, stops, bfare);
-            sf1.setVisible(true);
-            sf1.setLocationRelativeTo(null);
+            try {
+                show_flight sf1;
+                sf1 = new show_flight(passng, index, ebclass);
+                sf1.setVisible(true);
+                sf1.setLocationRelativeTo(null);
+            } catch (SQLException ex) {
+                Logger.getLogger(flight_avail.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            try {
+
+                show_flight sf1;
+                sf1 = new show_flight(passng, index, ebclass);
+                sf1.setVisible(true);
+                sf1.setLocationRelativeTo(null);
+            } catch (SQLException ex) {
+                Logger.getLogger(flight_avail.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_flight_jTableMouseClicked
-
     public ArrayList<flight> flightLists() throws SQLException {
         System.out.println(origin);
         System.out.println(dest);
         ArrayList<flight> flightsList = new ArrayList<>();
         flight Flight;
         if (date == 1) {
-            String SQLQuery = "a.origin, a.dest, a.flightno , a.dep, a.arr, a.aircraft, a.stops,b.efare,b.bfare\n" + "FROM public.flightdetails a,public.fare b where a.aircraft=b.aircraft and a.origin =? and a.dest =? and a.freq LIKE '%1%' ;";
+            String SQLQuery = "a.origin, a.dest, a.flightno , a.dep, a.arr, a.aircraft, a.stops, a.index, b.efare, b.bfare\n" + "FROM public.flightdetails a,public.fare b where a.aircraft=b.aircraft and a.origin =? and a.dest =? and a.freq LIKE '%1%' ;";
             PreparedStatement pst = conn.prepareStatement(SQLQuery);
             pst.setString(1, origin);
             pst.setString(2, dest);
@@ -137,12 +148,12 @@ public class flight_avail extends javax.swing.JFrame {
             ResultSet rs = pst.executeQuery();
 
             while (rs.next()) {
-                Flight = new flight(rs.getString("origin"), rs.getString("dest"), rs.getString("flightno"), rs.getString("dep"), rs.getString("arr"), rs.getString("aircraft"), rs.getInt("stops"), rs.getInt("efare"), rs.getInt("bfare"));
+                Flight = new flight(rs.getString("origin"), rs.getString("dest"), rs.getString("flightno"), rs.getString("dep"), rs.getString("arr"), rs.getString("aircraft"), rs.getInt("stops"), rs.getInt("efare"), rs.getInt("bfare"), rs.getInt("index"));
                 flightsList.add(Flight);
             }
 
         } else if (date == 2) {
-            String SQLQuery = "SELECT a.origin, a.dest, a.flightno , a.dep, a.arr, a.aircraft, a.stops,b.efare,b.bfare\n" + "FROM public.flightdetails a,public.fare b where a.aircraft=b.aircraft and a.origin = ? and a.dest = ? and a.freq LIKE '%2%' ;";
+            String SQLQuery = "SELECT a.origin, a.dest, a.flightno , a.dep, a.arr, a.aircraft, a.stops, a.index,b.efare,b.bfare\n" + "FROM public.flightdetails a,public.fare b where a.aircraft=b.aircraft and a.origin = ? and a.dest = ? and a.freq LIKE '%2%' ;";
             PreparedStatement pst = conn.prepareStatement(SQLQuery);
             pst.setString(1, origin);
             pst.setString(2, dest);
@@ -150,62 +161,62 @@ public class flight_avail extends javax.swing.JFrame {
             ResultSet rs = pst.executeQuery();
 
             while (rs.next()) {
-                Flight = new flight(rs.getString("origin"), rs.getString("dest"), rs.getString("flightno"), rs.getString("dep"), rs.getString("arr"), rs.getString("aircraft"), rs.getInt("stops"), rs.getInt("efare"), rs.getInt("bfare"));
+                Flight = new flight(rs.getString("origin"), rs.getString("dest"), rs.getString("flightno"), rs.getString("dep"), rs.getString("arr"), rs.getString("aircraft"), rs.getInt("stops"), rs.getInt("efare"), rs.getInt("bfare"), rs.getInt("index"));
                 flightsList.add(Flight);
             }
         } else if (date == 3) {
-            String SQLQuery = "SELECT a.origin, a.dest, a.flightno , a.dep, a.arr, a.aircraft, a.stops,b.efare,b.bfare\n" + "FROM public.flightdetails a,public.fare b where a.aircraft=b.aircraft and a.origin = ? and a.dest = ? and a.freq LIKE '%3%' ;";
+            String SQLQuery = "SELECT a.origin, a.dest, a.flightno , a.dep, a.arr, a.aircraft, a.stops, a.index,b.efare,b.bfare\n" + "FROM public.flightdetails a,public.fare b where a.aircraft=b.aircraft and a.origin = ? and a.dest = ? and a.freq LIKE '%3%' ;";
             PreparedStatement pst = conn.prepareStatement(SQLQuery);
             pst.setString(1, origin);
             pst.setString(2, dest);
             // pst.setInt(3, date);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
-                Flight = new flight(rs.getString("origin"), rs.getString("dest"), rs.getString("flightno"), rs.getString("dep"), rs.getString("arr"), rs.getString("aircraft"), rs.getInt("stops"), rs.getInt("efare"), rs.getInt("bfare"));
+                Flight = new flight(rs.getString("origin"), rs.getString("dest"), rs.getString("flightno"), rs.getString("dep"), rs.getString("arr"), rs.getString("aircraft"), rs.getInt("stops"), rs.getInt("efare"), rs.getInt("bfare"), rs.getInt("index"));
                 flightsList.add(Flight);
             }
         } else if (date == 4) {
-            String SQLQuery = "SELECT a.origin, a.dest, a.flightno , a.dep, a.arr, a.aircraft, a.stops,b.efare,b.bfare\n" + "FROM public.flightdetails a,public.fare b where a.aircraft=b.aircraft and a.origin = ? and a.dest = ? and a.freq LIKE '%4%' ;";
+            String SQLQuery = "SELECT a.origin, a.dest, a.flightno , a.dep, a.arr, a.aircraft, a.stops, a.index,b.efare,b.bfare\n" + "FROM public.flightdetails a,public.fare b where a.aircraft=b.aircraft and a.origin = ? and a.dest = ? and a.freq LIKE '%4%' ;";
             PreparedStatement pst = conn.prepareStatement(SQLQuery);
             pst.setString(1, origin);
             pst.setString(2, dest);
             // pst.setInt(3, date);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
-                Flight = new flight(rs.getString("origin"), rs.getString("dest"), rs.getString("flightno"), rs.getString("dep"), rs.getString("arr"), rs.getString("aircraft"), rs.getInt("stops"), rs.getInt("efare"), rs.getInt("bfare"));
+                Flight = new flight(rs.getString("origin"), rs.getString("dest"), rs.getString("flightno"), rs.getString("dep"), rs.getString("arr"), rs.getString("aircraft"), rs.getInt("stops"), rs.getInt("efare"), rs.getInt("bfare"), rs.getInt("index"));
                 flightsList.add(Flight);
             }
         } else if (date == 5) {
-            String SQLQuery = "SELECT a.origin, a.dest, a.flightno , a.dep, a.arr, a.aircraft, a.stops,b.efare,b.bfare\n" + "FROM public.flightdetails a,public.fare b where a.aircraft=b.aircraft and a.origin = ? and a.dest = ? and a.freq LIKE '%5%' ;";
+            String SQLQuery = "SELECT a.origin, a.dest, a.flightno , a.dep, a.arr, a.aircraft, a.stops, a.index,b.efare,b.bfare\n" + "FROM public.flightdetails a,public.fare b where a.aircraft=b.aircraft and a.origin = ? and a.dest = ? and a.freq LIKE '%5%' ;";
             PreparedStatement pst = conn.prepareStatement(SQLQuery);
             pst.setString(1, origin);
             pst.setString(2, dest);
             // pst.setInt(3, date);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
-                Flight = new flight(rs.getString("origin"), rs.getString("dest"), rs.getString("flightno"), rs.getString("dep"), rs.getString("arr"), rs.getString("aircraft"), rs.getInt("stops"), rs.getInt("efare"), rs.getInt("bfare"));
+                Flight = new flight(rs.getString("origin"), rs.getString("dest"), rs.getString("flightno"), rs.getString("dep"), rs.getString("arr"), rs.getString("aircraft"), rs.getInt("stops"), rs.getInt("efare"), rs.getInt("bfare"), rs.getInt("index"));
                 flightsList.add(Flight);
             }
         } else if (date == 6) {
-            String SQLQuery = "SELECT a.origin, a.dest, a.flightno , a.dep, a.arr, a.aircraft, a.stops,b.efare,b.bfare\n" + "FROM public.flightdetails a,public.fare b where a.aircraft=b.aircraft and a.origin = ? and a.dest = ? and a.freq LIKE '%6%' ;";
+            String SQLQuery = "SELECT a.origin, a.dest, a.flightno , a.dep, a.arr, a.aircraft, a.stops, a.index,b.efare,b.bfare\n" + "FROM public.flightdetails a,public.fare b where a.aircraft=b.aircraft and a.origin = ? and a.dest = ? and a.freq LIKE '%6%' ;";
             PreparedStatement pst = conn.prepareStatement(SQLQuery);
             pst.setString(1, origin);
             pst.setString(2, dest);
             // pst.setInt(3, date);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
-                Flight = new flight(rs.getString("origin"), rs.getString("dest"), rs.getString("flightno"), rs.getString("dep"), rs.getString("arr"), rs.getString("aircraft"), rs.getInt("stops"), rs.getInt("efare"), rs.getInt("bfare"));
+                Flight = new flight(rs.getString("origin"), rs.getString("dest"), rs.getString("flightno"), rs.getString("dep"), rs.getString("arr"), rs.getString("aircraft"), rs.getInt("stops"), rs.getInt("efare"), rs.getInt("bfare"), rs.getInt("index"));
                 flightsList.add(Flight);
             }
         } else {
-            String SQLQuery = "SELECT a.origin, a.dest, a.flightno , a.dep, a.arr, a.aircraft, a.stops,b.efare,b.bfare\n" + "FROM public.flightdetails a,public.fare b where a.aircraft=b.aircraft and a.origin = ? and a.dest = ? and a.freq LIKE '%7%' ;";
+            String SQLQuery = "SELECT a.origin, a.dest, a.flightno , a.dep, a.arr, a.aircraft, a.stops, a.index,b.efare,b.bfare\n" + "FROM public.flightdetails a,public.fare b where a.aircraft=b.aircraft and a.origin = ? and a.dest = ? and a.freq LIKE '%7%' ;";
             PreparedStatement pst = conn.prepareStatement(SQLQuery);
             pst.setString(1, origin);
             pst.setString(2, dest);
             // pst.setInt(3, date);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
-                Flight = new flight(rs.getString("origin"), rs.getString("dest"), rs.getString("flightno"), rs.getString("dep"), rs.getString("arr"), rs.getString("aircraft"), rs.getInt("stops"), rs.getInt("efare"), rs.getInt("bfare"));
+                Flight = new flight(rs.getString("origin"), rs.getString("dest"), rs.getString("flightno"), rs.getString("dep"), rs.getString("arr"), rs.getString("aircraft"), rs.getInt("stops"), rs.getInt("efare"), rs.getInt("bfare"), rs.getInt("index"));
                 flightsList.add(Flight);
             }
         }
@@ -216,7 +227,7 @@ public class flight_avail extends javax.swing.JFrame {
         ArrayList<flight> list = flightLists();
         System.out.println(list.size());
         DefaultTableModel model = (DefaultTableModel) flight_jTable.getModel();
-        Object row[] = new Object[9];
+        Object row[] = new Object[10];
         for (int i = 0; i < list.size(); i++) {
             row[0] = list.get(i).getOrigin();
             row[1] = list.get(i).getDest();
@@ -227,6 +238,7 @@ public class flight_avail extends javax.swing.JFrame {
             row[6] = list.get(i).getStops();
             row[7] = list.get(i).getEfare();
             row[8] = list.get(i).getBfare();
+            row[9] = list.get(i).getIndex();
             model.addRow(row);
 
         }
