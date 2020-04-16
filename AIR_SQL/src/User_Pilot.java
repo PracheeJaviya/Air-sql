@@ -52,6 +52,9 @@ public class User_Pilot extends javax.swing.JFrame {
             public void windowClosed(java.awt.event.WindowEvent evt) {
                 formWindowClosed(evt);
             }
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
         });
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -154,6 +157,21 @@ public class User_Pilot extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(User_Pilot.class.getName()).log(Level.SEVERE, null, ex);
         }    }//GEN-LAST:event_formWindowClosed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        try {
+            String SQLquery = "UPDATE userdetails SET logon = ? where username = ?";
+            PreparedStatement pst1 = conn.prepareStatement(SQLquery);
+            pst1.setInt(1, 0);
+            pst1.setString(2, luser);
+            pst1.executeUpdate();
+            Login lg1 = new Login();
+            lg1.setVisible(true);
+            lg1.setLocationRelativeTo(null);
+        } catch (SQLException ex) {
+            Logger.getLogger(User_Pilot.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

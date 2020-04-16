@@ -21,6 +21,7 @@ public class flight_avail extends javax.swing.JFrame {
     String origin;
     String dest;
     int date;
+    String s_date;
     String passng;
     String ebclass;
 //    String date;
@@ -32,14 +33,16 @@ public class flight_avail extends javax.swing.JFrame {
         initComponents();
     }
 
-    public flight_avail(String from, String To, int fdate, String passng, String ebclass) throws SQLException {
+    public flight_avail(String from, String To, int fdate, String s_date, String passng, String ebclass) throws SQLException {
         this.origin = from;
         this.dest = To;
         this.passng = passng;
         this.ebclass = ebclass;
         this.date = fdate;
+        this.s_date = s_date;
         initComponents();
         conn = DB_Connect.connect();
+//        System.out.println(s_date);
         showUser();
     }
 
@@ -116,7 +119,7 @@ public class flight_avail extends javax.swing.JFrame {
         if (ebclass == "Economy") {
             try {
                 show_flight sf1;
-                sf1 = new show_flight(passng, index, ebclass);
+                sf1 = new show_flight(passng, index, ebclass, s_date);
                 sf1.setVisible(true);
                 sf1.setLocationRelativeTo(null);
             } catch (SQLException ex) {
@@ -126,7 +129,7 @@ public class flight_avail extends javax.swing.JFrame {
             try {
 
                 show_flight sf1;
-                sf1 = new show_flight(passng, index, ebclass);
+                sf1 = new show_flight(passng, index, ebclass, s_date);
                 sf1.setVisible(true);
                 sf1.setLocationRelativeTo(null);
             } catch (SQLException ex) {

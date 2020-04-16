@@ -1,9 +1,16 @@
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Panth
@@ -13,30 +20,70 @@ public class passng_details extends javax.swing.JFrame {
     /**
      * Creates new form passng_details
      */
+    String refno;
+    String username;
+    int logon;
+    String name;
+    int age;
+    String gender;
+    String seatno;
     String origin;
     String dest;
     String flightno;
-    String s_passng;
+    String date;
     String dep;
     String arr;
-    int passng;
-    String refno;
+    String aircraft;
+    String ebclass;
+    String s_index;
+    String fare;
+    int i_index;
+    Connection conn = null;
 
     public passng_details() {
         initComponents();
     }
 
-    public passng_details(String origin, String dest, String flightno, String s_passng, String dep, String arr, String refno) {
-        
+    public passng_details(String index, String refno, String ebclass, String s_date) throws SQLException {
+
+        seatno = "10-A";
         initComponents();
-        this.origin = origin;
-        this.dest = dest;
-        this.flightno = flightno;
-        this.arr = arr;
-        this.dep = dep;
-        this.s_passng = s_passng;
+        conn = DB_Connect.connect();
+        this.s_index = index;
+        this.date = s_date;
         this.refno = refno;
-        passng = Integer.parseInt(s_passng);
+        this.ebclass = ebclass;
+        i_index = Integer.parseInt(index);
+        try {
+            String SQLQuery1 = "SELECT username FROM userdetails where logon = ?";
+            PreparedStatement pst1 = conn.prepareStatement(SQLQuery1);
+            pst1.setInt(1, 1);
+            ResultSet rs1 = pst1.executeQuery();
+            while (rs1.next()) {
+                username = rs1.getString("username");
+            }
+            String SQLQuery = "SELECT a.origin, a.dest, a.flightno, a.dep, a.arr, a.aircraft, a.index, b.efare, b.bfare\n" + "FROM public.flightdetails a,public.fare b where a.index = ?;";
+            PreparedStatement pst = conn.prepareStatement(SQLQuery);
+            pst.setInt(1, i_index);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                origin = rs.getString("origin");
+                dest = rs.getString("dest");
+                flightno = rs.getString("flightno");
+                dep = rs.getString("dep");
+                arr = rs.getString("arr");
+                aircraft = rs.getString("aircraft");
+                if ("Economy".equals(ebclass)) {
+                    fare = rs.getString("efare");
+                } else {
+                    fare = rs.getString("bfare");
+                }
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(show_flight.class.getName()).log(Level.SEVERE, null, ex);
+        }
         jLabel4.setText(refno);
 
     }
@@ -51,14 +98,14 @@ public class passng_details extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        passdetails_name = new javax.swing.JTextField();
+        pass_fname = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        passdetails_age = new javax.swing.JTextField();
+        pass_age = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        gender_jComboBox = new javax.swing.JComboBox<>();
+        pass_gender = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -82,7 +129,7 @@ public class passng_details extends javax.swing.JFrame {
             }
         });
 
-        gender_jComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Others" }));
+        pass_gender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Others" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -103,9 +150,9 @@ public class passng_details extends javax.swing.JFrame {
                             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE))
                         .addGap(38, 38, 38)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(passdetails_name, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(passdetails_age, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(gender_jComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(pass_fname, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pass_age, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pass_gender, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(162, 162, 162)
                         .addComponent(jButton1)))
@@ -121,15 +168,15 @@ public class passng_details extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(passdetails_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pass_fname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(passdetails_age, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pass_age, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(gender_jComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pass_gender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(52, 52, 52)
                 .addComponent(jButton1)
                 .addContainerGap(56, Short.MAX_VALUE))
@@ -139,6 +186,48 @@ public class passng_details extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+        System.out.println(username);
+        System.out.println(pass_fname.getText());
+        System.out.println(pass_age.getText());
+        System.out.println(pass_gender.getSelectedItem().toString());
+        System.out.println(origin);
+        System.out.println(dest);
+        System.out.println(flightno);
+        System.out.println(dep);
+        System.out.println(arr);
+        System.out.println(aircraft);
+        System.out.println(refno);
+        System.out.println(seatno);
+        System.out.println(date);
+        System.out.println(ebclass);
+        System.out.println(i_index);
+        System.out.println(fare);
+        try {
+            String sqlquery = "INSERT INTO reservation(\n"
+                    + "bcode, username, name, age, gender, seatno, origin, dest, flightno, date, dep, arr, aircraft, ebclass, index, fare)\n"
+                    + "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+            PreparedStatement pstmt = conn.prepareStatement(sqlquery);
+            pstmt.setString(1, refno);
+            pstmt.setString(2, username);
+            pstmt.setString(3, pass_fname.getText());
+            pstmt.setInt(4, Integer.parseInt(pass_age.getText()));
+            pstmt.setString(5, pass_gender.getSelectedItem().toString());
+            pstmt.setString(6, seatno);
+            pstmt.setString(7, origin);
+            pstmt.setString(8, dest);
+            pstmt.setString(9, flightno);
+            pstmt.setString(10, date);
+            pstmt.setString(11, dep);
+            pstmt.setString(12, arr);
+            pstmt.setString(13, aircraft);
+            pstmt.setString(14, ebclass);
+            pstmt.setInt(15, i_index);
+            pstmt.setInt(16, Integer.parseInt(fare));
+
+        } catch (SQLException ex) {
+            Logger.getLogger(passng_details.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -177,14 +266,14 @@ public class passng_details extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> gender_jComboBox;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JTextField passdetails_age;
-    private javax.swing.JTextField passdetails_name;
+    private javax.swing.JTextField pass_age;
+    private javax.swing.JTextField pass_fname;
+    private javax.swing.JComboBox<String> pass_gender;
     // End of variables declaration//GEN-END:variables
 }

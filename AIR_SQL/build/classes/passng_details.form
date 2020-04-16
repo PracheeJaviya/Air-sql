@@ -40,9 +40,9 @@
                       </Group>
                       <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="passdetails_name" min="-2" pref="157" max="-2" attributes="0"/>
-                          <Component id="passdetails_age" min="-2" pref="65" max="-2" attributes="0"/>
-                          <Component id="gender_jComboBox" alignment="0" min="-2" pref="116" max="-2" attributes="0"/>
+                          <Component id="pass_fname" min="-2" pref="157" max="-2" attributes="0"/>
+                          <Component id="pass_age" min="-2" pref="65" max="-2" attributes="0"/>
+                          <Component id="pass_gender" alignment="0" min="-2" pref="116" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -65,17 +65,17 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="passdetails_name" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="pass_fname" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="passdetails_age" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="pass_age" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="gender_jComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="pass_gender" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
               <Component id="jButton1" min="-2" max="-2" attributes="0"/>
@@ -90,14 +90,14 @@
         <Property name="text" type="java.lang.String" value="Full Name :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="passdetails_name">
+    <Component class="javax.swing.JTextField" name="pass_fname">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
         <Property name="text" type="java.lang.String" value="Age :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="passdetails_age">
+    <Component class="javax.swing.JTextField" name="pass_age">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
@@ -131,7 +131,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JComboBox" name="gender_jComboBox">
+    <Component class="javax.swing.JComboBox" name="pass_gender">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="3">

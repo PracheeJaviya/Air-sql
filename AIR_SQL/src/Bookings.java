@@ -135,11 +135,12 @@ public class Bookings extends javax.swing.JFrame {
         String dest = to_jComboBox.getSelectedItem().toString();
         flight_avail fd1;
         int fdate;
-        System.out.println(new Date());
+        //System.out.println(new Date());
         jDateChooser1.setMinSelectableDate(new Date());
         java.util.Date d = jDateChooser1.getDate();
         String date1=d.toString();
         String day=date1.substring(0, 2);
+        String date = date1.substring(0, 10);
         if(day.compareTo("Mon")==0)
             fdate=1;
         else if(day.compareTo("Tue")==0)
@@ -158,8 +159,9 @@ public class Bookings extends javax.swing.JFrame {
         String passng1 = passng_jTextField.getText();
         String ebclass;
         ebclass = ebclass_jComboBox.getSelectedItem().toString();
+//        System.out.println(date);
         try {
-            fd1 = new flight_avail(origin, dest, fdate, passng1, ebclass);
+            fd1 = new flight_avail(origin, dest, fdate, date, passng1, ebclass);
             fd1.setVisible(true);
             fd1.setLocationRelativeTo(null);
         } catch (SQLException ex) {

@@ -30,6 +30,7 @@ public class show_flight extends javax.swing.JFrame {
     String stops;
     String aircraft;
     String ebclass;
+    String s_date;
     int i_index;
     int total;
     int passng;
@@ -39,13 +40,18 @@ public class show_flight extends javax.swing.JFrame {
         initComponents();
     }
 
-    public show_flight(String s_passng, String index, String ebclass) throws SQLException {
+    public show_flight(String s_passng, String index, String ebclass, String date) throws SQLException {
         initComponents();
         conn = DB_Connect.connect();
         this.s_passng = s_passng;
-<<<<<<< HEAD
         this.s_index = index;
         this.ebclass = ebclass;
+        this.s_date = date;
+        this.origin = origin;
+        this.arr = arr;
+        this.dep = dep;
+        this.dest = dest;
+        this.flightno = flightno;
         i_index = Integer.parseInt(s_index);
         try {
             String SQLQuery = "SELECT a.origin, a.dest, a.flightno , a.dep, a.arr, a.aircraft, a.stops, a.index,b.efare,b.bfare\n" + "FROM public.flightdetails a,public.fare b where a.index = ?;";
@@ -70,13 +76,6 @@ public class show_flight extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(show_flight.class.getName()).log(Level.SEVERE, null, ex);
         }
-=======
-        this.origin = origin;
-        this.arr = arr;
-        this.dep = dep;
-        this.dest = dest;
-        this.flightno = flightno;
->>>>>>> bce67f1080a87e87de7f7ee140b097fcd27ab73b
         passng = Integer.parseInt(s_passng);
         total = Integer.parseInt(fare) * passng;
         s_total = Integer.toString(total);
@@ -89,6 +88,7 @@ public class show_flight extends javax.swing.JFrame {
         jTextField7.setText(aircraft);
         jTextField8.setText(stops);
         jTextField4.setText(s_total);
+        jTextField10.setText(s_date);
         index_.setText(s_index);
     }
 
@@ -122,6 +122,8 @@ public class show_flight extends javax.swing.JFrame {
         submit_showflights = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         index_ = new javax.swing.JTextField();
+        jTextField10 = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -178,6 +180,10 @@ public class show_flight extends javax.swing.JFrame {
 
         index_.setEditable(false);
 
+        jTextField10.setEditable(false);
+
+        jLabel11.setText("Date :");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -200,9 +206,11 @@ public class show_flight extends javax.swing.JFrame {
                             .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(60, 60, 60)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextField10)
                             .addComponent(jTextField4)
                             .addComponent(jTextField9)
                             .addComponent(jTextField1)
@@ -232,6 +240,10 @@ public class show_flight extends javax.swing.JFrame {
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -258,7 +270,7 @@ public class show_flight extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(index_, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addComponent(submit_showflights)
                 .addContainerGap())
         );
@@ -274,9 +286,14 @@ public class show_flight extends javax.swing.JFrame {
         refno = BCode.bcode(5);
 
         for (int i = 0; i < passng; i++) {
-            passng_details pd1 = new passng_details(origin, dest, flightno, s_passng, dep, arr, refno);
-            pd1.setVisible(true);
-            pd1.setLocationRelativeTo(null);
+            passng_details pd1;
+            try {
+                pd1 = new passng_details(s_index, refno, ebclass, s_date);
+                pd1.setVisible(true);
+                pd1.setLocationRelativeTo(null);
+            } catch (SQLException ex) {
+                Logger.getLogger(show_flight.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_submit_showflightsActionPerformed
 
@@ -316,6 +333,7 @@ public class show_flight extends javax.swing.JFrame {
     private javax.swing.JTextField index_;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -325,6 +343,7 @@ public class show_flight extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
