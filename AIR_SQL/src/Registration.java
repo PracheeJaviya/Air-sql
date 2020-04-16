@@ -200,9 +200,12 @@ public class Registration extends javax.swing.JFrame {
             CallableStatement AGECHK=conn.prepareCall("{?=call dobchk(?)}");
             AGECHK.setString(2,date);
             AGECHK.registerOutParameter(1,Types.INTEGER);
-            AGECHK.executeUpdate();
+            AGECHK.execute();
             Integer ageret=AGECHK.getInt(1);
-
+//            if (ageret==1)
+//                pst.executeQuery();
+//            else
+//                System.out.println("meh");
             //CHECK IF PASSWORDS MATCH
             CallableStatement PASSCHK =conn.prepareCall("{?=call passchk(?,?)}");
             PASSCHK.setString(2,pass_reg_jPasswordField.getText());
@@ -237,6 +240,8 @@ public class Registration extends javax.swing.JFrame {
             MOBCHK.execute();
             Integer mobret = MOBCHK.getInt(1);
 
+//            String SQLFatal = "INSERT INTO userdetails(\n" +  "name, addr, city, state, country, username, passwd, mobno, email, dob, logon)\n" + "VALUES ('fatal','fatal','fatal','fatal','fatal','fatal','fatal','fatal','fatal','fatal','fatal');";
+//            PreparedStatement fatal = conn.prepareStatement(SQLFatal);
 
 
               if(mobret==0)
