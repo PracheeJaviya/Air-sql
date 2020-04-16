@@ -196,64 +196,64 @@ public class Registration extends javax.swing.JFrame {
 
             //CHECK AGE
             String date = jDateChooser1.getDate().toString();
-//            JDateChooser dob = new JDateChooser();
-//            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-//            String birthday=dateFormat.format(dob);
-//            System.out.println(birthday);
+            System.out.println(date);
             CallableStatement AGECHK=conn.prepareCall("{?=call dobchk(?)}");
             AGECHK.setString(2,date);
             AGECHK.registerOutParameter(1,Types.INTEGER);
-            AGECHK.execute();
+            AGECHK.executeUpdate();
             Integer ageret=AGECHK.getInt(1);
 
             //CHECK IF PASSWORDS MATCH
-            CallableStatement PASSCHK =conn.prepareCall("{?=call passchk(?,?)}");
-            PASSCHK.setString(2,pass_reg_jPasswordField.getText());
-            PASSCHK.setString(3,cpass_reg_jPasswordField.getText());
-            PASSCHK.registerOutParameter(1, Types.INTEGER);
-            PASSCHK.execute();
-            Integer passret = PASSCHK.getInt(1);
+//            CallableStatement PASSCHK =conn.prepareCall("{?=call passchk(?,?)}");
+//            PASSCHK.setString(2,pass_reg_jPasswordField.getText());
+//            PASSCHK.setString(3,cpass_reg_jPasswordField.getText());
+//            PASSCHK.registerOutParameter(1, Types.INTEGER);
+//            PASSCHK.execute();
+//            Integer passret = PASSCHK.getInt(1);
 
 
 
             //CHECK USERNAME
-            CallableStatement USNMCHK =conn.prepareCall("{?=call usnmchk(?)}");
-            USNMCHK.setString(2,user_reg_jTextField.getText());
-            USNMCHK.registerOutParameter(1, Types.INTEGER);
-            USNMCHK.execute();
-            Integer usnmret = USNMCHK.getInt(1);
+//            CallableStatement USNMCHK =conn.prepareCall("{?=call usnmchk(?)}");
+//            USNMCHK.setString(2,user_reg_jTextField.getText());
+//            USNMCHK.registerOutParameter(1, Types.INTEGER);
+//            USNMCHK.execute();
+//            Integer usnmret = USNMCHK.getInt(1);
 
 
 
             // CHECK EMAIL ID
-            CallableStatement MAILCHK =conn.prepareCall("{?=call mailchk(?)}");
-            MAILCHK.setString(2,email_reg_jTextField.getText());
-            MAILCHK.registerOutParameter(1, Types.INTEGER);
-            MAILCHK.execute();
-            Integer mailret = MAILCHK.getInt(1);
+//            CallableStatement MAILCHK =conn.prepareCall("{?=call mailchk(?)}");
+//            MAILCHK.setString(2,email_reg_jTextField.getText());
+//            MAILCHK.registerOutParameter(1, Types.INTEGER);
+//            MAILCHK.execute();
+//            Integer mailret = MAILCHK.getInt(1);
 
 
             // CHECK MOBILE NUMBER
-            CallableStatement MOBCHK =conn.prepareCall("{?=call mobchk(?)}");
-            MOBCHK.setString(2,mobile_reg_jTextField.getText());
-            MOBCHK.registerOutParameter(1, Types.INTEGER);
-            MOBCHK.execute();
-            Integer mobret = MOBCHK.getInt(1);
+//            CallableStatement MOBCHK =conn.prepareCall("{?=call mobchk(?)}");
+//            MOBCHK.setString(2,mobile_reg_jTextField.getText());
+//            MOBCHK.registerOutParameter(1, Types.INTEGER);
+//            MOBCHK.execute();
+//            Integer mobret = MOBCHK.getInt(1);
 
 
 
-              if(mobret==0)
-                  JOptionPane.showMessageDialog(null, "Check your Mobile Number");
-              else if(usnmret==1)
-                  JOptionPane.showMessageDialog(null, "Username taken");
-              else if(mailret==0)
-                  JOptionPane.showMessageDialog(null, "PLease check your email");
-              else if (passret==0)
-                  JOptionPane.showMessageDialog(null, "Passwords do not match");
-              else if (ageret==0)
-                  JOptionPane.showMessageDialog(null, "Underage");
-              else if(mobret==1 && usnmret==0 && mailret==1 && passret==1)
+//              if(mobret==0)
+//                  JOptionPane.showMessageDialog(null, "Check your Mobile Number");
+//              else if(usnmret==1)
+//                  JOptionPane.showMessageDialog(null, "Username taken");
+//              else if(mailret==0)
+//                  JOptionPane.showMessageDialog(null, "PLease check your email");
+//              else if (passret==0)
+//                  JOptionPane.showMessageDialog(null, "Passwords do not match");
+//              else if (ageret==0)
+//                  JOptionPane.showMessageDialog(null, "Underage");
+//              else if(mobret==1 && usnmret==0 && mailret==1 && passret==1)
+            if(ageret==1)
                   pst.executeQuery();
+            else
+                JOptionPane.showMessageDialog(null, "Underage");
 
 
 
