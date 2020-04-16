@@ -43,6 +43,7 @@ public class show_flight extends javax.swing.JFrame {
         initComponents();
         conn = DB_Connect.connect();
         this.s_passng = s_passng;
+<<<<<<< HEAD
         this.s_index = index;
         this.ebclass = ebclass;
         i_index = Integer.parseInt(s_index);
@@ -69,6 +70,13 @@ public class show_flight extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(show_flight.class.getName()).log(Level.SEVERE, null, ex);
         }
+=======
+        this.origin = origin;
+        this.arr = arr;
+        this.dep = dep;
+        this.dest = dest;
+        this.flightno = flightno;
+>>>>>>> bce67f1080a87e87de7f7ee140b097fcd27ab73b
         passng = Integer.parseInt(s_passng);
         total = Integer.parseInt(fare) * passng;
         s_total = Integer.toString(total);
