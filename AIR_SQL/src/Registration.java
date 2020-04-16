@@ -191,7 +191,7 @@ public class Registration extends javax.swing.JFrame {
             pst.setString(7, pass_reg_jPasswordField.getText());
             pst.setString(8, mobile_reg_jTextField.getText());
             pst.setString(9, email_reg_jTextField.getText());
-            pst.setString(10, jDateChooser1.getDate().toString());
+            pst.setString(10, jDateChooser1.getDate().toString().substring(4, 10) + " " + jDateChooser1.getDate().toString().substring(23));
             pst.setInt(11, logon);
 
             //CHECK AGE

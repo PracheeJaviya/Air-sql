@@ -2,6 +2,7 @@
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -33,28 +34,23 @@ public class show_flight extends javax.swing.JFrame {
     String s_date;
     int i_index;
     int total;
-    int passng;
+    int i_passng;
     Connection conn = null;
 
     public show_flight() {
         initComponents();
     }
 
-    public show_flight(String s_passng, String index, String ebclass, String date) throws SQLException {
+    public show_flight(String passng, String index, String ebclass, String date) throws SQLException {
         initComponents();
         conn = DB_Connect.connect();
-        this.s_passng = s_passng;
+        this.s_passng = passng;
         this.s_index = index;
         this.ebclass = ebclass;
         this.s_date = date;
-        this.origin = origin;
-        this.arr = arr;
-        this.dep = dep;
-        this.dest = dest;
-        this.flightno = flightno;
         i_index = Integer.parseInt(s_index);
         try {
-            String SQLQuery = "SELECT a.origin, a.dest, a.flightno , a.dep, a.arr, a.aircraft, a.stops, a.index,b.efare,b.bfare\n" + "FROM public.flightdetails a,public.fare b where a.index = ?;";
+            String SQLQuery = "SELECT a.origin, a.dest, a.flightno , a.dep, a.arr, a.aircraft, a.stops, a.index, b.efare, b.bfare\n" + "FROM public.flightdetails a,public.fare b where a.index = ?;";
             PreparedStatement pst = conn.prepareStatement(SQLQuery);
             pst.setInt(1, i_index);
             ResultSet rs = pst.executeQuery();
@@ -66,7 +62,7 @@ public class show_flight extends javax.swing.JFrame {
                 arr = rs.getString("arr");
                 aircraft = rs.getString("aircraft");
                 stops = rs.getString("stops");
-                if (ebclass == "Economy") {
+                if ("Economy".equals(ebclass)) {
                     fare = rs.getString("efare");
                 } else {
                     fare = rs.getString("bfare");
@@ -76,8 +72,8 @@ public class show_flight extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(show_flight.class.getName()).log(Level.SEVERE, null, ex);
         }
-        passng = Integer.parseInt(s_passng);
-        total = Integer.parseInt(fare) * passng;
+        i_passng = Integer.parseInt(s_passng);
+        total = (Integer.parseInt(fare) * i_passng) / 2;
         s_total = Integer.toString(total);
         jTextField1.setText(origin);
         jTextField2.setText(dest);
@@ -284,16 +280,23 @@ public class show_flight extends javax.swing.JFrame {
 
     private void submit_showflightsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submit_showflightsActionPerformed
         refno = BCode.bcode(5);
-
-        for (int i = 0; i < passng; i++) {
-            passng_details pd1;
+        int i;
+        for (i = 0; i < i_passng; i++) {
             try {
+                passng_details pd1;
                 pd1 = new passng_details(s_index, refno, ebclass, s_date);
                 pd1.setVisible(true);
                 pd1.setLocationRelativeTo(null);
+                dispose();
+
             } catch (SQLException ex) {
                 Logger.getLogger(show_flight.class.getName()).log(Level.SEVERE, null, ex);
             }
+            System.out.println(i_passng);
+        }
+
+        if (i == i_passng) {
+            JOptionPane.showMessageDialog(null, "Your Ticket has been booked Succesfully");
         }
     }//GEN-LAST:event_submit_showflightsActionPerformed
 

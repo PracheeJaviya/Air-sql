@@ -38,6 +38,7 @@ public class passng_details extends javax.swing.JFrame {
     String s_index;
     String fare;
     int i_index;
+    int i_fare;
     Connection conn = null;
 
     public passng_details() {
@@ -78,7 +79,8 @@ public class passng_details extends javax.swing.JFrame {
                 } else {
                     fare = rs.getString("bfare");
                 }
-
+                i_fare = Integer.parseInt(fare);
+                i_fare = i_fare / 2;
             }
 
         } catch (SQLException ex) {
@@ -187,22 +189,6 @@ public class passng_details extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        System.out.println(username);
-        System.out.println(pass_fname.getText());
-        System.out.println(pass_age.getText());
-        System.out.println(pass_gender.getSelectedItem().toString());
-        System.out.println(origin);
-        System.out.println(dest);
-        System.out.println(flightno);
-        System.out.println(dep);
-        System.out.println(arr);
-        System.out.println(aircraft);
-        System.out.println(refno);
-        System.out.println(seatno);
-        System.out.println(date);
-        System.out.println(ebclass);
-        System.out.println(i_index);
-        System.out.println(fare);
         try {
             String sqlquery = "INSERT INTO reservation(\n"
                     + "bcode, username, name, age, gender, seatno, origin, dest, flightno, date, dep, arr, aircraft, ebclass, index, fare)\n"
@@ -223,12 +209,11 @@ public class passng_details extends javax.swing.JFrame {
             pstmt.setString(13, aircraft);
             pstmt.setString(14, ebclass);
             pstmt.setInt(15, i_index);
-            pstmt.setInt(16, Integer.parseInt(fare));
+            pstmt.setInt(16, i_fare);
             pstmt.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(passng_details.class.getName()).log(Level.SEVERE, null, ex);
         }
-
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 

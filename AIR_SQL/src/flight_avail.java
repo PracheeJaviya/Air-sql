@@ -67,11 +67,11 @@ public class flight_avail extends javax.swing.JFrame {
 
             },
             new String [] {
-                "From", "To", "Flight No.", "Departure", "Arrival", "Aircraft", "Stops", "Economy", "Business", "Flight Index"
+                "From", "To", "Flight No.", "Departure", "Arrival", "Aircraft", "Stops", "Fare", "Flight Index"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -113,10 +113,9 @@ public class flight_avail extends javax.swing.JFrame {
         String arr = model.getValueAt(selectedRowIndex, 4).toString();
         String aircraft = model.getValueAt(selectedRowIndex, 5).toString();
         String stops = model.getValueAt(selectedRowIndex, 6).toString();
-        String efare = model.getValueAt(selectedRowIndex, 7).toString();
-        String bfare = model.getValueAt(selectedRowIndex, 8).toString();
-        String index = model.getValueAt(selectedRowIndex, 9).toString();
-        if (ebclass == "Economy") {
+        String fare = model.getValueAt(selectedRowIndex, 7).toString();
+        String index = model.getValueAt(selectedRowIndex, 8).toString();
+        if ("Economy".equals(ebclass)) {
             try {
                 show_flight sf1;
                 sf1 = new show_flight(passng, index, ebclass, s_date);
@@ -230,7 +229,7 @@ public class flight_avail extends javax.swing.JFrame {
         ArrayList<flight> list = flightLists();
         System.out.println(list.size());
         DefaultTableModel model = (DefaultTableModel) flight_jTable.getModel();
-        Object row[] = new Object[10];
+        Object row[] = new Object[9];
         for (int i = 0; i < list.size(); i++) {
             row[0] = list.get(i).getOrigin();
             row[1] = list.get(i).getDest();
@@ -239,9 +238,12 @@ public class flight_avail extends javax.swing.JFrame {
             row[4] = list.get(i).getArr();
             row[5] = list.get(i).getAircraft();
             row[6] = list.get(i).getStops();
-            row[7] = list.get(i).getEfare();
-            row[8] = list.get(i).getBfare();
-            row[9] = list.get(i).getIndex();
+            if ("Economy".equals(ebclass)) {
+                row[7] = list.get(i).getEfare();
+            }else{
+                row[7] = list.get(i).getBfare();
+            }
+            row[8] = list.get(i).getIndex();
             model.addRow(row);
 
         }
