@@ -108,12 +108,6 @@ public class flight_avail extends javax.swing.JFrame {
         int selectedRowIndex = flight_jTable.getSelectedRow();
         String origin = model.getValueAt(selectedRowIndex, 0).toString();
         String dest = model.getValueAt(selectedRowIndex, 1).toString();
-        String flightno = model.getValueAt(selectedRowIndex, 2).toString();
-        String dep = model.getValueAt(selectedRowIndex, 3).toString();
-        String arr = model.getValueAt(selectedRowIndex, 4).toString();
-        String aircraft = model.getValueAt(selectedRowIndex, 5).toString();
-        String stops = model.getValueAt(selectedRowIndex, 6).toString();
-        String fare = model.getValueAt(selectedRowIndex, 7).toString();
         String index = model.getValueAt(selectedRowIndex, 8).toString();
         if ("Economy".equals(ebclass)) {
             try {

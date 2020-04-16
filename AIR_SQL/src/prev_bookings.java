@@ -4,6 +4,7 @@ import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 
 /*
@@ -22,9 +23,9 @@ public final class prev_bookings extends javax.swing.JFrame {
 
     /**
      * Creates new form prev_bookings
+     *
      * @throws java.sql.SQLException
      */
-
     public prev_bookings() throws SQLException {
         initComponents();
         conn = DB_Connect.connect();
@@ -35,7 +36,7 @@ public final class prev_bookings extends javax.swing.JFrame {
         while (rs1.next()) {
             this.username = rs1.getString("username");
         }
-        System.out.println(username);        
+        System.out.println(username);
         showUser();
     }
 
@@ -43,13 +44,13 @@ public final class prev_bookings extends javax.swing.JFrame {
         System.out.println(username);
         ArrayList<reservation> rlist = new ArrayList<>();
         reservation Reservation;
-        String SQLQuery = "SELECT bcode, name, age, gender, origin, dest, flightno, date, dep, arr, seatno FROM reservation"
+        String SQLQuery = "SELECT bcode, name, age, gender, origin, dest, flightno, date, dep, arr, seatno FROM reservation\n"
                 + "WHERE username = ?;";
         PreparedStatement pst = conn.prepareStatement(SQLQuery);
         pst.setString(1, username);
         ResultSet rs = pst.executeQuery();
         while (rs.next()) {
-            
+
             Reservation = new reservation(rs.getString("bcode"), rs.getString("name"), rs.getInt("age"), rs.getString("gender"), rs.getString("origin"), rs.getString("dest"), rs.getString("flightno"), rs.getString("date"), rs.getString("dep"), rs.getString("arr"), rs.getString("seatno"));
             rlist.add(Reservation);
         }
@@ -102,6 +103,11 @@ public final class prev_bookings extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -120,6 +126,22 @@ public final class prev_bookings extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableMouseClicked
+        int i = jTable.getSelectedRow();
+        TableModel model = jTable.getModel();
+        int selectedRowIndex = jTable.getSelectedRow();
+        String refno = model.getValueAt(selectedRowIndex, 0).toString();
+        String name = model.getValueAt(selectedRowIndex, 1).toString();
+        show_booking sb1;
+        try {
+            sb1 = new show_booking(refno, name);
+            sb1.setVisible(true);
+            sb1.setLocationRelativeTo(null);
+        } catch (SQLException ex) {
+            Logger.getLogger(prev_bookings.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jTableMouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
