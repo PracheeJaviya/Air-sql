@@ -23,4 +23,4 @@ CREATE TABLE public.userdetails
 TABLESPACE pg_default;
 
 ALTER TABLE public.userdetails
-    OWNER to panth;
+    OWNER to postgres;

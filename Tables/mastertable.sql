@@ -20,7 +20,7 @@ CREATE TABLE public.reservation
     ebclass character varying COLLATE pg_catalog."default" NOT NULL,
     index integer NOT NULL,
     fare bigint NOT NULL,
-    CONSTRAINT reservation_pkey PRIMARY KEY (bcode),
+    CONSTRAINT reservation_pkey PRIMARY KEY (bcode,name),
     CONSTRAINT reservation_fkey1 FOREIGN KEY (username)
         REFERENCES public.userdetails (username) MATCH SIMPLE
         ON UPDATE NO ACTION
@@ -38,4 +38,4 @@ CREATE TABLE public.reservation
 TABLESPACE pg_default;
 
 ALTER TABLE public.reservation
-    OWNER to panth;
+    OWNER to postgres;

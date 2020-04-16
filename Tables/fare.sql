@@ -14,4 +14,4 @@ CREATE TABLE public.fare
 TABLESPACE pg_default;
 
 ALTER TABLE public.fare
-    OWNER to panth;
+    OWNER to postgres;
