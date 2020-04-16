@@ -224,7 +224,7 @@ public class passng_details extends javax.swing.JFrame {
             pstmt.setString(14, ebclass);
             pstmt.setInt(15, i_index);
             pstmt.setInt(16, Integer.parseInt(fare));
-
+            pstmt.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(passng_details.class.getName()).log(Level.SEVERE, null, ex);
         }
