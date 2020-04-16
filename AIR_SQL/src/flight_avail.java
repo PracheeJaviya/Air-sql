@@ -137,8 +137,6 @@ public class flight_avail extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_flight_jTableMouseClicked
     public ArrayList<flight> flightLists() throws SQLException {
-        System.out.println(origin);
-        System.out.println(dest);
         ArrayList<flight> flightsList = new ArrayList<>();
         flight Flight;
         if (date == 1) {

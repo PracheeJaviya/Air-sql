@@ -66,6 +66,11 @@ public class User_Pilot extends javax.swing.JFrame {
 
         jButton2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton2.setText("Previous Bookings");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jLabel1.setText("User :");
@@ -165,6 +170,17 @@ public class User_Pilot extends javax.swing.JFrame {
             Logger.getLogger(User_Pilot.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_formWindowClosing
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        prev_bookings pb1;
+        try {
+            pb1 = new prev_bookings();
+            pb1.setVisible(true);
+            pb1.setLocationRelativeTo(null);
+        } catch (SQLException ex) {
+            Logger.getLogger(User_Pilot.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
