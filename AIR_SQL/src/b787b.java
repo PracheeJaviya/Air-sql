@@ -26,7 +26,13 @@ public class b787b extends javax.swing.JFrame {
     /**
      * Creates new form b787b
      */
-    public b787b() throws SQLException{
+    public b787b() throws SQLException {
+
+        initComponents();
+    }
+   // public void fetch()throws SQLException
+//    {
+//
 //        conn = DB_Connect.connect();
 //        String SEATQuery= "SELECT * from b787b\n"+"WHERE status = 'T'";
 //        PreparedStatement seatps= conn.prepareStatement(SEATQuery);
@@ -43,28 +49,7 @@ public class b787b extends javax.swing.JFrame {
 //            if(rs.getInt("seat_number")==4)
 //                jButton4.setBackground(Color.RED);
 //        }
-        initComponents();
-    }
-    public void fetch()throws SQLException
-    {
-
-        conn = DB_Connect.connect();
-        String SEATQuery= "SELECT * from b787b\n"+"WHERE status = 'T'";
-        PreparedStatement seatps= conn.prepareStatement(SEATQuery);
-        ResultSet rs=seatps.executeQuery();
-        while(!rs.next())
-        {
-            System.out.println(rs.getInt("seat_number"));
-            if(rs.getInt("seat_number")==1)
-                jButton1.setBackground(Color.RED);
-            if(rs.getInt("seat_number")==2)
-                jButton2.setBackground(Color.RED);
-            if(rs.getInt("seat_number")==3)
-                jButton3.setBackground(Color.RED);
-            if(rs.getInt("seat_number")==4)
-                jButton4.setBackground(Color.RED);
-        }
-    }
+//    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -73,7 +58,7 @@ public class b787b extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents() throws SQLException{
 
         jToggleButton1 = new javax.swing.JToggleButton();
         jPanel1 = new javax.swing.JPanel();
@@ -82,6 +67,29 @@ public class b787b extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         Submit = new javax.swing.JButton();
+        try{
+            conn = DB_Connect.connect();
+            String SEATQuery= "SELECT * from b787b\n"+"WHERE status = 'T'";
+            PreparedStatement seatps= conn.prepareStatement(SEATQuery);
+            ResultSet rs=seatps.executeQuery();
+            while(!rs.next())
+            {
+                System.out.println(rs.getInt("seat_number"));
+                if(rs.getInt("seat_number")==1)
+                    jButton1.setBackground(Color.RED);
+                if(rs.getInt("seat_number")==2)
+                    jButton2.setBackground(Color.RED);
+                if(rs.getInt("seat_number")==3)
+                    jButton3.setBackground(Color.RED);
+                if(rs.getInt("seat_number")==4)
+                    jButton4.setBackground(Color.RED);
+            }
+        }catch(Exception ex)
+        {
+            Logger.getLogger(b787b.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
+
 
         jToggleButton1.setText("jToggleButton1");
 
