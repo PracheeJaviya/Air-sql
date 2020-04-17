@@ -20,6 +20,7 @@ import javax.swing.JOptionPane;
 import java.awt.event.*;
 
 public class b787b extends javax.swing.JFrame {
+
     //public Component jButton1;
     Connection conn = null;
 
@@ -27,10 +28,26 @@ public class b787b extends javax.swing.JFrame {
      * Creates new form b787b
      */
     public b787b() throws SQLException {
-
+        conn = DB_Connect.connect();
         initComponents();
+        conn = DB_Connect.connect();
+        String SEATQuery= "SELECT * from b787b\n"+"WHERE status = 'T'";
+        PreparedStatement seatps= conn.prepareStatement(SEATQuery);
+        ResultSet rs=seatps.executeQuery();
+        while(rs.next())
+        {
+            System.out.println(rs.getInt("seat_number"));
+            if(rs.getInt("seat_number")==1)
+                jButton1.setBackground(Color.RED);
+            if(rs.getInt("seat_number")==2)
+                jButton2.setBackground(Color.RED);
+            if(rs.getInt("seat_number")==3)
+                jButton3.setBackground(Color.RED);
+            if(rs.getInt("seat_number")==4)
+                jButton4.setBackground(Color.RED);
+        }
     }
-   // public void fetch()throws SQLException
+    // public void fetch()throws SQLException
 //    {
 //
 //        conn = DB_Connect.connect();
@@ -58,8 +75,7 @@ public class b787b extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() throws SQLException {
-
+    private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
@@ -67,6 +83,7 @@ public class b787b extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         Submit = new javax.swing.JButton();
+<<<<<<< HEAD
         conn = DB_Connect.connect();
         String SEATQuery= "SELECT * from b787b\n"+"WHERE status = 'T'";
         PreparedStatement seatps= conn.prepareStatement(SEATQuery,ResultSet.TYPE_SCROLL_SENSITIVE,
@@ -89,8 +106,10 @@ public class b787b extends javax.swing.JFrame {
                 jButton4.setBackground(Color.RED);
         }
 
+=======
+>>>>>>> f9ad8aac1f2c2db0e2513ba852c70fc368683df2
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         //jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setText("1");
@@ -142,11 +161,7 @@ public class b787b extends javax.swing.JFrame {
         Submit.setText("Submit");
         Submit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                try {
-                    SubmitActionPerformed(evt);
-                } catch (SQLException throwables) {
-                    throwables.printStackTrace();
-                }
+                SubmitActionPerformed(evt);
             }
         });
 
@@ -155,7 +170,7 @@ public class b787b extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(55, Short.MAX_VALUE)
+                .addContainerGap(56, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -193,7 +208,7 @@ public class b787b extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 285, Short.MAX_VALUE)
+            .addGap(0, 286, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
@@ -214,8 +229,6 @@ public class b787b extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
 
-
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -225,23 +238,19 @@ public class b787b extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {
-        
-        if(jButton1.getBackground()== Color.GREEN){
+
+        if (jButton1.getBackground() == Color.GREEN) {
             jButton1.setBackground(Color.WHITE);
-        }
-        else
-        {
+        } else {
             jButton1.setBackground(Color.GREEN);
         }
-    }                                     
+    }
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
-        if(jButton2.getBackground()== Color.GREEN){
+        if (jButton2.getBackground() == Color.GREEN) {
             jButton2.setBackground(Color.WHITE);
-        }
-        else
-        {
+        } else {
             jButton2.setBackground(Color.GREEN);
         }
     }//GEN-LAST:event_jButton2MouseClicked
@@ -249,11 +258,9 @@ public class b787b extends javax.swing.JFrame {
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
         // TODO add your handling code here:
 
-        if(jButton3.getBackground()== Color.GREEN){
+        if (jButton3.getBackground() == Color.GREEN) {
             jButton3.setBackground(Color.WHITE);
-        }
-        else
-        {
+        } else {
             jButton3.setBackground(Color.GREEN);
         }
     }//GEN-LAST:event_jButton3MouseClicked
@@ -261,48 +268,39 @@ public class b787b extends javax.swing.JFrame {
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
         // TODO add your handling code here:
 
-        if(jButton4.getBackground()== Color.GREEN){
+        if (jButton4.getBackground() == Color.GREEN) {
             jButton4.setBackground(Color.WHITE);
-        }
-        else
-        {
+        } else {
             jButton4.setBackground(Color.GREEN);
         }
     }//GEN-LAST:event_jButton4MouseClicked
 
     private void SubmitActionPerformed(java.awt.event.ActionEvent evt) throws SQLException {//GEN-FIRST:event_SubmitActionPerformed
         // TODO add your handling code here:
-        conn = DB_Connect.connect();
-    try {
+        try {
 
-        if (jButton1.getBackground() == Color.GREEN) {
-            String SQLUpdateQuery = "Update b787b\n"+"set status = 'T'\n"+"where seat_number = 1";
-            PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
-            pstmt.executeUpdate();
+            if (jButton1.getBackground() == Color.GREEN) {
+                String SQLUpdateQuery = "Update b787b\n" + "set status = 'T'\n" + "where seat_number = 1";
+                PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
+                pstmt.executeUpdate();
+            } else if (jButton2.getBackground() == Color.GREEN) {
+                String SQLUpdateQuery = "Update b787b\n" + "set status = 'T'\n" + "where seat_number = 2";
+                PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
+                pstmt.executeUpdate();
+            } else if (jButton3.getBackground() == Color.GREEN) {
+                String SQLUpdateQuery = "Update b787b\n" + "set status = 'T'\n" + "where seat_number = 3";
+                PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
+                pstmt.executeUpdate();
+            } else {
+                String SQLUpdateQuery = "Update b787b\n" + "set status = 'T'\n" + "where seat_number = 4";
+                PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
+                pstmt.executeUpdate();
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(b787b.class.getName()).log(Level.SEVERE, null, ex);
+
         }
-
-       else if (jButton2.getBackground() == Color.GREEN) {
-            String SQLUpdateQuery = "Update b787b\n"+"set status = 'T'\n"+"where seat_number = 2";
-            PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
-            pstmt.executeUpdate();
-        }
-
-        else if (jButton3.getBackground() == Color.GREEN) {
-            String SQLUpdateQuery = "Update b787b\n"+"set status = 'T'\n"+"where seat_number = 3";
-            PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
-            pstmt.executeUpdate();
-        }
-
-        else {
-            String SQLUpdateQuery = "Update b787b\n"+"set status = 'T'\n"+"where seat_number = 4";
-            PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
-            pstmt.executeUpdate();
-        }
-    }catch (Exception ex)
-    {
-        Logger.getLogger(b787b.class.getName()).log(Level.SEVERE, null, ex);
-
-    }
+        dispose();
     }//GEN-LAST:event_SubmitActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -339,10 +337,9 @@ public class b787b extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                try{
+                try {
                     new b787b().setVisible(true);
-                }catch (Exception ex)
-                {
+                } catch (Exception ex) {
                     Logger.getLogger(b787b.class.getName()).log(Level.SEVERE, null, ex);
 
                 }
