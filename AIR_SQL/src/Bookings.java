@@ -23,6 +23,7 @@ public class Bookings extends javax.swing.JFrame {
   Connection conn = null;
     public Bookings() {
         initComponents();
+        jDateChooser1.setMinSelectableDate(new Date());
     }
 
     /**
@@ -136,7 +137,6 @@ public class Bookings extends javax.swing.JFrame {
         flight_avail fd1;
         int fdate;
         //System.out.println(new Date());
-        jDateChooser1.setMinSelectableDate(new Date());
         java.util.Date d = jDateChooser1.getDate();
         String date1=d.toString();
         String day=date1.substring(0, 2);
