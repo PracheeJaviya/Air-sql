@@ -20,13 +20,50 @@ import javax.swing.JOptionPane;
 import java.awt.event.*;
 
 public class b787b extends javax.swing.JFrame {
+    //public Component jButton1;
     Connection conn = null;
 
     /**
      * Creates new form b787b
      */
-    public b787b() {
+    public b787b() throws SQLException{
+//        conn = DB_Connect.connect();
+//        String SEATQuery= "SELECT * from b787b\n"+"WHERE status = 'T'";
+//        PreparedStatement seatps= conn.prepareStatement(SEATQuery);
+//        ResultSet rs=seatps.executeQuery();
+//        while(!rs.next())
+//        {
+//            System.out.println(rs.getInt("seat_number"));
+//            if(rs.getInt("seat_number")==1)
+//                jButton1.setBackground(Color.RED);
+//            if(rs.getInt("seat_number")==2)
+//                jButton2.setBackground(Color.RED);
+//            if(rs.getInt("seat_number")==3)
+//                jButton3.setBackground(Color.RED);
+//            if(rs.getInt("seat_number")==4)
+//                jButton4.setBackground(Color.RED);
+//        }
         initComponents();
+    }
+    public void fetch()throws SQLException
+    {
+
+        conn = DB_Connect.connect();
+        String SEATQuery= "SELECT * from b787b\n"+"WHERE status = 'T'";
+        PreparedStatement seatps= conn.prepareStatement(SEATQuery);
+        ResultSet rs=seatps.executeQuery();
+        while(!rs.next())
+        {
+            System.out.println(rs.getInt("seat_number"));
+            if(rs.getInt("seat_number")==1)
+                jButton1.setBackground(Color.RED);
+            if(rs.getInt("seat_number")==2)
+                jButton2.setBackground(Color.RED);
+            if(rs.getInt("seat_number")==3)
+                jButton3.setBackground(Color.RED);
+            if(rs.getInt("seat_number")==4)
+                jButton4.setBackground(Color.RED);
+        }
     }
 
     /**
@@ -166,6 +203,7 @@ public class b787b extends javax.swing.JFrame {
 
 
 
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -285,7 +323,14 @@ public class b787b extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new b787b().setVisible(true);
+                try{
+                    new b787b().setVisible(true);
+                }catch (Exception ex)
+                {
+                    Logger.getLogger(b787b.class.getName()).log(Level.SEVERE, null, ex);
+
+                }
+
             }
         });
     }

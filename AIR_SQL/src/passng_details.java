@@ -1,4 +1,5 @@
 
+import java.awt.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -6,6 +7,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+//import b787b
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -218,6 +220,22 @@ public class passng_details extends javax.swing.JFrame {
         }
         try{
             model_b787b = new b787b();
+            model_b787b.fetch();
+//            String SEATQuery= "SELECT seat_number from b787.b\n"+"WHERE status = 'T'";
+//            PreparedStatement seatps= conn.prepareStatement(SEATQuery);
+//            ResultSet rs=seatps.executeQuery();
+//            while(!rs.next())
+//            {
+//                if(rs.getInt("seat_number")==1)
+//                    model_b787b.jButton1.setBackground(Color.RED);
+//                if(rs.getInt("seat_number")==2)
+//                    jButton2.setBackground(Color.RED);
+//                if(rs.getInt("seat_number")==3)
+//                    jButton3.setBackground(Color.RED);
+//                if(rs.getInt("seat_number")==4)
+//                    jButton4.setBackground(Color.RED);
+//
+//            }
             model_b787b.setVisible(true);
             model_b787b.setLocationRelativeTo(null);
         }catch (Exception ex) {
