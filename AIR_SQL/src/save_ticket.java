@@ -11,7 +11,7 @@ public class save_ticket extends JPanel
 
     public save_ticket()
     {
-        JFrame frame = new JFrame("TheFrame");
+        JFrame frame = new JFrame("show_booking");
         frame.add(this);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(400,400);
@@ -22,7 +22,7 @@ public class save_ticket extends JPanel
             BufferedImage image = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_RGB);
             Graphics2D graphics2D = image.createGraphics();
             frame.paint(graphics2D);
-            ImageIO.write(image,"png", new File("C:/Users/prach/OneDrive/Desktop/Air-sql/TICKETS/saved.png"));
+            ImageIO.write(image,"png", new File("C:/Users/patel/Desktop/CLG/Sem - 4/DBMS/Air-sql/TICKETS"));
         }
         catch(Exception exception)
         {

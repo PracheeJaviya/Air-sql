@@ -294,10 +294,6 @@ public class show_flight extends javax.swing.JFrame {
             }
             System.out.println(i_passng);
         }
-
-        if (i == i_passng) {
-            JOptionPane.showMessageDialog(null, "Your Ticket has been booked Succesfully");
-        }
     }//GEN-LAST:event_submit_showflightsActionPerformed
 
     /**
