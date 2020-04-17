@@ -10,9 +10,17 @@
  */
 import javax.swing.*;
 import java.awt.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import java.awt.event.*;
 
 public class b787b extends javax.swing.JFrame {
+    Connection conn = null;
 
     /**
      * Creates new form b787b
@@ -30,11 +38,18 @@ public class b787b extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jToggleButton1 = new javax.swing.JToggleButton();
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+<<<<<<< HEAD
         jButton2 = new javax.swing.JToggleButton();
+=======
+        Submit = new javax.swing.JButton();
+
+        jToggleButton1.setText("jToggleButton1");
+>>>>>>> 5f3762ee4271299b5ba7ebd3da178783f7cc598d
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -83,6 +98,7 @@ public class b787b extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+<<<<<<< HEAD
                 .addGap(34, 34, 34)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -92,10 +108,22 @@ public class b787b extends javax.swing.JFrame {
                     .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE)
                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(38, 38, 38))
+=======
+                .addContainerGap(51, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(56, 56, 56))
+>>>>>>> 5f3762ee4271299b5ba7ebd3da178783f7cc598d
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+<<<<<<< HEAD
                 .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE)
@@ -105,13 +133,40 @@ public class b787b extends javax.swing.JFrame {
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(41, Short.MAX_VALUE))
+=======
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(80, Short.MAX_VALUE))
+>>>>>>> 5f3762ee4271299b5ba7ebd3da178783f7cc598d
         );
+
+        Submit.setText("Submit");
+        Submit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                try{
+                   SubmitActionPerformed(evt);}
+                catch(Exception e)
+                {
+                    Logger.getLogger(b787b.class.getName()).log(Level.SEVERE, null, e);
+
+                }
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 285, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(116, Short.MAX_VALUE)
+                .addComponent(Submit)
+                .addGap(104, 104, 104))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
@@ -120,7 +175,10 @@ public class b787b extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 259, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(199, Short.MAX_VALUE)
+                .addComponent(Submit)
+                .addGap(37, 37, 37))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
@@ -131,6 +189,8 @@ public class b787b extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -139,8 +199,8 @@ public class b787b extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        // TODO add your handling code here:
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {
+        
         if(jButton1.getBackground()== Color.GREEN){
             jButton1.setBackground(Color.WHITE);
         }
@@ -148,11 +208,11 @@ public class b787b extends javax.swing.JFrame {
         {
             jButton1.setBackground(Color.GREEN);
         }
-    }//GEN-LAST:event_jButton1MouseClicked
+    }                                     
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
         // TODO add your handling code here:
-        
+
         if(jButton3.getBackground()== Color.GREEN){
             jButton3.setBackground(Color.WHITE);
         }
@@ -164,7 +224,7 @@ public class b787b extends javax.swing.JFrame {
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
         // TODO add your handling code here:
-       
+
         if(jButton4.getBackground()== Color.GREEN){
             jButton4.setBackground(Color.WHITE);
         }
@@ -174,6 +234,7 @@ public class b787b extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton4MouseClicked
 
+<<<<<<< HEAD
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         if(jButton2.getBackground()== Color.GREEN){
             jButton2.setBackground(Color.WHITE);
@@ -183,6 +244,42 @@ public class b787b extends javax.swing.JFrame {
             jButton2.setBackground(Color.GREEN);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+=======
+    private void SubmitActionPerformed(java.awt.event.ActionEvent evt) throws SQLException {//GEN-FIRST:event_SubmitActionPerformed
+        // TODO add your handling code here:
+        conn = DB_Connect.connect();
+    try {
+
+        if (jButton1.getBackground() == Color.GREEN) {
+            String SQLUpdateQuery = "Update b787b" + "set status = 'T'" + "where seat_number = 1";
+            PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
+            pstmt.executeUpdate();
+        }
+
+       else if (jButton2.getBackground() == Color.GREEN) {
+            String SQLUpdateQuery = "Update b787b" + "set status = 'T'" + "where seat_number = 2";
+            PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
+            pstmt.executeUpdate();
+        }
+
+        else if (jButton3.getBackground() == Color.GREEN) {
+            String SQLUpdateQuery = "UPDATE b787b" + "set status = 'T'" + "where seat_number = 3";
+            PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
+            pstmt.executeUpdate();
+        }
+
+        else {
+            String SQLUpdateQuery = "Update b787b" + "set status = 'T'" + "where seat_number = 4";
+            PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
+            pstmt.executeUpdate();
+        }
+    }catch (Exception ex)
+    {
+        Logger.getLogger(b787b.class.getName()).log(Level.SEVERE, null, ex);
+
+    }
+    }//GEN-LAST:event_SubmitActionPerformed
+>>>>>>> 5f3762ee4271299b5ba7ebd3da178783f7cc598d
 
     /**
      * @param args the command line arguments
@@ -220,10 +317,12 @@ public class b787b extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Submit;
     private javax.swing.JButton jButton1;
     private javax.swing.JToggleButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JToggleButton jToggleButton1;
     // End of variables declaration//GEN-END:variables
 }

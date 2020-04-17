@@ -42,6 +42,7 @@ public class passng_details extends javax.swing.JFrame {
     int i_fare;
     Connection conn = null;
 
+
     public passng_details() {
         initComponents();
     }
@@ -189,7 +190,7 @@ public class passng_details extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
+         b787b model_b787b;
         try {
             String sqlquery = "INSERT INTO reservation(\n"
                     + "bcode, username, name, age, gender, seatno, origin, dest, flightno, date, dep, arr, aircraft, ebclass, index, fare)\n"
@@ -215,8 +216,16 @@ public class passng_details extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(passng_details.class.getName()).log(Level.SEVERE, null, ex);
         }
+        try{
+            model_b787b = new b787b();
+            model_b787b.setVisible(true);
+            model_b787b.setLocationRelativeTo(null);
+        }catch (Exception ex) {
+            Logger.getLogger(passng_details.class.getName()).log(Level.SEVERE, null, ex);
+        }
         JOptionPane.showMessageDialog(null, "Your Ticket has been booked Succesfully");
         dispose();
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
