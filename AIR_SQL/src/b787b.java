@@ -69,13 +69,18 @@ public class b787b extends javax.swing.JFrame {
         Submit = new javax.swing.JButton();
         conn = DB_Connect.connect();
         String SEATQuery= "SELECT * from b787b\n"+"WHERE status = 'T'";
-        PreparedStatement seatps= conn.prepareStatement(SEATQuery);
+        PreparedStatement seatps= conn.prepareStatement(SEATQuery,ResultSet.TYPE_SCROLL_SENSITIVE,
+                ResultSet.CONCUR_UPDATABLE);
         ResultSet rs=seatps.executeQuery();
-        while(!rs.next())
+        //rs.first();
+//        System.out.println(rs);
+        while(rs.next())
         {
             System.out.println(rs.getInt("seat_number"));
-            if(rs.getInt("seat_number")==1)
+            if(rs.getInt("seat_number")==1) {
                 jButton1.setBackground(Color.RED);
+                
+            }
             if(rs.getInt("seat_number")==2)
                 jButton2.setBackground(Color.RED);
             if(rs.getInt("seat_number")==3)
@@ -87,7 +92,7 @@ public class b787b extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        //jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setText("1");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -100,7 +105,7 @@ public class b787b extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(255, 255, 255));
+        //jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setText("2");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -113,7 +118,7 @@ public class b787b extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(255, 255, 255));
+       // jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setText("3");
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -126,7 +131,7 @@ public class b787b extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(255, 255, 255));
+       // jButton4.setBackground(new java.awt.Color(255, 255, 255));
         jButton4.setText("4");
         jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
