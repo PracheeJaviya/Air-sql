@@ -85,7 +85,7 @@ public final class prev_bookings extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -141,6 +141,7 @@ public final class prev_bookings extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(prev_bookings.class.getName()).log(Level.SEVERE, null, ex);
         }
+        dispose();
     }//GEN-LAST:event_jTableMouseClicked
 
     public static void main(String args[]) {

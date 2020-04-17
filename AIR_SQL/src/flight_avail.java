@@ -134,7 +134,7 @@ public class flight_avail extends javax.swing.JFrame {
         ArrayList<flight> flightsList = new ArrayList<>();
         flight Flight;
         if (date == 1) {
-            String SQLQuery = "a.origin, a.dest, a.flightno , a.dep, a.arr, a.aircraft, a.stops, a.index, b.efare, b.bfare\n" + "FROM public.flightdetails a,public.fare b where a.aircraft=b.aircraft and a.origin =? and a.dest =? and a.freq LIKE '%1%' ;";
+            String SQLQuery = "SELECT a.origin, a.dest, a.flightno , a.dep, a.arr, a.aircraft, a.stops, a.index, b.efare, b.bfare\n" + "FROM public.flightdetails a,public.fare b where a.aircraft=b.aircraft and a.origin =? and a.dest =? and a.freq LIKE '%1%' ;";
             PreparedStatement pst = conn.prepareStatement(SQLQuery);
             pst.setString(1, origin);
             pst.setString(2, dest);
