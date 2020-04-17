@@ -226,25 +226,25 @@ public class b787b extends javax.swing.JFrame {
     try {
 
         if (jButton1.getBackground() == Color.GREEN) {
-            String SQLUpdateQuery = "Update b787b" + "set status = 'T'" + "where seat_number = 1";
+            String SQLUpdateQuery = "Update b787b\n"+"set status = 'T'\n"+"where seat_number = 1";
             PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
             pstmt.executeUpdate();
         }
 
        else if (jButton2.getBackground() == Color.GREEN) {
-            String SQLUpdateQuery = "Update b787b" + "set status = 'T'" + "where seat_number = 2";
+            String SQLUpdateQuery = "Update b787b\n"+"set status = 'T'\n"+"where seat_number = 2";
             PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
             pstmt.executeUpdate();
         }
 
         else if (jButton3.getBackground() == Color.GREEN) {
-            String SQLUpdateQuery = "UPDATE b787b" + "set status = 'T'" + "where seat_number = 3";
+            String SQLUpdateQuery = "Update b787b\n"+"set status = 'T'\n"+"where seat_number = 3";
             PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
             pstmt.executeUpdate();
         }
 
         else {
-            String SQLUpdateQuery = "Update b787b" + "set status = 'T'" + "where seat_number = 4";
+            String SQLUpdateQuery = "Update b787b\n"+"set status = 'T'\n"+"where seat_number = 4";
             PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
             pstmt.executeUpdate();
         }
