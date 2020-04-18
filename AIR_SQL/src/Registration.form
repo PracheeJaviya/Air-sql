@@ -224,6 +224,9 @@
       </SubComponents>
     </Container>
     <Component class="javax.swing.JTextField" name="city_reg_jTextField">
+      <Events>
+        <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="city_reg_jTextFieldMouseExited"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JPasswordField" name="pass_reg_jPasswordField">
     </Component>

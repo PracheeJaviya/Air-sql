@@ -84,6 +84,16 @@ public class Registration extends javax.swing.JFrame {
         addr_reg_jTextArea.setRows(5);
         jScrollPane1.setViewportView(addr_reg_jTextArea);
 
+        city_reg_jTextField.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                try {
+                    city_reg_jTextFieldMouseExited(evt);
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -180,19 +190,35 @@ public class Registration extends javax.swing.JFrame {
     private void submit_reg_jTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submit_reg_jTextFieldActionPerformed
         try {
             int logon = 0;
-            String SQLQuery = "INSERT INTO userdetails(\n" +  "name, addr, city, state, country, username, passwd, mobno, email, dob, logon)\n" + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+            String SQLQuery = "INSERT INTO userdetails(\n" +  "name, addr, city,state,country, username, passwd, mobno, email, dob, logon)\n" + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?,?,?);";
             PreparedStatement pst = conn.prepareStatement(SQLQuery);
             pst.setString(1, name_reg_jTextField.getText());
             pst.setString(2, addr_reg_jTextArea.getText());
             pst.setString(3, city_reg_jTextField.getText());
-            pst.setString(4, state_reg_jTextField.getText());
-            pst.setString(5, country_reg_jTextField.getText());
+            pst.setString(4,state_reg_jTextField.getText());
+            pst.setString(5,country_reg_jTextField.getText());
             pst.setString(6, user_reg_jTextField.getText());
             pst.setString(7, pass_reg_jPasswordField.getText());
             pst.setString(8, mobile_reg_jTextField.getText());
             pst.setString(9, email_reg_jTextField.getText());
             pst.setString(10, jDateChooser1.getDate().toString().substring(4, 10) + " " + jDateChooser1.getDate().toString().substring(23));
             pst.setInt(11, logon);
+
+            //CHECK CITY
+            CallableStatement CITYCHK =conn.prepareCall("{?=call citychk(?)}");
+            CITYCHK.setString(2,city_reg_jTextField.getText());
+            CITYCHK.registerOutParameter(1, Types.INTEGER);
+            CITYCHK.execute();
+            Integer cityret = CITYCHK.getInt(1);
+
+            //CHECK STATE
+//            CallableStatement STATECHK =conn.prepareCall("{?=call statechk(?)}");
+//            STATECHK.setString(2,state_reg_jTextField.getText());
+//            STATECHK.registerOutParameter(1, Types.INTEGER);
+//            STATECHK.execute();
+//            Integer stateret = STATECHK.getInt(1);
+
+
 
             //CHECK AGE
             String date = jDateChooser1.getDate().toString();
@@ -254,7 +280,11 @@ public class Registration extends javax.swing.JFrame {
                   JOptionPane.showMessageDialog(null, "Passwords do not match");
               else if (ageret==0)
                   JOptionPane.showMessageDialog(null, "Underage");
-              else if(mobret==1 && usnmret==0 && mailret==1 && passret==1 && ageret==1)
+              else if (cityret==0)
+                  JOptionPane.showMessageDialog(null, "City does not exist");
+//              else if (stateret==0)
+//                  JOptionPane.showMessageDialog(null, "State does not exist");
+              else if(mobret==1 && usnmret==0 && mailret==1 && passret==1 && ageret==1 && cityret==1)
                   pst.executeQuery();
             } catch (SQLException ex) {
             Logger.getLogger(Registration.class.getName()).log(Level.SEVERE, null, ex);
@@ -268,6 +298,31 @@ public class Registration extends javax.swing.JFrame {
             Logger.getLogger(Registration.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_submit_reg_jTextFieldActionPerformed
+
+    private void city_reg_jTextFieldMouseExited(java.awt.event.MouseEvent evt) throws SQLException {//GEN-FIRST:event_city_reg_jTextFieldMouseExited
+        // TODO add your handling code here:
+        String StateQuery="SELECT state from place \n"+"WHERE city = ?";
+        PreparedStatement st = conn.prepareStatement(StateQuery,ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        st.setString(1,city_reg_jTextField.getText());
+        ResultSet state = st.executeQuery();
+        String statee =null;
+        System.out.println(state.first());
+        state.beforeFirst();
+        while(state.next()) {
+            statee = state.getString("state");
+            state_reg_jTextField.setText(statee);
+            country_reg_jTextField.setText("India");
+//            String StQuery = "UPDATE  userdetails\n" + "set state = ?, country=? \n" + "where city=?";
+//            PreparedStatement st1 = conn.prepareStatement(StQuery);
+//            st1.setString(1, statee);
+//            st1.setString(2, "India");
+//            st1.setString(3, city_reg_jTextField.getText());
+//            st1.executeUpdate();
+        }
+
+
+
+    }//GEN-LAST:event_city_reg_jTextFieldMouseExited
 
 
     public static void main(String args[]) {

@@ -30,60 +30,60 @@ public class A319B extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        jToggleButton1 = new javax.swing.JToggleButton();
+        jToggleButton2 = new javax.swing.JToggleButton();
+        jToggleButton3 = new javax.swing.JToggleButton();
+        jToggleButton4 = new javax.swing.JToggleButton();
+        jToggleButton5 = new javax.swing.JToggleButton();
+        jToggleButton6 = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("1");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        jToggleButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton1.setText("1");
+        jToggleButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                jToggleButton1MouseClicked(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("2");
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+        jToggleButton2.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton2.setText("2");
+        jToggleButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
+                jToggleButton2MouseClicked(evt);
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("3");
-        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+        jToggleButton3.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton3.setText("3");
+        jToggleButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton3MouseClicked(evt);
+                jToggleButton3MouseClicked(evt);
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("4");
-        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+        jToggleButton4.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton4.setText("4");
+        jToggleButton4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton4MouseClicked(evt);
+                jToggleButton4MouseClicked(evt);
             }
         });
 
-        jButton5.setBackground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("5");
-        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+        jToggleButton5.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton5.setText("5");
+        jToggleButton5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton5MouseClicked(evt);
+                jToggleButton5MouseClicked(evt);
             }
         });
 
-        jButton6.setBackground(new java.awt.Color(255, 255, 255));
-        jButton6.setText("6");
-        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+        jToggleButton6.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton6.setText("6");
+        jToggleButton6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton6MouseClicked(evt);
+                jToggleButton6MouseClicked(evt);
             }
         });
 
@@ -95,17 +95,17 @@ public class A319B extends javax.swing.JFrame {
                 .addGap(36, 36, 36)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jToggleButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jToggleButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jToggleButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jToggleButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(34, 34, 34))
         );
         jPanel1Layout.setVerticalGroup(
@@ -113,16 +113,16 @@ public class A319B extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jToggleButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jToggleButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jToggleButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jToggleButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30))
         );
 
@@ -150,71 +150,71 @@ public class A319B extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void jToggleButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleButton1MouseClicked
         // TODO add your handling code here:
-           if(jButton1.getBackground()== Color.GREEN){
-            jButton1.setBackground(Color.WHITE);
+        if(jToggleButton1.getBackground()== Color.GREEN){
+            jToggleButton1.setBackground(Color.WHITE);
         }
         else
         {
-            jButton1.setBackground(Color.GREEN);
+            jToggleButton1.setBackground(Color.GREEN);
         }
-    }//GEN-LAST:event_jButton1MouseClicked
+    }//GEN-LAST:event_jToggleButton1MouseClicked
 
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+    private void jToggleButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleButton2MouseClicked
         // TODO add your handling code here:
-           if(jButton2.getBackground()== Color.GREEN){
-            jButton2.setBackground(Color.WHITE);
+        if(jToggleButton2.getBackground()== Color.GREEN){
+            jToggleButton2.setBackground(Color.WHITE);
         }
         else
         {
-            jButton2.setBackground(Color.GREEN);
+            jToggleButton2.setBackground(Color.GREEN);
         }
-    }//GEN-LAST:event_jButton2MouseClicked
+    }//GEN-LAST:event_jToggleButton2MouseClicked
 
-    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+    private void jToggleButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleButton3MouseClicked
         // TODO add your handling code here:
-           if(jButton3.getBackground()== Color.GREEN){
-            jButton3.setBackground(Color.WHITE);
+        if(jToggleButton3.getBackground()== Color.GREEN){
+            jToggleButton3.setBackground(Color.WHITE);
         }
         else
         {
-            jButton3.setBackground(Color.GREEN);
+            jToggleButton3.setBackground(Color.GREEN);
         }
-    }//GEN-LAST:event_jButton3MouseClicked
+    }//GEN-LAST:event_jToggleButton3MouseClicked
 
-    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+    private void jToggleButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleButton4MouseClicked
         // TODO add your handling code here:
-           if(jButton4.getBackground()== Color.GREEN){
-            jButton4.setBackground(Color.WHITE);
+        if(jToggleButton4.getBackground()== Color.GREEN){
+            jToggleButton4.setBackground(Color.WHITE);
         }
         else
         {
-            jButton4.setBackground(Color.GREEN);
+            jToggleButton4.setBackground(Color.GREEN);
         }
-    }//GEN-LAST:event_jButton4MouseClicked
+    }//GEN-LAST:event_jToggleButton4MouseClicked
 
-    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+    private void jToggleButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleButton5MouseClicked
         // TODO add your handling code here:
-           if(jButton5.getBackground()== Color.GREEN){
-            jButton5.setBackground(Color.WHITE);
+        if(jToggleButton5.getBackground()== Color.GREEN){
+            jToggleButton5.setBackground(Color.WHITE);
         }
         else
         {
-            jButton5.setBackground(Color.GREEN);
+            jToggleButton5.setBackground(Color.GREEN);
         }
-    }//GEN-LAST:event_jButton5MouseClicked
+    }//GEN-LAST:event_jToggleButton5MouseClicked
 
-    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+    private void jToggleButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleButton6MouseClicked
         // TODO add your handling code here:
-           if(jButton6.getBackground()== Color.GREEN){
-            jButton6.setBackground(Color.WHITE);
+        if(jToggleButton6.getBackground()== Color.GREEN){
+            jToggleButton6.setBackground(Color.WHITE);
         }
         else
         {
-            jButton6.setBackground(Color.GREEN);
+            jToggleButton6.setBackground(Color.GREEN);
         }
-    }//GEN-LAST:event_jButton6MouseClicked
+    }//GEN-LAST:event_jToggleButton6MouseClicked
 
     /**
      * @param args the command line arguments
@@ -252,12 +252,12 @@ public class A319B extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JToggleButton jToggleButton2;
+    private javax.swing.JToggleButton jToggleButton3;
+    private javax.swing.JToggleButton jToggleButton4;
+    private javax.swing.JToggleButton jToggleButton5;
+    private javax.swing.JToggleButton jToggleButton6;
     // End of variables declaration//GEN-END:variables
 }
