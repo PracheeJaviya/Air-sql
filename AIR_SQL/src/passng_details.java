@@ -44,7 +44,6 @@ public class passng_details extends javax.swing.JFrame {
     int i_fare;
     Connection conn = null;
 
-
     public passng_details() {
         initComponents();
     }
@@ -192,7 +191,7 @@ public class passng_details extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         
+
         try {
             String sqlquery = "INSERT INTO reservation(\n"
                     + "bcode, username, name, age, gender, seatno, origin, dest, flightno, date, dep, arr, aircraft, ebclass, index, fare)\n"
@@ -218,15 +217,54 @@ public class passng_details extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(passng_details.class.getName()).log(Level.SEVERE, null, ex);
         }
-        try{
-            b787b model_b787b;
-            model_b787b = new b787b(flightno, date, ebclass);
-            model_b787b.setVisible(true);
-            model_b787b.setLocationRelativeTo(null);
-        }catch (Exception ex) {
+        try {
+            if (aircraft == "B787" & ebclass == "Economy") {
+                B787E model_m;
+                model_m = new B787E(flightno, date, ebclass);
+                model_m.setVisible(true);
+                model_m.setLocationRelativeTo(null);
+            }else if (aircraft == "B787" & ebclass == "Business") {
+                B787B model_m;
+                model_m = new B787B(flightno, date, ebclass);
+                model_m.setVisible(true);
+                model_m.setLocationRelativeTo(null);
+            }else if (aircraft == "B777_ER" & ebclass == "Economy") {
+                B777_ERE model_m;
+                model_m = new B777_ERE(flightno, date, ebclass);
+                model_m.setVisible(true);
+                model_m.setLocationRelativeTo(null);
+            }else if (aircraft == "B777_ER" & ebclass == "Business") {
+                B777_ERB model_m;
+                model_m = new B777_ERB(flightno, date, ebclass);
+                model_m.setVisible(true);
+                model_m.setLocationRelativeTo(null);
+            }else if (aircraft == "A319" & ebclass == "Business") {
+                A319B model_m;
+                model_m = new A319B(flightno, date, ebclass);
+                model_m.setVisible(true);
+                model_m.setLocationRelativeTo(null);
+            }else if (aircraft == "A319" & ebclass == "Economy") {
+                A319E model_m;
+                model_m = new A319E(flightno, date, ebclass);
+                model_m.setVisible(true);
+                model_m.setLocationRelativeTo(null);
+            }
+            else if (aircraft == "A320" & ebclass == "Business") {
+                B787B model_m;
+                model_m = new B787B(flightno, date, ebclass);
+                model_m.setVisible(true);
+                model_m.setLocationRelativeTo(null);
+            }
+            else if (aircraft == "A320" & ebclass == "Economy") {
+                A320E model_m;
+                model_m = new A320E(flightno, date, ebclass);
+                model_m.setVisible(true);
+                model_m.setLocationRelativeTo(null);
+            }
+        } catch (Exception ex) {
             Logger.getLogger(passng_details.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         dispose();
 
     }//GEN-LAST:event_jButton1ActionPerformed

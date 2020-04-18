@@ -1,5 +1,9 @@
 
 import java.awt.Color;
+import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -11,14 +15,74 @@ import java.awt.Color;
  *
  * @author NIsarg Thoriya
  */
-public class b787e extends javax.swing.JFrame {
+public class B787E extends javax.swing.JFrame {
 
     /**
-     * Creates new form b787e
+     * Creates new form B787
      */
-    public b787e() {
+    Connection conn = null;
+    int seat_number;
+    String flightno;
+    String date;
+    String ebclass;
+    
+    public B787E(){
         initComponents();
     }
+    
+    public B787E(final String flightno, final String date, final String ebclass) throws SQLException {
+        initComponents();
+        conn = DB_Connect.connect();
+        this.flightno = flightno;
+        this.date = date;
+        this.ebclass = ebclass;
+        System.out.println(flightno);
+        System.out.println(date);
+        System.out.println(ebclass);
+        final String SEATQuery = "SELECT * from B787\n" + "WHERE flightno = ? and date = ? and class = ?";
+        PreparedStatement seatps = conn.prepareStatement(SEATQuery, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        seatps.setString(1, flightno);
+        seatps.setString(2, date);
+        seatps.setString(3, ebclass);
+
+        final ResultSet rs = seatps.executeQuery();
+        while (rs.next()) {
+            System.out.println(rs.getInt("seat_number"));
+            if (rs.getInt("seat_number") == 1) {
+                jToggleButton1.setBackground(Color.RED);
+                jToggleButton1.setSelected(true);
+            }
+            if (rs.getInt("seat_number") == 2) {
+                jToggleButton2.setBackground(Color.RED);
+                jToggleButton2.setSelected(true);
+            }
+            if (rs.getInt("seat_number") == 3) {
+                jToggleButton3.setBackground(Color.RED);
+                jToggleButton3.setSelected(true);
+            }
+            if (rs.getInt("seat_number") == 4) {
+                jToggleButton4.setBackground(Color.RED);
+                jToggleButton4.setSelected(true);
+            }
+            if (rs.getInt("seat_number") == 5) {
+                jToggleButton5.setBackground(Color.RED);
+                jToggleButton5.setSelected(true);
+            }
+            if (rs.getInt("seat_number") == 6) {
+                jToggleButton6.setBackground(Color.RED);
+                jToggleButton6.setSelected(true);
+            }
+            if (rs.getInt("seat_number") == 7) {
+                jToggleButton7.setBackground(Color.RED);
+                jToggleButton7.setSelected(true);
+            }
+            if (rs.getInt("seat_number") == 8) {
+                jToggleButton8.setBackground(Color.RED);
+                jToggleButton8.setSelected(true);
+            }
+        }
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -38,6 +102,7 @@ public class b787e extends javax.swing.JFrame {
         jToggleButton6 = new javax.swing.JToggleButton();
         jToggleButton7 = new javax.swing.JToggleButton();
         jToggleButton8 = new javax.swing.JToggleButton();
+        submit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -114,6 +179,13 @@ public class b787e extends javax.swing.JFrame {
             }
         });
 
+        submit.setText("Submit");
+        submit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -138,6 +210,10 @@ public class b787e extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(47, 47, 47))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(91, 91, 91)
+                .addComponent(submit)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -158,7 +234,9 @@ public class b787e extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jToggleButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jToggleButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addComponent(submit)
+                .addGap(22, 22, 22))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -174,7 +252,7 @@ public class b787e extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 458, Short.MAX_VALUE)
+            .addGap(0, 500, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addContainerGap()
@@ -187,6 +265,11 @@ public class b787e extends javax.swing.JFrame {
 
     private void jToggleButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleButton1MouseClicked
         // TODO add your handling code here:
+        if (jToggleButton1.isSelected()) {
+            seat_number = 1;
+        } else {
+            seat_number = 0;
+        }
         if(jToggleButton1.getBackground()== Color.GREEN){
             jToggleButton1.setBackground(Color.WHITE);
         }
@@ -202,6 +285,11 @@ public class b787e extends javax.swing.JFrame {
 
     private void jToggleButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleButton2MouseClicked
         // TODO add your handling code here:
+        if (jToggleButton2.isSelected()) {
+            seat_number = 1;
+        } else {
+            seat_number = 0;
+        }
         if(jToggleButton2.getBackground()== Color.GREEN){
             jToggleButton2.setBackground(Color.WHITE);
         }
@@ -213,6 +301,11 @@ public class b787e extends javax.swing.JFrame {
 
     private void jToggleButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleButton3MouseClicked
         // TODO add your handling code here:
+        if (jToggleButton3.isSelected()) {
+            seat_number = 1;
+        } else {
+            seat_number = 0;
+        }
         if(jToggleButton3.getBackground()== Color.GREEN){
             jToggleButton3.setBackground(Color.WHITE);
         }
@@ -224,6 +317,11 @@ public class b787e extends javax.swing.JFrame {
 
     private void jToggleButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleButton4MouseClicked
         // TODO add your handling code here:
+        if (jToggleButton4.isSelected()) {
+            seat_number = 1;
+        } else {
+            seat_number = 0;
+        }
         if(jToggleButton4.getBackground()== Color.GREEN){
             jToggleButton4.setBackground(Color.WHITE);
         }
@@ -235,6 +333,11 @@ public class b787e extends javax.swing.JFrame {
 
     private void jToggleButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleButton5MouseClicked
         // TODO add your handling code here:
+        if (jToggleButton5.isSelected()) {
+            seat_number = 1;
+        } else {
+            seat_number = 0;
+        }
         if(jToggleButton5.getBackground()== Color.GREEN){
             jToggleButton5.setBackground(Color.WHITE);
         }
@@ -246,6 +349,11 @@ public class b787e extends javax.swing.JFrame {
 
     private void jToggleButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleButton6MouseClicked
         // TODO add your handling code here:
+        if (jToggleButton6.isSelected()) {
+            seat_number = 1;
+        } else {
+            seat_number = 0;
+        }
         if(jToggleButton6.getBackground()== Color.GREEN){
             jToggleButton6.setBackground(Color.WHITE);
         }
@@ -257,6 +365,11 @@ public class b787e extends javax.swing.JFrame {
 
     private void jToggleButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleButton7MouseClicked
         // TODO add your handling code here:
+        if (jToggleButton7.isSelected()) {
+            seat_number = 1;
+        } else {
+            seat_number = 0;
+        }
         if(jToggleButton7.getBackground()== Color.GREEN){
             jToggleButton7.setBackground(Color.WHITE);
         }
@@ -268,6 +381,11 @@ public class b787e extends javax.swing.JFrame {
 
     private void jToggleButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleButton8MouseClicked
         // TODO add your handling code here:
+        if (jToggleButton8.isSelected()) {
+            seat_number = 1;
+        } else {
+            seat_number = 0;
+        }
         if(jToggleButton8.getBackground()== Color.GREEN){
             jToggleButton8.setBackground(Color.WHITE);
         }
@@ -276,6 +394,99 @@ public class b787e extends javax.swing.JFrame {
             jToggleButton8.setBackground(Color.GREEN);
         }
     }//GEN-LAST:event_jToggleButton8MouseClicked
+
+    private void submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitActionPerformed
+        try {
+
+            if (jToggleButton1.getBackground() == Color.GREEN) {
+                final String status = "T";
+                final String SQLUpdateQuery = "INSERT into B787\n" + "values(?, ?, ?, ?, ?)";
+                final PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
+                pstmt.setInt(1, seat_number);
+                pstmt.setString(2, status);
+                pstmt.setString(3, flightno);
+                pstmt.setString(4, ebclass);
+                pstmt.setString(5, date);
+                pstmt.execute();
+            } else if (jToggleButton2.getBackground() == Color.GREEN) {
+                final String status = "T";
+                final String SQLUpdateQuery = "INSERT into B787\n" + "values(?, ?, ?, ?, ?)";
+                final PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
+                pstmt.setInt(1, seat_number);
+                pstmt.setString(2, status);
+                pstmt.setString(3, flightno);
+                pstmt.setString(4, ebclass);
+                pstmt.setString(5, date);
+                pstmt.execute();
+            } else if (jToggleButton3.getBackground() == Color.GREEN) {
+                final String status = "T";
+                final String SQLUpdateQuery = "INSERT into B787\n" + "values(?, ?, ?, ?, ?)";
+                final PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
+                pstmt.setInt(1, seat_number);
+                pstmt.setString(2, status);
+                pstmt.setString(3, flightno);
+                pstmt.setString(4, ebclass);
+                pstmt.setString(5, date);
+                pstmt.execute();
+            } else if (jToggleButton4.getBackground() == Color.GREEN) {
+                final String status = "T";
+                final String SQLUpdateQuery = "INSERT into B787\n" + "values(?, ?, ?, ?, ?)";
+                final PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
+                pstmt.setInt(1, seat_number);
+                pstmt.setString(2, status);
+                pstmt.setString(3, flightno);
+                pstmt.setString(4, ebclass);
+                pstmt.setString(5, date);
+                pstmt.execute();
+            } else if (jToggleButton5.getBackground() == Color.GREEN) {
+                final String status = "T";
+                final String SQLUpdateQuery = "INSERT into B787\n" + "values(?, ?, ?, ?, ?)";
+                final PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
+                pstmt.setInt(1, seat_number);
+                pstmt.setString(2, status);
+                pstmt.setString(3, flightno);
+                pstmt.setString(4, ebclass);
+                pstmt.setString(5, date);
+                pstmt.execute();
+            } else if (jToggleButton6.getBackground() == Color.GREEN) {
+                final String status = "T";
+                final String SQLUpdateQuery = "INSERT into B787\n" + "values(?, ?, ?, ?, ?)";
+                final PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
+                pstmt.setInt(1, seat_number);
+                pstmt.setString(2, status);
+                pstmt.setString(3, flightno);
+                pstmt.setString(4, ebclass);
+                pstmt.setString(5, date);
+                pstmt.execute();
+            } else if (jToggleButton7.getBackground() == Color.GREEN) {
+                final String status = "T";
+                final String SQLUpdateQuery = "INSERT into B787\n" + "values(?, ?, ?, ?, ?)";
+                final PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
+                pstmt.setInt(1, seat_number);
+                pstmt.setString(2, status);
+                pstmt.setString(3, flightno);
+                pstmt.setString(4, ebclass);
+                pstmt.setString(5, date);
+                pstmt.execute();
+            } else if (jToggleButton8.getBackground() == Color.GREEN) {
+                final String status = "T";
+                final String SQLUpdateQuery = "INSERT into B787\n" + "values(?, ?, ?, ?, ?)";
+                final PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
+                pstmt.setInt(1, seat_number);
+                pstmt.setString(2, status);
+                pstmt.setString(3, flightno);
+                pstmt.setString(4, ebclass);
+                pstmt.setString(5, date);
+                pstmt.execute();
+            }
+        } catch (final Exception ex) {
+            Logger.getLogger(B787E.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
+        
+        dispose();
+        JOptionPane.showMessageDialog(null, "Your Ticket has been booked Succesfully");
+    }//GEN-LAST:event_submitActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -293,20 +504,20 @@ public class b787e extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(b787e.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(B787E.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(b787e.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(B787E.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(b787e.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(B787E.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(b787e.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(B787E.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new b787e().setVisible(true);
+                new B787E().setVisible(true);
             }
         });
     }
@@ -321,5 +532,6 @@ public class b787e extends javax.swing.JFrame {
     private javax.swing.JToggleButton jToggleButton6;
     private javax.swing.JToggleButton jToggleButton7;
     private javax.swing.JToggleButton jToggleButton8;
+    private javax.swing.JButton submit;
     // End of variables declaration//GEN-END:variables
 }
