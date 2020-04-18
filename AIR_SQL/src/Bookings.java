@@ -135,33 +135,61 @@ public class Bookings extends javax.swing.JFrame {
         String origin = from_jComboBox.getSelectedItem().toString();
         String dest = to_jComboBox.getSelectedItem().toString();
         flight_avail fd1;
-        int fdate;
+        int fdate=0;
         //System.out.println(new Date());
         java.util.Date d = jDateChooser1.getDate();
         String date1=d.toString();
         System.out.println(date1);
-        String day=date1.substring(0, 2);
+        String day=date1.substring(0, 3);
+        System.out.println(day);
         String date = date1.substring(0, 10);
         System.out.println(date);
-        if(day.compareTo("Mon")==0)
-            fdate=1;
-        else if(day.compareTo("Tue")==0)
-            fdate=2;
-        else if(day.compareTo("Wed")==0)
-            fdate=3;
-        else if(day.compareTo("Thu")==0)
-            fdate=4;
-        if(day.compareTo("Fri")==0)
-           fdate=5;
-        if(day.compareTo("Sat")==0)
-            fdate=6;
-        else
-            fdate =7;
+        switch (day)
+        {
+            case "Mon":
+            {
+                fdate = 1;
+                break;
+            }
+
+            case "Tue":
+            {
+                fdate = 2;
+                break;
+            }
+
+            case "Wed":
+            {
+                fdate = 3;
+                break;
+            }
+
+            case "Thu":
+            {
+                fdate = 4;
+                break;
+            }
+            case "Fri":
+            {
+                fdate = 5;
+                break;
+            }
+            case "Sat":
+            {
+                fdate = 6;
+                break;
+            }
+            case "Sun":
+            {
+                fdate = 7;
+                break;
+            }
+        }
 
         String passng1 = passng_jTextField.getText();
         String ebclass;
         ebclass = ebclass_jComboBox.getSelectedItem().toString();
-//        System.out.println(date);
+        System.out.println("bookings class"+ebclass);
         try {
             fd1 = new flight_avail(origin, dest, fdate, date, passng1, ebclass);
             fd1.setVisible(true);

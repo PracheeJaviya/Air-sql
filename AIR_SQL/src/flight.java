@@ -7,11 +7,10 @@
 
 class flight {
 
-    public flight(String origin, String dest, String flightno, String dep, String arr, String aircraft, int stops,int efare,int bfare,int index) {
+    public flight(String origin, String dest, String flightno, String dep, String arr, String aircraft, int stops,int index,int efare,int bfare) {
         this.origin = origin;
         this.dest = dest;
         this.flightno = flightno;
-        //this.freq = freq;
         this.dep = dep;
         this.arr = arr;
         this.aircraft = aircraft;

@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 public class Registration extends javax.swing.JFrame {
 
     Connection conn = null;
-
+    int ct=1;
     public Registration() throws SQLException {
         initComponents();
         conn = DB_Connect.connect();
@@ -195,8 +195,8 @@ public class Registration extends javax.swing.JFrame {
             pst.setString(1, name_reg_jTextField.getText());
             pst.setString(2, addr_reg_jTextArea.getText());
             pst.setString(3, city_reg_jTextField.getText());
-            pst.setString(4,state_reg_jTextField.getText());
-            pst.setString(5,country_reg_jTextField.getText());
+            pst.setString(4, state_reg_jTextField.getText());
+            pst.setString(5, country_reg_jTextField.getText());
             pst.setString(6, user_reg_jTextField.getText());
             pst.setString(7, pass_reg_jPasswordField.getText());
             pst.setString(8, mobile_reg_jTextField.getText());
@@ -210,15 +210,7 @@ public class Registration extends javax.swing.JFrame {
             CITYCHK.registerOutParameter(1, Types.INTEGER);
             CITYCHK.execute();
             Integer cityret = CITYCHK.getInt(1);
-
-            //CHECK STATE
-//            CallableStatement STATECHK =conn.prepareCall("{?=call statechk(?)}");
-//            STATECHK.setString(2,state_reg_jTextField.getText());
-//            STATECHK.registerOutParameter(1, Types.INTEGER);
-//            STATECHK.execute();
-//            Integer stateret = STATECHK.getInt(1);
-
-
+            //System.out.println("cityret "+cityret);
 
             //CHECK AGE
             String date = jDateChooser1.getDate().toString();
@@ -280,10 +272,8 @@ public class Registration extends javax.swing.JFrame {
                   JOptionPane.showMessageDialog(null, "Passwords do not match");
               else if (ageret==0)
                   JOptionPane.showMessageDialog(null, "Underage");
-              else if (cityret==0)
+              else if (cityret==0 && ct == 0)
                   JOptionPane.showMessageDialog(null, "City does not exist");
-//              else if (stateret==0)
-//                  JOptionPane.showMessageDialog(null, "State does not exist");
               else if(mobret==1 && usnmret==0 && mailret==1 && passret==1 && ageret==1 && cityret==1)
                   pst.executeQuery();
             } catch (SQLException ex) {
@@ -312,16 +302,10 @@ public class Registration extends javax.swing.JFrame {
             statee = state.getString("state");
             state_reg_jTextField.setText(statee);
             country_reg_jTextField.setText("India");
-//            String StQuery = "UPDATE  userdetails\n" + "set state = ?, country=? \n" + "where city=?";
-//            PreparedStatement st1 = conn.prepareStatement(StQuery);
-//            st1.setString(1, statee);
-//            st1.setString(2, "India");
-//            st1.setString(3, city_reg_jTextField.getText());
-//            st1.executeUpdate();
+
         }
-
-
-
+        if(statee == null)
+            ct=0;
     }//GEN-LAST:event_city_reg_jTextFieldMouseExited
 
 

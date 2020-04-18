@@ -48,7 +48,13 @@ public class show_flight extends javax.swing.JFrame {
         this.s_index = index;
         this.ebclass = ebclass;
         this.s_date = date;
-        i_index = Integer.parseInt(s_index);
+        try {
+            i_index = Integer.parseInt(s_index);
+        }catch (NumberFormatException ex)
+        {
+            Logger.getLogger(show_flight.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
         try {
             String SQLQuery = "SELECT a.origin, a.dest, a.flightno , a.dep, a.arr, a.aircraft, a.stops, a.index, b.efare, b.bfare\n" + "FROM public.flightdetails a,public.fare b where a.index = ?;";
             PreparedStatement pst = conn.prepareStatement(SQLQuery);
@@ -72,9 +78,17 @@ public class show_flight extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(show_flight.class.getName()).log(Level.SEVERE, null, ex);
         }
-        i_passng = Integer.parseInt(s_passng);
-        total = (Integer.parseInt(fare) * i_passng) / 2;
-        s_total = Integer.toString(total);
+        try {
+            i_passng = Integer.parseInt(s_passng);
+            total = (Integer.parseInt(fare) * i_passng) / 2;
+            s_total = Integer.toString(total);
+
+
+        }catch (NumberFormatException ex)
+        {
+            Logger.getLogger(show_flight.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
         jTextField1.setText(origin);
         jTextField2.setText(dest);
         jTextField3.setText(flightno);
