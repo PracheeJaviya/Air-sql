@@ -221,7 +221,6 @@ public class passng_details extends javax.swing.JFrame {
         try{
             b787b model_b787b;
             model_b787b = new b787b();
-            //model_b787b.fetch();
             model_b787b.setVisible(true);
             model_b787b.setLocationRelativeTo(null);
         }catch (Exception ex) {
