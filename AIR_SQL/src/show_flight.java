@@ -56,22 +56,28 @@ public class show_flight extends javax.swing.JFrame {
 
         }
         try {
-            String SQLQuery = "SELECT a.origin, a.dest, a.flightno , a.dep, a.arr, a.aircraft, a.stops, a.index, b.efare, b.bfare\n" + "FROM public.flightdetails a,public.fare b where a.index = ?;";
+            String SQLQuery = "SELECT a.origin, a.dest, a.flightno , a.dep, a.arr, a.aircraft, a.stops, a.index, b.efare, b.bfare\n" + "FROM public.flightdetails a,public.fare b where a.aircraft=b.aircraft and a.index = ?;";
             PreparedStatement pst = conn.prepareStatement(SQLQuery);
             pst.setInt(1, i_index);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
-                origin = rs.getString("origin");
-                dest = rs.getString("dest");
-                flightno = rs.getString("flightno");
-                dep = rs.getString("dep");
-                arr = rs.getString("arr");
-                aircraft = rs.getString("aircraft");
-                stops = rs.getString("stops");
-                if ("Economy".equals(ebclass)) {
-                    fare = rs.getString("efare");
-                } else {
-                    fare = rs.getString("bfare");
+                System.out.println("i_index "+i_index);
+                System.out.println(rs.getInt("index"));
+                if(i_index == rs.getInt("index")) {
+                    origin = rs.getString("origin");
+                    dest = rs.getString("dest");
+                    flightno = rs.getString("flightno");
+                    dep = rs.getString("dep");
+                    arr = rs.getString("arr");
+                    aircraft = rs.getString("aircraft");
+                    stops = rs.getString("stops");
+                    if ("Economy".compareTo(ebclass) == 0) {
+                        fare = rs.getString("efare");
+                        System.out.println("efare me hu");
+                    } else {
+                        fare = rs.getString("bfare");
+                        System.out.println("bfare me hu");
+                    }
                 }
 
             }
@@ -80,9 +86,12 @@ public class show_flight extends javax.swing.JFrame {
         }
         try {
             i_passng = Integer.parseInt(s_passng);
-            total = (Integer.parseInt(fare) * i_passng) / 2;
+            total = Integer.parseInt(fare) * i_passng;
             s_total = Integer.toString(total);
-
+            System.out.println(fare);
+            System.out.println(i_passng);
+            System.out.println(total);
+            System.out.println(s_total);
 
         }catch (NumberFormatException ex)
         {
@@ -92,12 +101,12 @@ public class show_flight extends javax.swing.JFrame {
         jTextField1.setText(origin);
         jTextField2.setText(dest);
         jTextField3.setText(flightno);
-        jTextField9.setText(s_passng);
+        jTextField4.setText(s_total);
         jTextField5.setText(dep);
         jTextField6.setText(arr);
         jTextField7.setText(aircraft);
         jTextField8.setText(stops);
-        jTextField4.setText(s_total);
+        jTextField9.setText(s_passng);
         jTextField10.setText(s_date);
         index_.setText(s_index);
     }
