@@ -27,8 +27,12 @@ public class A320B extends javax.swing.JFrame {
     String flightno;
     String date;
     String ebclass;
-    public A320B(final String flightno, final String date, final String ebclass)throws SQLException  {
+    String refno;
+    String name;
+    public A320B(final String flightno, final String date, final String ebclass, String bcode, String name)throws SQLException  {
         conn = DB_Connect.connect();
+        this.refno = bcode;
+        this.name = name;
         this.flightno = flightno;
         this.date = date;
         this.ebclass = ebclass;
@@ -89,11 +93,6 @@ public class A320B extends javax.swing.JFrame {
 
         jToggleButton1.setBackground(new java.awt.Color(255, 255, 255));
         jToggleButton1.setText("1");
-        jToggleButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jToggleButton1MouseClicked(evt);
-            }
-        });
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jToggleButton1ActionPerformed(evt);
@@ -102,11 +101,6 @@ public class A320B extends javax.swing.JFrame {
 
         jToggleButton2.setBackground(new java.awt.Color(255, 255, 255));
         jToggleButton2.setText("2");
-        jToggleButton2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jToggleButton2MouseClicked(evt);
-            }
-        });
         jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jToggleButton2ActionPerformed(evt);
@@ -115,11 +109,6 @@ public class A320B extends javax.swing.JFrame {
 
         jToggleButton3.setBackground(new java.awt.Color(255, 255, 255));
         jToggleButton3.setText("3");
-        jToggleButton3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jToggleButton3MouseClicked(evt);
-            }
-        });
         jToggleButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jToggleButton3ActionPerformed(evt);
@@ -129,11 +118,6 @@ public class A320B extends javax.swing.JFrame {
         jToggleButton4.setBackground(new java.awt.Color(255, 255, 255));
         jToggleButton4.setText("4");
         jToggleButton4.setToolTipText("");
-        jToggleButton4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jToggleButton4MouseClicked(evt);
-            }
-        });
         jToggleButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jToggleButton4ActionPerformed(evt);
@@ -206,110 +190,78 @@ public class A320B extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jToggleButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleButton1MouseClicked
-        // TODO add your handling code here:
-        if(jToggleButton1.getBackground()== Color.GREEN){
-            jToggleButton1.setBackground(Color.WHITE);
-        }
-        else
-        {
-            jToggleButton1.setBackground(Color.GREEN);
-        }
-    }//GEN-LAST:event_jToggleButton1MouseClicked
-
-    private void jToggleButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleButton2MouseClicked
-        // TODO add your handling code here:
-        if(jToggleButton2.getBackground()== Color.GREEN){
-            jToggleButton2.setBackground(Color.WHITE);
-        }
-        else
-        {
-            jToggleButton2.setBackground(Color.GREEN);
-        }
-    }//GEN-LAST:event_jToggleButton2MouseClicked
-
-    private void jToggleButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleButton3MouseClicked
-        // TODO add your handling code here:
-        if(jToggleButton3.getBackground()== Color.GREEN){
-            jToggleButton3.setBackground(Color.WHITE);
-        }
-        else
-        {
-            jToggleButton3.setBackground(Color.GREEN);
-        }
-    }//GEN-LAST:event_jToggleButton3MouseClicked
-
-    private void jToggleButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleButton4MouseClicked
-        // TODO add your handling code here:
-        if(jToggleButton4.getBackground()== Color.GREEN){
-            jToggleButton4.setBackground(Color.WHITE);
-        }
-        else
-        {
-            jToggleButton4.setBackground(Color.GREEN);
-        }
-    }//GEN-LAST:event_jToggleButton4MouseClicked
-
     private void SubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitActionPerformed
-        // TODO add your handling code here:
-         try {
-
-            if (jToggleButton1.getBackground() == Color.GREEN) {
-                final String status = "T";
-                final String SQLUpdateQuery = "INSERT into A320\n" + "values(?, ?, ?, ?, ?)";
-                final PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
-                pstmt.setInt(1, seat_number);
-                pstmt.setString(2, status);
-                pstmt.setString(3, flightno);
-                pstmt.setString(4, ebclass);
-                pstmt.setString(5, date);
-                pstmt.execute();
-            } else if (jToggleButton2.getBackground() == Color.GREEN) {
-                final String status = "T";
-                final String SQLUpdateQuery = "INSERT into A320\n" + "values(?, ?, ?, ?, ?)";
-                final PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
-                pstmt.setInt(1, seat_number);
-                pstmt.setString(2, status);
-                pstmt.setString(3, flightno);
-                pstmt.setString(4, ebclass);
-                pstmt.setString(5, date);
-                pstmt.execute();
-            } else if (jToggleButton3.getBackground() == Color.GREEN) {
-                final String status = "T";
-                final String SQLUpdateQuery = "INSERT into A320\n" + "values(?, ?, ?, ?, ?)";
-                final PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
-                pstmt.setInt(1, seat_number);
-                pstmt.setString(2, status);
-                pstmt.setString(3, flightno);
-                pstmt.setString(4, ebclass);
-                pstmt.setString(5, date);
-                pstmt.execute();
-            }else {
-                final String status = "T";
-                final String SQLUpdateQuery = "INSERT into A320\n" + "values(?, ?, ?, ?, ?)";
-                final PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
-                pstmt.setInt(1, seat_number);
-                pstmt.setString(2, status);
-                pstmt.setString(3, flightno);
-                pstmt.setString(4, ebclass);
-                pstmt.setString(5, date);
-                pstmt.execute();
-            }
-        } catch (final Exception ex) {
+         try {                                       
+             // TODO add your handling code here:
+             try {
+                 
+                 if (jToggleButton1.getBackground() == Color.GREEN) {
+                     final String status = "T";
+                     final String SQLUpdateQuery = "INSERT into A320\n" + "values(?, ?, ?, ?, ?)";
+                     final PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
+                     pstmt.setInt(1, seat_number);
+                     pstmt.setString(2, status);
+                     pstmt.setString(3, flightno);
+                     pstmt.setString(4, ebclass);
+                     pstmt.setString(5, date);
+                     pstmt.execute();
+                 } else if (jToggleButton2.getBackground() == Color.GREEN) {
+                     final String status = "T";
+                     final String SQLUpdateQuery = "INSERT into A320\n" + "values(?, ?, ?, ?, ?)";
+                     final PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
+                     pstmt.setInt(1, seat_number);
+                     pstmt.setString(2, status);
+                     pstmt.setString(3, flightno);
+                     pstmt.setString(4, ebclass);
+                     pstmt.setString(5, date);
+                     pstmt.execute();
+                 } else if (jToggleButton3.getBackground() == Color.GREEN) {
+                     final String status = "T";
+                     final String SQLUpdateQuery = "INSERT into A320\n" + "values(?, ?, ?, ?, ?)";
+                     final PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
+                     pstmt.setInt(1, seat_number);
+                     pstmt.setString(2, status);
+                     pstmt.setString(3, flightno);
+                     pstmt.setString(4, ebclass);
+                     pstmt.setString(5, date);
+                     pstmt.execute();
+                 }else {
+                     final String status = "T";
+                     final String SQLUpdateQuery = "INSERT into A320\n" + "values(?, ?, ?, ?, ?)";
+                     final PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
+                     pstmt.setInt(1, seat_number);
+                     pstmt.setString(2, status);
+                     pstmt.setString(3, flightno);
+                     pstmt.setString(4, ebclass);
+                     pstmt.setString(5, date);
+                     pstmt.execute();
+                 }
+             } catch (final Exception ex) {
+                 Logger.getLogger(A320B.class.getName()).log(Level.SEVERE, null, ex);
+                 
+             }
+             
+             String SQLQuery = "Update reservation\n"
+                     + "set seatno = ?\n"
+                     + "where bcode = ? and name = ?";
+             PreparedStatement pst = conn.prepareStatement(SQLQuery);
+             pst.setString(1, String.valueOf(seat_number));
+             pst.setString(2, refno);
+             pst.setString(3, name);
+             pst.executeUpdate();
+             
+             dispose();
+             JOptionPane.showMessageDialog(null, "Your Ticket has been booked Succesfully");
+         } catch (SQLException ex) {
             Logger.getLogger(A320B.class.getName()).log(Level.SEVERE, null, ex);
 
         }
-        
-        dispose();
-        JOptionPane.showMessageDialog(null, "Your Ticket has been booked Succesfully");
     }//GEN-LAST:event_SubmitActionPerformed
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
         // TODO add your handling code here:
         if (jToggleButton1.isSelected()) {
             seat_number = 1;
-        }else{
-            seat_number = 0;
         }
 
         if (jToggleButton1.getBackground() == Color.GREEN) {
@@ -323,8 +275,6 @@ public class A320B extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (jToggleButton2.isSelected()) {
             seat_number = 1;
-        }else{
-            seat_number = 0;
         }
 
         if (jToggleButton2.getBackground() == Color.GREEN) {
@@ -338,8 +288,6 @@ public class A320B extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (jToggleButton3.isSelected()) {
             seat_number = 1;
-        }else{
-            seat_number = 0;
         }
 
         if (jToggleButton3.getBackground() == Color.GREEN) {
@@ -353,10 +301,7 @@ public class A320B extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (jToggleButton4.isSelected()) {
             seat_number = 1;
-        }else{
-            seat_number = 0;
         }
-
         if (jToggleButton4.getBackground() == Color.GREEN) {
             jToggleButton4.setBackground(Color.WHITE);
         } else {

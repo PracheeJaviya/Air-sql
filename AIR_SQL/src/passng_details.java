@@ -220,44 +220,44 @@ public class passng_details extends javax.swing.JFrame {
         try {
             if (aircraft == "B787" & ebclass == "Economy") {
                 B787E model_m;
-                model_m = new B787E(flightno, date, ebclass);
+                model_m = new B787E(flightno, date, ebclass, refno, name);
                 model_m.setVisible(true);
                 model_m.setLocationRelativeTo(null);
             }else if (aircraft == "B787" & ebclass == "Business") {
                 B787B model_m;
-                model_m = new B787B(flightno, date, ebclass);
+                model_m = new B787B(flightno, date, ebclass, refno, name);
                 model_m.setVisible(true);
                 model_m.setLocationRelativeTo(null);
             }else if (aircraft == "B777_ER" & ebclass == "Economy") {
                 B777_ERE model_m;
-                model_m = new B777_ERE(flightno, date, ebclass);
+                model_m = new B777_ERE(flightno, date, ebclass, refno, name);
                 model_m.setVisible(true);
                 model_m.setLocationRelativeTo(null);
             }else if (aircraft == "B777_ER" & ebclass == "Business") {
                 B777_ERB model_m;
-                model_m = new B777_ERB(flightno, date, ebclass);
+                model_m = new B777_ERB(flightno, date, ebclass, refno, name);
                 model_m.setVisible(true);
                 model_m.setLocationRelativeTo(null);
             }else if (aircraft == "A319" & ebclass == "Business") {
                 A319B model_m;
-                model_m = new A319B(flightno, date, ebclass);
+                model_m = new A319B(flightno, date, ebclass, refno, name);
                 model_m.setVisible(true);
                 model_m.setLocationRelativeTo(null);
             }else if (aircraft == "A319" & ebclass == "Economy") {
                 A319E model_m;
-                model_m = new A319E(flightno, date, ebclass);
+                model_m = new A319E(flightno, date, ebclass, refno, name);
                 model_m.setVisible(true);
                 model_m.setLocationRelativeTo(null);
             }
             else if (aircraft == "A320" & ebclass == "Business") {
                 B787B model_m;
-                model_m = new B787B(flightno, date, ebclass);
+                model_m = new B787B(flightno, date, ebclass, refno, name);
                 model_m.setVisible(true);
                 model_m.setLocationRelativeTo(null);
             }
             else if (aircraft == "A320" & ebclass == "Economy") {
                 A320E model_m;
-                model_m = new A320E(flightno, date, ebclass);
+                model_m = new A320E(flightno, date, ebclass, refno, name);
                 model_m.setVisible(true);
                 model_m.setLocationRelativeTo(null);
             }
