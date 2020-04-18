@@ -218,50 +218,58 @@ public class passng_details extends javax.swing.JFrame {
             Logger.getLogger(passng_details.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            if (aircraft == "B787" & ebclass == "Economy") {
+            if ("B787".equals(aircraft) && "Economy".equals(ebclass)) {
+                System.out.println("B787");
                 B787E model_m;
-                model_m = new B787E(flightno, date, ebclass, refno, name);
+                model_m = new B787E(flightno, date, ebclass, refno, pass_fname.getText());
                 model_m.setVisible(true);
                 model_m.setLocationRelativeTo(null);
-            }else if (aircraft == "B787" & ebclass == "Business") {
+            }else if ("B787".equals(aircraft) && "Business".equals(ebclass)) {
+                System.out.println("B787");
                 B787B model_m;
-                model_m = new B787B(flightno, date, ebclass, refno, name);
+                model_m = new B787B(flightno, date, ebclass, refno, pass_fname.getText());
                 model_m.setVisible(true);
                 model_m.setLocationRelativeTo(null);
-            }else if (aircraft == "B777_ER" & ebclass == "Economy") {
+            }else if ("B777-ER".equals(aircraft) && "Economy".equals(ebclass)) {
+                System.out.println("B777-ER");
                 B777_ERE model_m;
-                model_m = new B777_ERE(flightno, date, ebclass, refno, name);
+                model_m = new B777_ERE(flightno, date, ebclass, refno, pass_fname.getText());
                 model_m.setVisible(true);
                 model_m.setLocationRelativeTo(null);
-            }else if (aircraft == "B777_ER" & ebclass == "Business") {
+            }else if ("B777-ER".equals(aircraft) && "Business".equals(ebclass)) {
+                System.out.println("B777-ER");
                 B777_ERB model_m;
-                model_m = new B777_ERB(flightno, date, ebclass, refno, name);
+                model_m = new B777_ERB(flightno, date, ebclass, refno, pass_fname.getText());
                 model_m.setVisible(true);
                 model_m.setLocationRelativeTo(null);
-            }else if (aircraft == "A319" & ebclass == "Business") {
+            }else if ("A-319".equals(aircraft) && "Business".equals(ebclass)) {
+                System.out.println("A319");
                 A319B model_m;
-                model_m = new A319B(flightno, date, ebclass, refno, name);
+                model_m = new A319B(flightno, date, ebclass, refno, pass_fname.getText());
                 model_m.setVisible(true);
                 model_m.setLocationRelativeTo(null);
-            }else if (aircraft == "A319" & ebclass == "Economy") {
+            }else if ("A-319".equals(aircraft) && "Economy".equals(ebclass)) {
+                System.out.println("A319");
                 A319E model_m;
-                model_m = new A319E(flightno, date, ebclass, refno, name);
+                model_m = new A319E(flightno, date, ebclass, refno, pass_fname.getText());
                 model_m.setVisible(true);
                 model_m.setLocationRelativeTo(null);
             }
-            else if (aircraft == "A320" & ebclass == "Business") {
+            else if ("A-320".equals(aircraft) && "Business".equals(ebclass)) {
+                System.out.println("A320");
                 B787B model_m;
-                model_m = new B787B(flightno, date, ebclass, refno, name);
+                model_m = new B787B(flightno, date, ebclass, refno, pass_fname.getText());
                 model_m.setVisible(true);
                 model_m.setLocationRelativeTo(null);
             }
-            else if (aircraft == "A320" & ebclass == "Economy") {
+            else if ("A-320".equals(aircraft) && "Economy".equals(ebclass)) {
+                System.out.println("A320");
                 A320E model_m;
-                model_m = new A320E(flightno, date, ebclass, refno, name);
+                model_m = new A320E(flightno, date, ebclass, refno, pass_fname.getText());
                 model_m.setVisible(true);
                 model_m.setLocationRelativeTo(null);
             }
-        } catch (Exception ex) {
+        } catch (SQLException ex) {
             Logger.getLogger(passng_details.class.getName()).log(Level.SEVERE, null, ex);
         }
 

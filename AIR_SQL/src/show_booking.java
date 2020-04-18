@@ -20,6 +20,11 @@ public class show_booking extends javax.swing.JFrame {
     String refno;
     String name;
     int value;
+    String seatno;
+    String aircraft;
+    String date;
+    String flightno;
+    String ebclass;
     Connection conn = null;
 
     public show_booking() {
@@ -33,7 +38,7 @@ public class show_booking extends javax.swing.JFrame {
         this.name = name;
         jLabel12.setText(refno);
         jLabel13.setText(name);
-        String SQLQuery = "SELECT age, gender, origin, dest, flightno, date, dep, arr, seatno FROM reservation\n"
+        String SQLQuery = "SELECT age, gender, origin, dest, flightno, date, dep, arr, seatno, aircraft, ebclass FROM reservation\n"
                 + "WHERE name = ? and bcode = ?;";
         PreparedStatement pstmt = conn.prepareStatement(SQLQuery);
         pstmt.setString(1, name);
@@ -50,6 +55,11 @@ public class show_booking extends javax.swing.JFrame {
             jLabel20.setText(rs.getString("dep"));
             jLabel21.setText(rs.getString("arr"));
             jLabel22.setText(rs.getString("seatno"));
+            seatno = rs.getString("seatno");
+            aircraft = rs.getString("aircraft");
+            flightno = rs.getString("flightno");
+            date = rs.getString("date");
+            ebclass = rs.getString("ebclass");
         }
     }
 
@@ -276,22 +286,71 @@ public class show_booking extends javax.swing.JFrame {
         int yes = showConfirmDialog(null, "Are you sure");
         if (value == yes) {
             try {
-                String SQLQuery1 = "DELETE from reservation where bcode = ? and name = ?;";
-                PreparedStatement pst = conn.prepareStatement(SQLQuery1);
-                pst.setString(1, refno);
-                pst.setString(2, name);
-                pst.execute();
+                if (null != aircraft) switch (aircraft) {
+                    case "A-320":{
+                        String seat = "DELETE from a320 where seat_number = ? and date = ? and flightno = ? and ebclass = ?";
+                        PreparedStatement pstmt = conn.prepareStatement(seat);
+                        pstmt.setInt(1, Integer.parseInt(seatno));
+                        pstmt.setString(2, date);
+                        pstmt.setString(3, flightno);
+                        int row = pstmt.executeUpdate();
+                        System.out.println(row);
+                            break;
+                        }
+                    case "A-319":{
+                        String seat = "DELETE from a319 where seat_number = ? and date = ? and flightno = ? and ebclass = ?";
+                        PreparedStatement pstmt = conn.prepareStatement(seat);
+                        pstmt.setString(1, seatno);
+                        pstmt.setString(2, date);
+                        pstmt.setString(3, flightno);
+                        int row = pstmt.executeUpdate();
+                        System.out.println(row);
+                            break;
+                        }
+                    case "B787":{
+                        String seat = "DELETE from b787 where seat_number = ? and date = ? and flightno = ? and ebclass = ?";
+                        PreparedStatement pstmt = conn.prepareStatement(seat);
+                        pstmt.setString(1, seatno);
+                        pstmt.setString(2, date);
+                        pstmt.setString(3, flightno);
+                        int row = pstmt.executeUpdate();
+                        System.out.println(row);
+                            break;
+                        }
+                    case "B777-ER":{
+                        String seat = "DELETE from b777 where seat_number = ? and date = ? and flightno = ? and ebclass = ?";
+                        PreparedStatement pstmt = conn.prepareStatement(seat);
+                        pstmt.setString(1, seatno);
+                        pstmt.setString(2, date);
+                        pstmt.setString(3, flightno);
+                        int row = pstmt.executeUpdate();
+                        System.out.println(row);
+                            break;
+                        }
+                    default:
+                        break;
+                }
+
+                try {
+                    String SQLQuery1 = "DELETE from reservation where bcode = ? and name = ?;";
+                    PreparedStatement pst = conn.prepareStatement(SQLQuery1);
+                    pst.setString(1, refno);
+                    pst.setString(2, name);
+                    pst.execute();
+                } catch (SQLException ex) {
+                    Logger.getLogger(show_booking.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                dispose();
+                prev_bookings pb1;
+                try {
+                    pb1 = new prev_bookings();
+                    pb1.setVisible(true);
+                    pb1.setLocationRelativeTo(null);
+                } catch (SQLException ex) {
+                    Logger.getLogger(User_Pilot.class.getName()).log(Level.SEVERE, null, ex);
+                }
             } catch (SQLException ex) {
                 Logger.getLogger(show_booking.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            dispose();
-            prev_bookings pb1;
-            try {
-                pb1 = new prev_bookings();
-                pb1.setVisible(true);
-                pb1.setLocationRelativeTo(null);
-            } catch (SQLException ex) {
-                Logger.getLogger(User_Pilot.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
             prev_bookings pb1;
@@ -319,7 +378,7 @@ public class show_booking extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosing
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

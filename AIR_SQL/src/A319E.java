@@ -40,7 +40,7 @@ public class A319E extends javax.swing.JFrame {
         System.out.println(ebclass);
         initComponents();
         final String SEATQuery = "SELECT * from A319\n" + "WHERE flightno = ? and date = ? and class = ?";
-        PreparedStatement seatps= conn.prepareStatement(SEATQuery,ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        PreparedStatement seatps= conn.prepareStatement(SEATQuery);
         seatps.setString(1, flightno);
         seatps.setString(2, date);
         seatps.setString(3, ebclass);

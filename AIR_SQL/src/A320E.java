@@ -39,9 +39,11 @@ public class A320E extends javax.swing.JFrame {
         System.out.println(flightno);
         System.out.println(date);
         System.out.println(ebclass);
+        System.out.println(name);
         initComponents();
-         final String SEATQuery = "SELECT * from A320\n" + "WHERE flightno = ? and date = ? and class = ?";
-        PreparedStatement seatps= conn.prepareStatement(SEATQuery,ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+         final String SEATQuery = "SELECT * from A320\n"
+                 + "WHERE flightno = ? and date = ? and class = ?";
+        PreparedStatement seatps= conn.prepareStatement(SEATQuery);
         seatps.setString(1, flightno);
         seatps.setString(2, date);
         seatps.setString(3, ebclass);
@@ -340,7 +342,7 @@ public class A320E extends javax.swing.JFrame {
                     pstmt.execute();
                 } else if (jToggleButton5.getBackground() == Color.GREEN) {
                     final String status = "T";
-                    final String SQLUpdateQuery = "INSERT into A320E\n" + "values(?, ?, ?, ?, ?)";
+                    final String SQLUpdateQuery = "INSERT into A320\n" + "values(?, ?, ?, ?, ?)";
                     final PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
                     pstmt.setInt(1, seat_number);
                     pstmt.setString(2, status);
@@ -403,14 +405,19 @@ public class A320E extends javax.swing.JFrame {
                 Logger.getLogger(A320E.class.getName()).log(Level.SEVERE, null, ex);
                 
             }
-            String SQLQuery = "Update reservation\n"
-                    + "set seatno = ?\n"
-                    + "where bcode = ? and name = ?";
+            System.out.println(refno);
+            System.out.println(name);
+            int rows = 0;
+            String SQLQuery = "UPDATE reservation\n"
+                    + "SET seatno = ?\n"
+                    + "WHERE bcode = ? and name = ?";
+            String s_sno = String.valueOf(seat_number);
             PreparedStatement pst = conn.prepareStatement(SQLQuery);
-            pst.setString(1, String.valueOf(seat_number));
+            pst.setString(1, s_sno);
             pst.setString(2, refno);
             pst.setString(3, name);
-            pst.executeUpdate();
+            rows = pst.executeUpdate();
+            System.out.println(rows);
             dispose();
             JOptionPane.showMessageDialog(null, "Your Ticket has been booked Succesfully");
         } catch (SQLException ex) {
@@ -434,7 +441,7 @@ public class A320E extends javax.swing.JFrame {
     private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
         // TODO add your handling code here:
         if (jToggleButton2.isSelected()) {
-            seat_number = 1;
+            seat_number = 2;
         }
 
         if (jToggleButton2.getBackground() == Color.GREEN) {
@@ -447,7 +454,7 @@ public class A320E extends javax.swing.JFrame {
     private void jToggleButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton3ActionPerformed
         // TODO add your handling code here:
         if (jToggleButton3.isSelected()) {
-            seat_number = 1;
+            seat_number = 3;
         }
 
         if (jToggleButton3.getBackground() == Color.GREEN) {
@@ -460,7 +467,7 @@ public class A320E extends javax.swing.JFrame {
     private void jToggleButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton4ActionPerformed
         // TODO add your handling code here:
         if (jToggleButton4.isSelected()) {
-            seat_number = 1;
+            seat_number = 4;
         }
 
         if (jToggleButton4.getBackground() == Color.GREEN) {
@@ -473,7 +480,7 @@ public class A320E extends javax.swing.JFrame {
     private void jToggleButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton5ActionPerformed
         // TODO add your handling code here:
         if (jToggleButton5.isSelected()) {
-            seat_number = 1;
+            seat_number = 5;
         }
 
         if (jToggleButton5.getBackground() == Color.GREEN) {
@@ -486,7 +493,7 @@ public class A320E extends javax.swing.JFrame {
     private void jToggleButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton6ActionPerformed
         // TODO add your handling code here:
         if (jToggleButton6.isSelected()) {
-            seat_number = 1;
+            seat_number = 6;
         }
 
         if (jToggleButton6.getBackground() == Color.GREEN) {
@@ -499,7 +506,7 @@ public class A320E extends javax.swing.JFrame {
     private void jToggleButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton7ActionPerformed
         // TODO add your handling code here:
         if (jToggleButton7.isSelected()) {
-            seat_number = 1;
+            seat_number = 7;
         }
 
         if (jToggleButton7.getBackground() == Color.GREEN) {
@@ -512,7 +519,7 @@ public class A320E extends javax.swing.JFrame {
     private void jToggleButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton8ActionPerformed
         // TODO add your handling code here:
         if (jToggleButton8.isSelected()) {
-            seat_number = 1;
+            seat_number = 8;
         }
 
         if (jToggleButton8.getBackground() == Color.GREEN) {
@@ -525,7 +532,7 @@ public class A320E extends javax.swing.JFrame {
     private void jToggleButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton9ActionPerformed
         // TODO add your handling code here:
         if (jToggleButton9.isSelected()) {
-            seat_number = 1;
+            seat_number = 9;
         }
 
         if (jToggleButton9.getBackground() == Color.GREEN) {
@@ -538,7 +545,7 @@ public class A320E extends javax.swing.JFrame {
     private void jToggleButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton10ActionPerformed
         // TODO add your handling code here:
         if (jToggleButton10.isSelected()) {
-            seat_number = 1;
+            seat_number = 10;
         }
 
         if (jToggleButton10.getBackground() == Color.GREEN) {
