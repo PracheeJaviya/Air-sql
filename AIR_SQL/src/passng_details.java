@@ -220,13 +220,13 @@ public class passng_details extends javax.swing.JFrame {
         }
         try{
             b787b model_b787b;
-            model_b787b = new b787b();
+            model_b787b = new b787b(flightno, date, ebclass);
             model_b787b.setVisible(true);
             model_b787b.setLocationRelativeTo(null);
         }catch (Exception ex) {
             Logger.getLogger(passng_details.class.getName()).log(Level.SEVERE, null, ex);
         }
-        JOptionPane.showMessageDialog(null, "Your Ticket has been booked Succesfully");
+        
         dispose();
 
     }//GEN-LAST:event_jButton1ActionPerformed
