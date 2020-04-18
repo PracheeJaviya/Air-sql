@@ -139,8 +139,10 @@ public class Bookings extends javax.swing.JFrame {
         jDateChooser1.setMinSelectableDate(new Date());
         java.util.Date d = jDateChooser1.getDate();
         String date1=d.toString();
+        System.out.println(date1);
         String day=date1.substring(0, 2);
         String date = date1.substring(0, 10);
+        System.out.println(date);
         if(day.compareTo("Mon")==0)
             fdate=1;
         else if(day.compareTo("Tue")==0)
