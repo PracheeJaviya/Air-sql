@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 public class Registration extends javax.swing.JFrame {
 
     Connection conn = null;
-
+    int ct=1;
     public Registration() throws SQLException {
         initComponents();
         conn = DB_Connect.connect();
@@ -195,8 +195,8 @@ public class Registration extends javax.swing.JFrame {
             pst.setString(1, name_reg_jTextField.getText());
             pst.setString(2, addr_reg_jTextArea.getText());
             pst.setString(3, city_reg_jTextField.getText());
-            pst.setString(4,state_reg_jTextField.getText());
-            pst.setString(5,country_reg_jTextField.getText());
+            pst.setString(4, state_reg_jTextField.getText());
+            pst.setString(5, country_reg_jTextField.getText());
             pst.setString(6, user_reg_jTextField.getText());
             pst.setString(7, pass_reg_jPasswordField.getText());
             pst.setString(8, mobile_reg_jTextField.getText());
@@ -204,34 +204,31 @@ public class Registration extends javax.swing.JFrame {
             pst.setString(10, jDateChooser1.getDate().toString().substring(4, 10) + " " + jDateChooser1.getDate().toString().substring(23));
             pst.setInt(11, logon);
 
+            //CHECK AGE (invalid age)
+            String dateage = jDateChooser1.getDate().toString();
+            CallableStatement AGECHK =conn.prepareCall("{?=call agechk(?)}");
+            AGECHK.setString(2,dateage);
+            AGECHK.registerOutParameter(1, Types.INTEGER);
+            AGECHK.execute();
+            Integer ageret = AGECHK.getInt(1);
+
             //CHECK CITY
             CallableStatement CITYCHK =conn.prepareCall("{?=call citychk(?)}");
             CITYCHK.setString(2,city_reg_jTextField.getText());
             CITYCHK.registerOutParameter(1, Types.INTEGER);
             CITYCHK.execute();
             Integer cityret = CITYCHK.getInt(1);
-
-            //CHECK STATE
-//            CallableStatement STATECHK =conn.prepareCall("{?=call statechk(?)}");
-//            STATECHK.setString(2,state_reg_jTextField.getText());
-//            STATECHK.registerOutParameter(1, Types.INTEGER);
-//            STATECHK.execute();
-//            Integer stateret = STATECHK.getInt(1);
-
-
+            //System.out.println("cityret "+cityret);
 
             //CHECK AGE
             String date = jDateChooser1.getDate().toString();
             System.out.println(date);
-            CallableStatement AGECHK=conn.prepareCall("{?=call dobchk(?)}");
-            AGECHK.setString(2,date);
-            AGECHK.registerOutParameter(1,Types.INTEGER);
-            AGECHK.execute();
-            Integer ageret=AGECHK.getInt(1);
-//            if (ageret==1)
-//                pst.executeQuery();
-//            else
-//                System.out.println("meh");
+            CallableStatement DOBCHK=conn.prepareCall("{?=call dobchk(?)}");
+            DOBCHK.setString(2,date);
+            DOBCHK.registerOutParameter(1,Types.INTEGER);
+            DOBCHK.execute();
+            Integer dobret=DOBCHK.getInt(1);
+
             //CHECK IF PASSWORDS MATCH
             CallableStatement PASSCHK =conn.prepareCall("{?=call passchk(?,?)}");
             PASSCHK.setString(2,pass_reg_jPasswordField.getText());
@@ -279,24 +276,33 @@ public class Registration extends javax.swing.JFrame {
               else if (passret==0)
                   JOptionPane.showMessageDialog(null, "Passwords do not match");
               else if (ageret==0)
+                  JOptionPane.showMessageDialog(null, "Invalid age");
+              else if (dobret==0)
                   JOptionPane.showMessageDialog(null, "Underage");
-              else if (cityret==0)
+              else if (cityret==0 && ct == 0)
                   JOptionPane.showMessageDialog(null, "City does not exist");
-//              else if (stateret==0)
-//                  JOptionPane.showMessageDialog(null, "State does not exist");
-              else if(mobret==1 && usnmret==0 && mailret==1 && passret==1 && ageret==1 && cityret==1)
+              else if(mobret==1 && usnmret==0 && mailret==1 && passret==1 && ageret==1 && cityret==1) {
                   pst.executeQuery();
+                  try {
+                      Login lg1 = new Login();
+                      lg1.setVisible(true);
+                      lg1.setLocationRelativeTo(null);
+                      dispose();
+                  } catch (SQLException ex) {
+                      Logger.getLogger(Registration.class.getName()).log(Level.SEVERE, null, ex);
+                  }
+              }
             } catch (SQLException ex) {
             Logger.getLogger(Registration.class.getName()).log(Level.SEVERE, null, ex);
         }
-        try {
-            Login lg1 = new Login();
-            lg1.setVisible(true);
-            lg1.setLocationRelativeTo(null);
-            dispose();
-        } catch (SQLException ex) {
-            Logger.getLogger(Registration.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        try {
+//            Login lg1 = new Login();
+//            lg1.setVisible(true);
+//            lg1.setLocationRelativeTo(null);
+//            dispose();
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Registration.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }//GEN-LAST:event_submit_reg_jTextFieldActionPerformed
 
     private void city_reg_jTextFieldMouseExited(java.awt.event.MouseEvent evt) throws SQLException {//GEN-FIRST:event_city_reg_jTextFieldMouseExited
@@ -312,16 +318,10 @@ public class Registration extends javax.swing.JFrame {
             statee = state.getString("state");
             state_reg_jTextField.setText(statee);
             country_reg_jTextField.setText("India");
-//            String StQuery = "UPDATE  userdetails\n" + "set state = ?, country=? \n" + "where city=?";
-//            PreparedStatement st1 = conn.prepareStatement(StQuery);
-//            st1.setString(1, statee);
-//            st1.setString(2, "India");
-//            st1.setString(3, city_reg_jTextField.getText());
-//            st1.executeUpdate();
+
         }
-
-
-
+        if(statee == null)
+            ct=0;
     }//GEN-LAST:event_city_reg_jTextFieldMouseExited
 
 

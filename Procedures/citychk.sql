@@ -6,15 +6,16 @@ flag integer := 0;
 cnt integer;
 cityyyy varchar;
 BEGIN
-  select count(city) from place into cnt;
+  -- select count(city) from place into cnt;
   open city_index;
+  loop
     fetch city_index into  cityyyy;
-    -- EXIT when  NOT FOUND;
+    exit when not found;
     if get_city like cityyyy  THEN
       flag := 1;
-      -- raise notice 'got';
     end if;
-  -- close city_index;
+  end loop;
   return flag;
+  close city_index;
 end
 $$language plpgsql;

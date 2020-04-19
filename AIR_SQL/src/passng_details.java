@@ -57,7 +57,13 @@ public class passng_details extends javax.swing.JFrame {
         this.date = s_date;
         this.refno = refno;
         this.ebclass = ebclass;
-        i_index = Integer.parseInt(index);
+        try {
+            i_index = Integer.parseInt(index);
+        }catch(NumberFormatException e)
+        {
+            Logger.getLogger(passng_details.class.getName()).log(Level.SEVERE, null, e);
+
+        }
         try {
             String SQLQuery1 = "SELECT username FROM userdetails where logon = ?";
             PreparedStatement pst1 = conn.prepareStatement(SQLQuery1);
