@@ -90,6 +90,11 @@ public class B787B extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jToggleButton1.setBackground(new java.awt.Color(255, 255, 255));
         jToggleButton1.setText("1");
@@ -306,6 +311,19 @@ public class B787B extends javax.swing.JFrame {
             jToggleButton4.setBackground(Color.GREEN);
         }
     }//GEN-LAST:event_jToggleButton4ActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        try {
+            String delete = "DELETE FROM reservation where seatno = ?;";
+            String seatno = "10-A";
+            PreparedStatement pst = conn.prepareStatement(delete);
+            pst.setString(1, seatno);
+            int i = pst.executeUpdate();
+            System.out.println(i);
+        } catch (SQLException ex) {
+            Logger.getLogger(A319B.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

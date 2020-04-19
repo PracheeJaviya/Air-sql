@@ -23,7 +23,6 @@ public class flight_avail extends javax.swing.JFrame {
     String dest;
     int date;
     String s_date;
-    String passng;
     String ebclass;
 //    String date;
 
@@ -34,10 +33,9 @@ public class flight_avail extends javax.swing.JFrame {
         initComponents();
     }
 
-    public flight_avail(String from, String To, int fdate, String s_date, String passng, String ebclass) throws SQLException {
+    public flight_avail(String from, String To, int fdate, String s_date, String ebclass) throws SQLException {
         this.origin = from;
         this.dest = To;
-        this.passng = passng;
         this.ebclass = ebclass;
         this.date = fdate;
         this.s_date = s_date;
@@ -112,7 +110,7 @@ public class flight_avail extends javax.swing.JFrame {
         if (ebclass.compareTo("Economy")==0) {
             try {
                 show_flight sf1;
-                sf1 = new show_flight(passng, index, ebclass, s_date);
+                sf1 = new show_flight(index, ebclass, s_date);
                 sf1.setVisible(true);
                 sf1.setLocationRelativeTo(null);
             } catch (SQLException ex) {
@@ -122,7 +120,7 @@ public class flight_avail extends javax.swing.JFrame {
             try {
 
                 show_flight sf1;
-                sf1 = new show_flight(passng, index, ebclass, s_date);
+                sf1 = new show_flight(index, ebclass, s_date);
                 sf1.setVisible(true);
                 sf1.setLocationRelativeTo(null);
             } catch (SQLException ex) {
@@ -140,11 +138,10 @@ public class flight_avail extends javax.swing.JFrame {
             case 1: {
                 System.out.println("INSIDE case 1");
                 String SQLQuery = "SELECT a.origin, a.dest, a.flightno , a.dep, a.arr, a.aircraft, a.stops, a.index, b.efare, b.bfare\n" + "FROM public.flightdetails a,public.fare b where a.aircraft=b.aircraft and a.origin =? and a.dest =? and a.freq LIKE '%1%' ;";
-                PreparedStatement pst = conn.prepareStatement(SQLQuery, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+                PreparedStatement pst = conn.prepareStatement(SQLQuery);
                 pst.setString(1, origin);
                 pst.setString(2, dest);
                 ResultSet rs = pst.executeQuery();
-                rs.beforeFirst();
                 while(rs.next()) {
                     Flight = new flight(rs.getString("origin"), rs.getString("dest"), rs.getString("flightno"), rs.getString("dep"), rs.getString("arr"), rs.getString("aircraft"), rs.getInt("stops"), rs.getInt("index"), rs.getInt("efare"), rs.getInt("bfare"));
                     flightsList.add(Flight);
@@ -161,7 +158,6 @@ public class flight_avail extends javax.swing.JFrame {
                 pst.setString(2, dest);
                 // pst.setInt(3, date);
                 ResultSet rs = pst.executeQuery();
-                rs.beforeFirst();
                 while (rs.next()) {
                     Flight = new flight(rs.getString("origin"), rs.getString("dest"), rs.getString("flightno"), rs.getString("dep"), rs.getString("arr"), rs.getString("aircraft"), rs.getInt("stops"), rs.getInt("index"), rs.getInt("efare"), rs.getInt("bfare"));
                     flightsList.add(Flight);
@@ -179,7 +175,6 @@ public class flight_avail extends javax.swing.JFrame {
                 pst.setString(2, dest);
                 // pst.setInt(3, date);
                 ResultSet rs = pst.executeQuery();
-                rs.beforeFirst();
                 while (rs.next()) {
                     Flight = new flight(rs.getString("origin"), rs.getString("dest"), rs.getString("flightno"), rs.getString("dep"), rs.getString("arr"), rs.getString("aircraft"), rs.getInt("stops"), rs.getInt("index"), rs.getInt("efare"), rs.getInt("bfare"));
                     flightsList.add(Flight);
@@ -196,7 +191,6 @@ public class flight_avail extends javax.swing.JFrame {
                 pst.setString(1, origin);
                 pst.setString(2, dest);
                 ResultSet rs = pst.executeQuery();
-                rs.beforeFirst();
                 while (rs.next()) {
                     Flight = new flight(rs.getString("origin"), rs.getString("dest"), rs.getString("flightno"), rs.getString("dep"), rs.getString("arr"), rs.getString("aircraft"), rs.getInt("stops"), rs.getInt("index"), rs.getInt("efare"), rs.getInt("bfare"));
                     flightsList.add(Flight);
@@ -214,7 +208,6 @@ public class flight_avail extends javax.swing.JFrame {
                 pst.setString(2, dest);
                 // pst.setInt(3, date);
                 ResultSet rs = pst.executeQuery();
-                rs.beforeFirst();
                 while (rs.next()) {
                     Flight = new flight(rs.getString("origin"), rs.getString("dest"), rs.getString("flightno"), rs.getString("dep"), rs.getString("arr"), rs.getString("aircraft"), rs.getInt("stops"), rs.getInt("index"), rs.getInt("efare"), rs.getInt("bfare"));
                     flightsList.add(Flight);
@@ -232,7 +225,6 @@ public class flight_avail extends javax.swing.JFrame {
                 pst.setString(2, dest);
                 // pst.setInt(3, date);
                 ResultSet rs = pst.executeQuery();
-                rs.beforeFirst();
                 while (rs.next()) {
                     Flight = new flight(rs.getString("origin"), rs.getString("dest"), rs.getString("flightno"), rs.getString("dep"), rs.getString("arr"), rs.getString("aircraft"), rs.getInt("stops"), rs.getInt("index"), rs.getInt("efare"), rs.getInt("bfare"));
                     flightsList.add(Flight);
@@ -250,7 +242,6 @@ public class flight_avail extends javax.swing.JFrame {
                 pst.setString(1, origin);
                 pst.setString(2, dest);
                 ResultSet rs = pst.executeQuery();
-                rs.beforeFirst();
 
                 while (rs.next()) {
                     Flight = new flight(rs.getString("origin"), rs.getString("dest"), rs.getString("flightno"), rs.getString("dep"), rs.getString("arr"), rs.getString("aircraft"), rs.getInt("stops"), rs.getInt("index"), rs.getInt("efare"), rs.getInt("bfare"));

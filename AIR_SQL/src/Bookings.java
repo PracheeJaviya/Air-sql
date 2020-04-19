@@ -41,8 +41,6 @@ public class Bookings extends javax.swing.JFrame {
         to_jComboBox = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        jLabel4 = new javax.swing.JLabel();
-        passng_jTextField = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         ebclass_jComboBox = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
@@ -58,8 +56,6 @@ public class Bookings extends javax.swing.JFrame {
         to_jComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Abu Dhabi", "AgartalaAgatti", "Agra", "Ahmedabad", "Aizawl", "Allahabad", "Amritsar", "Aurangabad", "Bagdogra", "Bahrain", "Bangkok", "Belgaum", "Bengaluru", "Bhatinda", "Bhavnagar", "Bhopal", "Bhubaneswar", "Bhuj", "Bikaner", "Birmingham", "Chandigarh", "Chennai", "Chicago", "Coimbatore", "Colombo", "Copenhagen", "Dammam", "Dehra Dun", "Delhi", "Dhaka", "Dharamshala", "Dimapur", "DIU", "Doha", "Dubai", "Durgapur", "Frankfurt", "Gaya", "Goa", "Gorakhpur", "Guwahati", "Gwalior", "Hong Kong", "Hubli", "Hyderabad", "Imphal", "Indore", "Jabalpur", "Jaffna", "Jaipur", "Jammu", "Jamnagar", "Jeddah", "Jharsuguda", "Jodhpur", "Kabul", "Gulbarga", "Kandla ", "Kathmandu", "Khajuraho", "Kochi", "Kolhapur", "Kolkata", "Kozhikode", "Kullu", "Kuwait", "Leh", "Lilabari", "London", "Lucknow", "Ludhiana", "Madrid", "Madurai", "Male", "Mangalore", "Melbourne", "Milan", "Mumbai", "Muscat", "Mysore", "Nagpur", "Nairobi", "Nanded", "Nasik", "New York", "Newark", "Pantnagar", "Paris", "Pasighat", "Pathankot", "Patna", "Port Blair", "Pune", "Raipur", "Rajkot", "Ranchi", "Riyadh", "Rome", "San Francisco", "Seoul", "Shanghai", "Sharjah", "Shirdi", "Silchar", "Shimla", "Singapore", "Srinagar", "Srckholm", "Surat", "Sydney", "Tel Aviv", "Tezpur", "Thiruvananthapuram", "Tiruchirapalli", "Tirupati", "Tokyo", "Toronto", "Udaipur", "Vadodara", "Varanasi", "Vienna", "Vijayawada", "Visakhapatnam", "Washington", "Yangon", " ", " ", " ", " " }));
 
         jLabel3.setText("Date :");
-
-        jLabel4.setText("Passengers :");
 
         jLabel5.setText("Class :");
 
@@ -82,10 +78,9 @@ public class Bookings extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(55, 55, 55)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE)
                             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE)
                             .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(43, 43, 43)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -93,10 +88,9 @@ public class Bookings extends javax.swing.JFrame {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(to_jComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(from_jComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(passng_jTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(from_jComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(130, 130, 130)
+                        .addGap(129, 129, 129)
                         .addComponent(jButton1)))
                 .addContainerGap(66, Short.MAX_VALUE))
         );
@@ -116,16 +110,12 @@ public class Bookings extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(passng_jTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(ebclass_jComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                    .addComponent(ebclass_jComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addGap(38, 38, 38)
                 .addComponent(jButton1)
-                .addGap(25, 25, 25))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         pack();
@@ -185,13 +175,11 @@ public class Bookings extends javax.swing.JFrame {
                 break;
             }
         }
-
-        String passng1 = passng_jTextField.getText();
         String ebclass;
         ebclass = ebclass_jComboBox.getSelectedItem().toString();
         System.out.println("bookings class"+ebclass);
         try {
-            fd1 = new flight_avail(origin, dest, fdate, date, passng1, ebclass);
+            fd1 = new flight_avail(origin, dest, fdate, date, ebclass);
             fd1.setVisible(true);
             fd1.setLocationRelativeTo(null);
         } catch (SQLException ex) {
@@ -240,9 +228,7 @@ public class Bookings extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JTextField passng_jTextField;
     private javax.swing.JComboBox<String> to_jComboBox;
     // End of variables declaration//GEN-END:variables
 }
