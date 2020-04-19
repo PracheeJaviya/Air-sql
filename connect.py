@@ -13,15 +13,15 @@ def connect():
         # create a cursor
         cur = conn.cursor()
 
-        sel_from_dest = " select distinct * from flight where fcity = 'Delhi' "  #query
+        sel_from_dest = " select distinct * from flight where fcity = 'Delhi' "  # query
         cur.execute(sel_from_dest)
 
-        records =cur.fetchall()                                         #fetching query
+        records = cur.fetchall()  # fetching query
         print("DATASET")
-        for row in records :
-            print( "From " , 'Delhi')                                   # printing all rows where condition matched
+        for row in records:
+            # printing all rows where condition matched
+            print("From ", 'Delhi')
             print(" To ", row[1])
-
 
         # display the PostgreSQL database server version
         # db_version = cur.fetchone()

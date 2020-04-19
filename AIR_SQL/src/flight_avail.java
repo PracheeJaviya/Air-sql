@@ -153,7 +153,7 @@ public class flight_avail extends javax.swing.JFrame {
             case 2:
             {System.out.println("INSIDE case 2");
                 String SQLQuery = "SELECT a.origin, a.dest, a.flightno , a.dep, a.arr, a.aircraft, a.stops, a.index,b.efare,b.bfare\n" + "FROM public.flightdetails a,public.fare b where a.aircraft=b.aircraft and a.origin = ? and a.dest = ? and a.freq LIKE '%2%' ;";
-                PreparedStatement pst = conn.prepareStatement(SQLQuery);
+                PreparedStatement pst = conn.prepareStatement(SQLQuery, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
                 pst.setString(1, origin);
                 pst.setString(2, dest);
                 // pst.setInt(3, date);
@@ -170,7 +170,7 @@ public class flight_avail extends javax.swing.JFrame {
             {
                 System.out.println("INSIDE case 3");
                 String SQLQuery = "SELECT a.origin, a.dest, a.flightno , a.dep, a.arr, a.aircraft, a.stops, a.index,b.efare,b.bfare\n" + "FROM public.flightdetails a,public.fare b where a.aircraft=b.aircraft and a.origin = ? and a.dest = ? and a.freq LIKE '%3%' ;";
-                PreparedStatement pst = conn.prepareStatement(SQLQuery);
+                PreparedStatement pst = conn.prepareStatement(SQLQuery, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
                 pst.setString(1, origin);
                 pst.setString(2, dest);
                 // pst.setInt(3, date);
@@ -187,7 +187,7 @@ public class flight_avail extends javax.swing.JFrame {
             {
                 System.out.println("INSIDE case 4");
                 String SQLQuery = "SELECT a.origin, a.dest, a.flightno , a.dep, a.arr, a.aircraft, a.stops, a.index,b.efare,b.bfare\n" + "FROM public.flightdetails a,public.fare b where a.aircraft=b.aircraft and a.origin = ? and a.dest = ? and a.freq LIKE '%4%' ;";
-                PreparedStatement pst = conn.prepareStatement(SQLQuery);
+                PreparedStatement pst = conn.prepareStatement(SQLQuery, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
                 pst.setString(1, origin);
                 pst.setString(2, dest);
                 ResultSet rs = pst.executeQuery();
@@ -203,7 +203,7 @@ public class flight_avail extends javax.swing.JFrame {
             {
                 System.out.println("INSIDE case 5");
                 String SQLQuery = "SELECT a.origin, a.dest, a.flightno , a.dep, a.arr, a.aircraft, a.stops, a.index,b.efare,b.bfare\n" + "FROM public.flightdetails a,public.fare b where a.aircraft=b.aircraft and a.origin = ? and a.dest = ? and a.freq LIKE '%5%' ;";
-                PreparedStatement pst = conn.prepareStatement(SQLQuery);
+                PreparedStatement pst = conn.prepareStatement(SQLQuery, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
                 pst.setString(1, origin);
                 pst.setString(2, dest);
                 // pst.setInt(3, date);
@@ -220,7 +220,7 @@ public class flight_avail extends javax.swing.JFrame {
             {
                 System.out.println("INSIDE case 6");
                 String SQLQuery = "SELECT a.origin, a.dest, a.flightno , a.dep, a.arr, a.aircraft, a.stops, a.index,b.efare,b.bfare\n" + "FROM public.flightdetails a,public.fare b where a.aircraft=b.aircraft and a.origin = ? and a.dest = ? and a.freq LIKE '%6%' ;";
-                PreparedStatement pst = conn.prepareStatement(SQLQuery);
+                PreparedStatement pst = conn.prepareStatement(SQLQuery, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
                 pst.setString(1, origin);
                 pst.setString(2, dest);
                 // pst.setInt(3, date);
@@ -238,7 +238,7 @@ public class flight_avail extends javax.swing.JFrame {
             {
                 System.out.println("INSIDE case 7");
                 String SQLQuery = "SELECT a.origin, a.dest, a.flightno , a.dep, a.arr, a.aircraft, a.stops, a.index,b.efare,b.bfare\n" + "FROM public.flightdetails a,public.fare b where a.aircraft=b.aircraft and a.origin = ? and a.dest = ? and a.freq LIKE '%7%' ;";
-                PreparedStatement pst = conn.prepareStatement(SQLQuery);
+                PreparedStatement pst = conn.prepareStatement(SQLQuery, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
                 pst.setString(1, origin);
                 pst.setString(2, dest);
                 ResultSet rs = pst.executeQuery();
