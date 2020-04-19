@@ -72,7 +72,7 @@ public class passng_details extends javax.swing.JFrame {
             while (rs1.next()) {
                 username = rs1.getString("username");
             }
-            String SQLQuery = "SELECT a.origin, a.dest, a.flightno, a.dep, a.arr, a.aircraft, a.index, b.efare, b.bfare\n" + "FROM public.flightdetails a,public.fare b where a.index = ?;";
+            String SQLQuery = "SELECT a.origin, a.dest, a.flightno, a.dep, a.arr, a.aircraft, a.index, b.efare, b.bfare\n" + "FROM public.flightdetails a,public.fare b where a.aircraft=b.aircraft a.index = ?;";
             PreparedStatement pst = conn.prepareStatement(SQLQuery);
             pst.setInt(1, i_index);
             ResultSet rs = pst.executeQuery();
