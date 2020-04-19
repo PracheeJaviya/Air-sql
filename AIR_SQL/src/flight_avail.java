@@ -59,6 +59,7 @@ public class flight_avail extends javax.swing.JFrame {
         flight_jTable = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Available Flights");
 
         flight_jTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

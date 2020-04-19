@@ -49,6 +49,7 @@ public class Registration extends javax.swing.JFrame {
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Registration");
 
         jLabel1.setText("Name :");
 
@@ -86,11 +87,7 @@ public class Registration extends javax.swing.JFrame {
 
         city_reg_jTextField.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                try {
-                    city_reg_jTextFieldMouseExited(evt);
-                } catch (SQLException throwables) {
-                    throwables.printStackTrace();
-                }
+                city_reg_jTextFieldMouseExited(evt);
             }
         });
 

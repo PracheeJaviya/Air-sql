@@ -138,6 +138,7 @@ public class show_flight extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Flight Details");
 
         jLabel1.setText("Origin :");
 

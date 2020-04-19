@@ -46,6 +46,7 @@ public class Bookings extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Search Filters");
 
         jLabel1.setText("From :");
 

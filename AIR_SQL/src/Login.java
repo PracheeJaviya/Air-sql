@@ -33,6 +33,7 @@ public class Login extends javax.swing.JFrame {
         jTextField2.setText("jTextField2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Login Page");
 
         jLabel1.setText("Username :");
 

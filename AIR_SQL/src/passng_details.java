@@ -118,6 +118,7 @@ public class passng_details extends javax.swing.JFrame {
         pass_gender = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Passenger Details");
 
         jLabel1.setText("Full Name :");
 
