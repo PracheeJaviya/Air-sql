@@ -192,31 +192,7 @@ public class passng_details extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        try {
-            String sqlquery = "INSERT INTO reservation(\n"
-                    + "bcode, username, name, age, gender, seatno, origin, dest, flightno, date, dep, arr, aircraft, ebclass, index, fare)\n"
-                    + "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
-            PreparedStatement pstmt = conn.prepareStatement(sqlquery);
-            pstmt.setString(1, refno);
-            pstmt.setString(2, username);
-            pstmt.setString(3, pass_fname.getText());
-            pstmt.setInt(4, Integer.parseInt(pass_age.getText()));
-            pstmt.setString(5, pass_gender.getSelectedItem().toString());
-            pstmt.setString(6, seatno);
-            pstmt.setString(7, origin);
-            pstmt.setString(8, dest);
-            pstmt.setString(9, flightno);
-            pstmt.setString(10, date);
-            pstmt.setString(11, dep);
-            pstmt.setString(12, arr);
-            pstmt.setString(13, aircraft);
-            pstmt.setString(14, ebclass);
-            pstmt.setInt(15, i_index);
-            pstmt.setInt(16, i_fare);
-            pstmt.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(passng_details.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
         try {
             if ("B787".equals(aircraft) && "Economy".equals(ebclass)) {
                 System.out.println("B787");
@@ -224,6 +200,7 @@ public class passng_details extends javax.swing.JFrame {
                 model_m = new B787E(flightno, date, ebclass, refno, pass_fname.getText());
                 model_m.setVisible(true);
                 model_m.setLocationRelativeTo(null);
+                
             }else if ("B787".equals(aircraft) && "Business".equals(ebclass)) {
                 System.out.println("B787");
                 B787B model_m;

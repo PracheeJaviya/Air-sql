@@ -133,86 +133,98 @@ public class flight_avail extends javax.swing.JFrame {
     public ArrayList<flight> flightLists() throws SQLException {
         ArrayList<flight> flightsList = new ArrayList<>();
         flight Flight;
-        if (date == 1) {
-            String SQLQuery = "SELECT a.origin, a.dest, a.flightno , a.dep, a.arr, a.aircraft, a.stops, a.index, b.efare, b.bfare\n" + "FROM public.flightdetails a,public.fare b where a.aircraft=b.aircraft and a.origin =? and a.dest =? and a.freq LIKE '%1%' ;";
-            PreparedStatement pst = conn.prepareStatement(SQLQuery);
-            pst.setString(1, origin);
-            pst.setString(2, dest);
-            // pst.setInt(3, date);
-            ResultSet rs = pst.executeQuery();
-
-            while (rs.next()) {
-                Flight = new flight(rs.getString("origin"), rs.getString("dest"), rs.getString("flightno"), rs.getString("dep"), rs.getString("arr"), rs.getString("aircraft"), rs.getInt("stops"), rs.getInt("efare"), rs.getInt("bfare"), rs.getInt("index"));
-                flightsList.add(Flight);
-            }
-
-        } else if (date == 2) {
-            String SQLQuery = "SELECT a.origin, a.dest, a.flightno , a.dep, a.arr, a.aircraft, a.stops, a.index,b.efare,b.bfare\n" + "FROM public.flightdetails a,public.fare b where a.aircraft=b.aircraft and a.origin = ? and a.dest = ? and a.freq LIKE '%2%' ;";
-            PreparedStatement pst = conn.prepareStatement(SQLQuery);
-            pst.setString(1, origin);
-            pst.setString(2, dest);
-            // pst.setInt(3, date);
-            ResultSet rs = pst.executeQuery();
-
-            while (rs.next()) {
-                Flight = new flight(rs.getString("origin"), rs.getString("dest"), rs.getString("flightno"), rs.getString("dep"), rs.getString("arr"), rs.getString("aircraft"), rs.getInt("stops"), rs.getInt("efare"), rs.getInt("bfare"), rs.getInt("index"));
-                flightsList.add(Flight);
-            }
-        } else if (date == 3) {
-            String SQLQuery = "SELECT a.origin, a.dest, a.flightno , a.dep, a.arr, a.aircraft, a.stops, a.index,b.efare,b.bfare\n" + "FROM public.flightdetails a,public.fare b where a.aircraft=b.aircraft and a.origin = ? and a.dest = ? and a.freq LIKE '%3%' ;";
-            PreparedStatement pst = conn.prepareStatement(SQLQuery);
-            pst.setString(1, origin);
-            pst.setString(2, dest);
-            // pst.setInt(3, date);
-            ResultSet rs = pst.executeQuery();
-            while (rs.next()) {
-                Flight = new flight(rs.getString("origin"), rs.getString("dest"), rs.getString("flightno"), rs.getString("dep"), rs.getString("arr"), rs.getString("aircraft"), rs.getInt("stops"), rs.getInt("efare"), rs.getInt("bfare"), rs.getInt("index"));
-                flightsList.add(Flight);
-            }
-        } else if (date == 4) {
-            String SQLQuery = "SELECT a.origin, a.dest, a.flightno , a.dep, a.arr, a.aircraft, a.stops, a.index,b.efare,b.bfare\n" + "FROM public.flightdetails a,public.fare b where a.aircraft=b.aircraft and a.origin = ? and a.dest = ? and a.freq LIKE '%4%' ;";
-            PreparedStatement pst = conn.prepareStatement(SQLQuery);
-            pst.setString(1, origin);
-            pst.setString(2, dest);
-            // pst.setInt(3, date);
-            ResultSet rs = pst.executeQuery();
-            while (rs.next()) {
-                Flight = new flight(rs.getString("origin"), rs.getString("dest"), rs.getString("flightno"), rs.getString("dep"), rs.getString("arr"), rs.getString("aircraft"), rs.getInt("stops"), rs.getInt("efare"), rs.getInt("bfare"), rs.getInt("index"));
-                flightsList.add(Flight);
-            }
-        } else if (date == 5) {
-            String SQLQuery = "SELECT a.origin, a.dest, a.flightno , a.dep, a.arr, a.aircraft, a.stops, a.index,b.efare,b.bfare\n" + "FROM public.flightdetails a,public.fare b where a.aircraft=b.aircraft and a.origin = ? and a.dest = ? and a.freq LIKE '%5%' ;";
-            PreparedStatement pst = conn.prepareStatement(SQLQuery);
-            pst.setString(1, origin);
-            pst.setString(2, dest);
-            // pst.setInt(3, date);
-            ResultSet rs = pst.executeQuery();
-            while (rs.next()) {
-                Flight = new flight(rs.getString("origin"), rs.getString("dest"), rs.getString("flightno"), rs.getString("dep"), rs.getString("arr"), rs.getString("aircraft"), rs.getInt("stops"), rs.getInt("efare"), rs.getInt("bfare"), rs.getInt("index"));
-                flightsList.add(Flight);
-            }
-        } else if (date == 6) {
-            String SQLQuery = "SELECT a.origin, a.dest, a.flightno , a.dep, a.arr, a.aircraft, a.stops, a.index,b.efare,b.bfare\n" + "FROM public.flightdetails a,public.fare b where a.aircraft=b.aircraft and a.origin = ? and a.dest = ? and a.freq LIKE '%6%' ;";
-            PreparedStatement pst = conn.prepareStatement(SQLQuery);
-            pst.setString(1, origin);
-            pst.setString(2, dest);
-            // pst.setInt(3, date);
-            ResultSet rs = pst.executeQuery();
-            while (rs.next()) {
-                Flight = new flight(rs.getString("origin"), rs.getString("dest"), rs.getString("flightno"), rs.getString("dep"), rs.getString("arr"), rs.getString("aircraft"), rs.getInt("stops"), rs.getInt("efare"), rs.getInt("bfare"), rs.getInt("index"));
-                flightsList.add(Flight);
-            }
-        } else {
-            String SQLQuery = "SELECT a.origin, a.dest, a.flightno , a.dep, a.arr, a.aircraft, a.stops, a.index,b.efare,b.bfare\n" + "FROM public.flightdetails a,public.fare b where a.aircraft=b.aircraft and a.origin = ? and a.dest = ? and a.freq LIKE '%7%' ;";
-            PreparedStatement pst = conn.prepareStatement(SQLQuery);
-            pst.setString(1, origin);
-            pst.setString(2, dest);
-            // pst.setInt(3, date);
-            ResultSet rs = pst.executeQuery();
-            while (rs.next()) {
-                Flight = new flight(rs.getString("origin"), rs.getString("dest"), rs.getString("flightno"), rs.getString("dep"), rs.getString("arr"), rs.getString("aircraft"), rs.getInt("stops"), rs.getInt("efare"), rs.getInt("bfare"), rs.getInt("index"));
-                flightsList.add(Flight);
-            }
+        switch (date) {
+            case 1:
+                {
+                    String SQLQuery = "SELECT a.origin, a.dest, a.flightno , a.dep, a.arr, a.aircraft, a.stops, a.index, b.efare, b.bfare\n" + "FROM public.flightdetails a,public.fare b where a.aircraft=b.aircraft and a.origin =? and a.dest =? and a.freq LIKE '%1%' ;";
+                    PreparedStatement pst = conn.prepareStatement(SQLQuery);
+                    pst.setString(1, origin);
+                    pst.setString(2, dest);
+                    // pst.setInt(3, date);
+                    ResultSet rs = pst.executeQuery();
+                    while (rs.next()) {
+                        Flight = new flight(rs.getString("origin"), rs.getString("dest"), rs.getString("flightno"), rs.getString("dep"), rs.getString("arr"), rs.getString("aircraft"), rs.getInt("stops"), rs.getInt("efare"), rs.getInt("bfare"), rs.getInt("index"));
+                        flightsList.add(Flight);
+                    }       break;
+                }
+            case 2:
+                {
+                    String SQLQuery = "SELECT a.origin, a.dest, a.flightno , a.dep, a.arr, a.aircraft, a.stops, a.index,b.efare,b.bfare\n" + "FROM public.flightdetails a,public.fare b where a.aircraft=b.aircraft and a.origin = ? and a.dest = ? and a.freq LIKE '%2%' ;";
+                    PreparedStatement pst = conn.prepareStatement(SQLQuery);
+                    pst.setString(1, origin);
+                    pst.setString(2, dest);
+                    // pst.setInt(3, date);
+                    ResultSet rs = pst.executeQuery();
+                    while (rs.next()) {
+                        Flight = new flight(rs.getString("origin"), rs.getString("dest"), rs.getString("flightno"), rs.getString("dep"), rs.getString("arr"), rs.getString("aircraft"), rs.getInt("stops"), rs.getInt("efare"), rs.getInt("bfare"), rs.getInt("index"));
+                        flightsList.add(Flight);
+                    }       break;
+                }
+            case 3:
+                {
+                    String SQLQuery = "SELECT a.origin, a.dest, a.flightno , a.dep, a.arr, a.aircraft, a.stops, a.index,b.efare,b.bfare\n" + "FROM public.flightdetails a,public.fare b where a.aircraft=b.aircraft and a.origin = ? and a.dest = ? and a.freq LIKE '%3%' ;";
+                    PreparedStatement pst = conn.prepareStatement(SQLQuery);
+                    pst.setString(1, origin);
+                    pst.setString(2, dest);
+                    // pst.setInt(3, date);
+                    ResultSet rs = pst.executeQuery();
+                    while (rs.next()) {
+                        Flight = new flight(rs.getString("origin"), rs.getString("dest"), rs.getString("flightno"), rs.getString("dep"), rs.getString("arr"), rs.getString("aircraft"), rs.getInt("stops"), rs.getInt("efare"), rs.getInt("bfare"), rs.getInt("index"));
+                        flightsList.add(Flight);
+                    }       break;
+                }
+            case 4:
+                {
+                    String SQLQuery = "SELECT a.origin, a.dest, a.flightno , a.dep, a.arr, a.aircraft, a.stops, a.index,b.efare,b.bfare\n" + "FROM public.flightdetails a,public.fare b where a.aircraft=b.aircraft and a.origin = ? and a.dest = ? and a.freq LIKE '%4%' ;";
+                    PreparedStatement pst = conn.prepareStatement(SQLQuery);
+                    pst.setString(1, origin);
+                    pst.setString(2, dest);
+                    // pst.setInt(3, date);
+                    ResultSet rs = pst.executeQuery();
+                    while (rs.next()) {
+                        Flight = new flight(rs.getString("origin"), rs.getString("dest"), rs.getString("flightno"), rs.getString("dep"), rs.getString("arr"), rs.getString("aircraft"), rs.getInt("stops"), rs.getInt("efare"), rs.getInt("bfare"), rs.getInt("index"));
+                        flightsList.add(Flight);
+                    }       break;
+                }
+            case 5:
+                {
+                    String SQLQuery = "SELECT a.origin, a.dest, a.flightno , a.dep, a.arr, a.aircraft, a.stops, a.index,b.efare,b.bfare\n" + "FROM public.flightdetails a,public.fare b where a.aircraft=b.aircraft and a.origin = ? and a.dest = ? and a.freq LIKE '%5%' ;";
+                    PreparedStatement pst = conn.prepareStatement(SQLQuery);
+                    pst.setString(1, origin);
+                    pst.setString(2, dest);
+                    // pst.setInt(3, date);
+                    ResultSet rs = pst.executeQuery();
+                    while (rs.next()) {
+                        Flight = new flight(rs.getString("origin"), rs.getString("dest"), rs.getString("flightno"), rs.getString("dep"), rs.getString("arr"), rs.getString("aircraft"), rs.getInt("stops"), rs.getInt("efare"), rs.getInt("bfare"), rs.getInt("index"));
+                        flightsList.add(Flight);
+                    }       break;
+                }
+            case 6:
+                {
+                    String SQLQuery = "SELECT a.origin, a.dest, a.flightno , a.dep, a.arr, a.aircraft, a.stops, a.index,b.efare,b.bfare\n" + "FROM public.flightdetails a,public.fare b where a.aircraft=b.aircraft and a.origin = ? and a.dest = ? and a.freq LIKE '%6%' ;";
+                    PreparedStatement pst = conn.prepareStatement(SQLQuery);
+                    pst.setString(1, origin);
+                    pst.setString(2, dest);
+                    // pst.setInt(3, date);
+                    ResultSet rs = pst.executeQuery();
+                    while (rs.next()) {
+                        Flight = new flight(rs.getString("origin"), rs.getString("dest"), rs.getString("flightno"), rs.getString("dep"), rs.getString("arr"), rs.getString("aircraft"), rs.getInt("stops"), rs.getInt("efare"), rs.getInt("bfare"), rs.getInt("index"));
+                        flightsList.add(Flight);
+                    }       break;
+                }
+            default:
+                {
+                    String SQLQuery = "SELECT a.origin, a.dest, a.flightno , a.dep, a.arr, a.aircraft, a.stops, a.index,b.efare,b.bfare\n" + "FROM public.flightdetails a,public.fare b where a.aircraft=b.aircraft and a.origin = ? and a.dest = ? and a.freq LIKE '%7%' ;";
+                    PreparedStatement pst = conn.prepareStatement(SQLQuery);
+                    pst.setString(1, origin);
+                    pst.setString(2, dest);
+                    // pst.setInt(3, date);
+                    ResultSet rs = pst.executeQuery();
+                    while (rs.next()) {
+                        Flight = new flight(rs.getString("origin"), rs.getString("dest"), rs.getString("flightno"), rs.getString("dep"), rs.getString("arr"), rs.getString("aircraft"), rs.getInt("stops"), rs.getInt("efare"), rs.getInt("bfare"), rs.getInt("index"));
+                        flightsList.add(Flight);
+                    }       break;
+                }
         }
         return flightsList;
     }
