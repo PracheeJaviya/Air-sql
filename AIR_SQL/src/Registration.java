@@ -87,7 +87,11 @@ public class Registration extends javax.swing.JFrame {
 
         city_reg_jTextField.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                city_reg_jTextFieldMouseExited(evt);
+                try {
+                    city_reg_jTextFieldMouseExited(evt);
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
             }
         });
 

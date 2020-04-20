@@ -6,7 +6,6 @@ flag integer := 0;
 cnt integer;
 cityyyy varchar;
 BEGIN
-  -- select count(city) from place into cnt;
   open city_index;
   loop
     fetch city_index into  cityyyy;

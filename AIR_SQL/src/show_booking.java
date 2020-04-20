@@ -8,10 +8,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import static javax.swing.JOptionPane.showConfirmDialog;
 
-/**
- *
- * @author Panth
- */
 public class show_booking extends javax.swing.JFrame {
 
     /**
@@ -94,7 +90,7 @@ public class show_booking extends javax.swing.JFrame {
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        Save_ticket = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -170,11 +166,11 @@ public class show_booking extends javax.swing.JFrame {
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel22.setText("jLabel22");
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jButton1.setText("Save Ticket");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        Save_ticket.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        Save_ticket.setText("Save Ticket");
+        Save_ticket.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                Save_ticketActionPerformed(evt);
             }
         });
 
@@ -220,7 +216,7 @@ public class show_booking extends javax.swing.JFrame {
                 .addGap(50, 50, 50))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1)
+                .addComponent(Save_ticket)
                 .addGap(27, 27, 27)
                 .addComponent(jButton2)
                 .addGap(121, 121, 121))
@@ -274,7 +270,7 @@ public class show_booking extends javax.swing.JFrame {
                     .addComponent(jLabel22))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(Save_ticket)
                     .addComponent(jButton2))
                 .addGap(32, 32, 32))
         );
@@ -286,53 +282,55 @@ public class show_booking extends javax.swing.JFrame {
         int yes = showConfirmDialog(null, "Are you sure");
         if (value == yes) {
             try {
-                if (null != aircraft) switch (aircraft) {
-                    case "A-320":{
-                        String seat = "DELETE from a320 where seat_number = ? and date = ? and flightno = ? and class = ?";
-                        PreparedStatement pstmt = conn.prepareStatement(seat);
-                        pstmt.setInt(1, Integer.parseInt(seatno));
-                        pstmt.setString(2, date);
-                        pstmt.setString(3, flightno);
-                        pstmt.setString(4, ebclass);
-                        int row = pstmt.executeUpdate();
-                        System.out.println(row);
+                if (null != aircraft) {
+                    switch (aircraft) {
+                        case "A-320": {
+                            String seat = "DELETE from a320 where seat_number = ? and date = ? and flightno = ? and class = ?";
+                            PreparedStatement pstmt = conn.prepareStatement(seat);
+                            pstmt.setInt(1, Integer.parseInt(seatno));
+                            pstmt.setString(2, date);
+                            pstmt.setString(3, flightno);
+                            pstmt.setString(4, ebclass);
+                            int row = pstmt.executeUpdate();
+                            System.out.println(row);
                             break;
                         }
-                    case "A-319":{
-                        String seat = "DELETE from a319 where seat_number = ? and date = ? and flightno = ? and class = ?";
-                        PreparedStatement pstmt = conn.prepareStatement(seat);
-                        pstmt.setString(1, seatno);
-                        pstmt.setString(2, date);
-                        pstmt.setString(3, flightno);
-                        pstmt.setString(4, ebclass);
-                        int row = pstmt.executeUpdate();
-                        System.out.println(row);
+                        case "A-319": {
+                            String seat = "DELETE from a319 where seat_number = ? and date = ? and flightno = ? and class = ?";
+                            PreparedStatement pstmt = conn.prepareStatement(seat);
+                            pstmt.setString(1, seatno);
+                            pstmt.setString(2, date);
+                            pstmt.setString(3, flightno);
+                            pstmt.setString(4, ebclass);
+                            int row = pstmt.executeUpdate();
+                            System.out.println(row);
                             break;
                         }
-                    case "B787":{
-                        String seat = "DELETE from b787 where seat_number = ? and date = ? and flightno = ? and class = ?";
-                        PreparedStatement pstmt = conn.prepareStatement(seat);
-                        pstmt.setString(1, seatno);
-                        pstmt.setString(2, date);
-                        pstmt.setString(3, flightno);
-                        pstmt.setString(4, ebclass);
-                        int row = pstmt.executeUpdate();
-                        System.out.println(row);
+                        case "B787": {
+                            String seat = "DELETE from b787 where seat_number = ? and date = ? and flightno = ? and class = ?";
+                            PreparedStatement pstmt = conn.prepareStatement(seat);
+                            pstmt.setString(1, seatno);
+                            pstmt.setString(2, date);
+                            pstmt.setString(3, flightno);
+                            pstmt.setString(4, ebclass);
+                            int row = pstmt.executeUpdate();
+                            System.out.println(row);
                             break;
                         }
-                    case "B777-ER":{
-                        String seat = "DELETE from b777 where seat_number = ? and date = ? and flightno = ? and class = ?";
-                        PreparedStatement pstmt = conn.prepareStatement(seat);
-                        pstmt.setString(1, seatno);
-                        pstmt.setString(2, date);
-                        pstmt.setString(3, flightno);
-                        pstmt.setString(4, ebclass);
-                        int row = pstmt.executeUpdate();
-                        System.out.println(row);
+                        case "B777-ER": {
+                            String seat = "DELETE from b777 where seat_number = ? and date = ? and flightno = ? and class = ?";
+                            PreparedStatement pstmt = conn.prepareStatement(seat);
+                            pstmt.setString(1, seatno);
+                            pstmt.setString(2, date);
+                            pstmt.setString(3, flightno);
+                            pstmt.setString(4, ebclass);
+                            int row = pstmt.executeUpdate();
+                            System.out.println(row);
                             break;
                         }
-                    default:
-                        break;
+                        default:
+                            break;
+                    }
                 }
 
                 try {
@@ -381,9 +379,46 @@ public class show_booking extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_formWindowClosing
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void Save_ticketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Save_ticketActionPerformed
+        final_save fs1;
+        try {
+            String SQLQuery = "SELECT age, gender, origin, dest, flightno, date, dep, arr, seatno, aircraft, ebclass FROM reservation\n"
+                    + "WHERE name = ? and bcode = ?;";
+            PreparedStatement pstmt = conn.prepareStatement(SQLQuery);
+            pstmt.setString(1, name);
+            pstmt.setString(2, refno);
+            ResultSet rs = pstmt.executeQuery();
+            int age = 0;
+            String gender = null, origin = null;
+            String dest = null, dep = null, arr = null, seatno = null, flightno = null, date = null;
+            while (rs.next()) {
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+                age = rs.getInt("age");
+                gender = rs.getString("gender");
+                dest = rs.getString("dest");
+                origin = rs.getString("origin");
+                dep = rs.getString("dep");
+                arr = rs.getString("arr");
+                seatno = rs.getString("seatno");
+                flightno = rs.getString("flightno");
+                date = rs.getString("date");
+            }
+
+            String s_age = String.valueOf(age);
+            try {
+                fs1 = new final_save(refno, name, s_age, gender, origin, dest, dep, arr, seatno, flightno, date);
+                fs1.setVisible(true);
+                fs1.setLocationRelativeTo(null);
+            } catch (Exception ex) {
+                Logger.getLogger(final_save.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(final_save.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
+
+
+    }//GEN-LAST:event_Save_ticketActionPerformed
 
     /**
      * @param args the command line arguments
@@ -421,7 +456,7 @@ public class show_booking extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton Save_ticket;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

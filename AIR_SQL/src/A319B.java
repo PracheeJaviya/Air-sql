@@ -41,7 +41,7 @@ public class A319B extends javax.swing.JFrame {
         System.out.println(date);
         System.out.println(ebclass);
         initComponents();
-        final String SEATQuery = "SELECT * from A319\n" + "WHERE flightno = ? and date = ? and class = ?";
+        final String SEATQuery = "SELECT * from a319\n" + "WHERE flightno = ? and date = ? and class = ?";
         PreparedStatement seatps= conn.prepareStatement(SEATQuery);
         seatps.setString(1, flightno);
         seatps.setString(2, date);
@@ -50,19 +50,15 @@ public class A319B extends javax.swing.JFrame {
         final ResultSet rs = seatps.executeQuery();
         while (rs.next()) {
             System.out.println(rs.getInt("seat_number"));
-            
             if (rs.getInt("seat_number") == 1) {
-                
                 jToggleButton1.setEnabled(false);
                 jToggleButton1.setBackground(Color.RED);
             }
             if (rs.getInt("seat_number") == 2) {
-                
                 jToggleButton2.setEnabled(false);
                 jToggleButton2.setBackground(Color.RED);
             }
             if (rs.getInt("seat_number") == 3) {
-                
                 jToggleButton3.setEnabled(false);
                 jToggleButton3.setBackground(Color.RED);
             }
@@ -258,7 +254,7 @@ public class A319B extends javax.swing.JFrame {
                 
                 if (jToggleButton1.getBackground() == Color.GREEN) {
                     final String status = "T";
-                    final String SQLUpdateQuery = "INSERT into A319\n" + "values(?, ?, ?, ?, ?)";
+                    final String SQLUpdateQuery = "INSERT into a319\n" + "values(?, ?, ?, ?, ?)";
                     final PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
                     pstmt.setInt(1, seat_number);
                     pstmt.setString(2, status);
@@ -268,7 +264,7 @@ public class A319B extends javax.swing.JFrame {
                     pstmt.execute();
                 } else if (jToggleButton2.getBackground() == Color.GREEN) {
                     final String status = "T";
-                    final String SQLUpdateQuery = "INSERT into A319\n" + "values(?, ?, ?, ?, ?)";
+                    final String SQLUpdateQuery = "INSERT into a319\n" + "values(?, ?, ?, ?, ?)";
                     final PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
                     pstmt.setInt(1, seat_number);
                     pstmt.setString(2, status);
@@ -278,7 +274,7 @@ public class A319B extends javax.swing.JFrame {
                     pstmt.execute();
                 } else if (jToggleButton3.getBackground() == Color.GREEN) {
                     final String status = "T";
-                    final String SQLUpdateQuery = "INSERT into A319\n" + "values(?, ?, ?, ?, ?)";
+                    final String SQLUpdateQuery = "INSERT into a319\n" + "values(?, ?, ?, ?, ?)";
                     final PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
                     pstmt.setInt(1, seat_number);
                     pstmt.setString(2, status);
@@ -288,7 +284,7 @@ public class A319B extends javax.swing.JFrame {
                     pstmt.execute();
                 } else if (jToggleButton4.getBackground() == Color.GREEN) {
                     final String status = "T";
-                    final String SQLUpdateQuery = "INSERT into A319\n" + "values(?, ?, ?, ?, ?)";
+                    final String SQLUpdateQuery = "INSERT into a319\n" + "values(?, ?, ?, ?, ?)";
                     final PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
                     pstmt.setInt(1, seat_number);
                     pstmt.setString(2, status);
@@ -298,7 +294,7 @@ public class A319B extends javax.swing.JFrame {
                     pstmt.execute();
                 } else if (jToggleButton5.getBackground() == Color.GREEN) {
                     final String status = "T";
-                    final String SQLUpdateQuery = "INSERT into A319\n" + "values(?, ?, ?, ?, ?)";
+                    final String SQLUpdateQuery = "INSERT into 1319\n" + "values(?, ?, ?, ?, ?)";
                     final PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
                     pstmt.setInt(1, seat_number);
                     pstmt.setString(2, status);
@@ -308,7 +304,7 @@ public class A319B extends javax.swing.JFrame {
                     pstmt.execute();
                 } else {
                     final String status = "T";
-                    final String SQLUpdateQuery = "INSERT into A319\n" + "values(?, ?, ?, ?, ?)";
+                    final String SQLUpdateQuery = "INSERT into a319\n" + "values(?, ?, ?, ?, ?)";
                     final PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
                     pstmt.setInt(1, seat_number);
                     pstmt.setString(2, status);

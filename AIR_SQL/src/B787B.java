@@ -40,7 +40,7 @@ public class B787B extends javax.swing.JFrame {
         System.out.println(date);
         System.out.println(ebclass);
         initComponents();
-         final String SEATQuery = "SELECT * from B787\n" + "WHERE flightno = ? and date = ? and class = ?";
+         final String SEATQuery = "SELECT * from b787\n" + "WHERE flightno = ? and date = ? and class = ?";
         PreparedStatement seatps= conn.prepareStatement(SEATQuery);
         seatps.setString(1, flightno);
         seatps.setString(2, date);
@@ -203,7 +203,7 @@ public class B787B extends javax.swing.JFrame {
                  
                  if (jToggleButton1.getBackground() == Color.GREEN) {
                      final String status = "T";
-                     final String SQLUpdateQuery = "INSERT into B787\n" + "values(?, ?, ?, ?, ?)";
+                     final String SQLUpdateQuery = "INSERT into b787\n" + "values(?, ?, ?, ?, ?)";
                      final PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
                      pstmt.setInt(1, seat_number);
                      pstmt.setString(2, status);
@@ -213,7 +213,7 @@ public class B787B extends javax.swing.JFrame {
                      pstmt.execute();
                  } else if (jToggleButton2.getBackground() == Color.GREEN) {
                      final String status = "T";
-                     final String SQLUpdateQuery = "INSERT into B787\n" + "values(?, ?, ?, ?, ?)";
+                     final String SQLUpdateQuery = "INSERT into b787\n" + "values(?, ?, ?, ?, ?)";
                      final PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
                      pstmt.setInt(1, seat_number);
                      pstmt.setString(2, status);
@@ -223,7 +223,7 @@ public class B787B extends javax.swing.JFrame {
                      pstmt.execute();
                  } else if (jToggleButton3.getBackground() == Color.GREEN) {
                      final String status = "T";
-                     final String SQLUpdateQuery = "INSERT into B787\n" + "values(?, ?, ?, ?, ?)";
+                     final String SQLUpdateQuery = "INSERT into b787\n" + "values(?, ?, ?, ?, ?)";
                      final PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
                      pstmt.setInt(1, seat_number);
                      pstmt.setString(2, status);
@@ -233,7 +233,7 @@ public class B787B extends javax.swing.JFrame {
                      pstmt.execute();
                  }else {
                      final String status = "T";
-                     final String SQLUpdateQuery = "INSERT into B787\n" + "values(?, ?, ?, ?, ?)";
+                     final String SQLUpdateQuery = "INSERT into b787\n" + "values(?, ?, ?, ?, ?)";
                      final PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
                      pstmt.setInt(1, seat_number);
                      pstmt.setString(2, status);
