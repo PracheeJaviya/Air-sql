@@ -139,7 +139,7 @@ public class flight_avail extends javax.swing.JFrame {
             case 1: {
                 System.out.println("INSIDE case 1");
                 String SQLQuery = "SELECT a.origin, a.dest, a.flightno , a.dep, a.arr, a.aircraft, a.stops, a.index, b.efare, b.bfare\n" + "FROM public.flightdetails a,public.fare b where a.aircraft=b.aircraft and a.origin =? and a.dest =? and a.freq LIKE '%1%' ;";
-                PreparedStatement pst = conn.prepareStatement(SQLQuery);
+                PreparedStatement pst = conn.prepareStatement(SQLQuery,ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
                 pst.setString(1, origin);
                 pst.setString(2, dest);
                 ResultSet rs = pst.executeQuery();
@@ -274,7 +274,7 @@ public class flight_avail extends javax.swing.JFrame {
             row[5] = listx.get(i).getAircraft();
             row[6] = listx.get(i).getStops();
             row[8] = listx.get(i).getIndex();
-            System.out.println(" FAREEEE" + ebclass.compareTo("Economy"));
+//            System.out.println(" FAREEEE" + ebclass.compareTo("Economy"));
             if (ebclass.compareTo("Economy")==0)
             {
                 row[7] = listx.get(i).getEfare();

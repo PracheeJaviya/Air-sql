@@ -14,10 +14,7 @@ import javax.swing.JOptionPane;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-/**
- *
- * @author Panth
- */
+
 public class passng_details extends javax.swing.JFrame {
 
     /**

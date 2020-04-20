@@ -12,10 +12,7 @@ import javax.swing.table.TableModel;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-/**
- *
- * @author Panth
- */
+
 public final class prev_bookings extends javax.swing.JFrame {
 
     Connection conn = null;

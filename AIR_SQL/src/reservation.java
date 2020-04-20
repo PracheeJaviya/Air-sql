@@ -4,11 +4,6 @@
  * and open the template in the editor.
  */
 
-/**
- *
- * @author Panth
- */
-
 
 class reservation {
     public reservation(String refno, String name, int age, String Gender, String to, String from, String flightno, String date, String dep, String arr, String seatno){

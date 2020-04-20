@@ -285,74 +285,76 @@ public class show_booking extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) throws SQLException {//GEN-FIRST:event_jButton2ActionPerformed
 
-        CallableStatement CANCEL =conn.prepareCall("{?=call cancel(?)}");
+        CallableStatement CANCEL =conn.prepareCall("{? = call cancel(?)}");
         CANCEL.setString(2,date);
         CANCEL.registerOutParameter(1, Types.INTEGER);
         CANCEL.execute();
         Integer canret = CANCEL.getInt(1);
 
-        if (canret == 1)
-        {
+
+            if (canret == 1)
+             {
             int yes = showConfirmDialog(null, "Are you sure");
-            if (value == yes) {
+
+            int seatnumber=Integer.parseInt(seatno);
+                if (yes == 0) {
                 try {
-                    if (null != aircraft) {
                         switch (aircraft) {
                             case "A-320": {
-                                String seat = "DELETE from a320 where seat_number = ? and date = ? and flightno = ? and class = ?";
+                                String seat = "DELETE from a320\n"+" where seat_number = ? and date = ? and flightno = ? and class = ?;";
                                 PreparedStatement pstmt = conn.prepareStatement(seat);
-                                pstmt.setInt(1, Integer.parseInt(seatno));
+                                pstmt.setInt(1, seatnumber);
                                 pstmt.setString(2, date);
                                 pstmt.setString(3, flightno);
                                 pstmt.setString(4, ebclass);
-                                int row = pstmt.executeUpdate();
-                                System.out.println(row);
+                                 pstmt.executeUpdate();
+                               // System.out.println(row);
                                 break;
                             }
                             case "A-319": {
-                                String seat = "DELETE from a319 where seat_number = ? and date = ? and flightno = ? and class = ?";
+                                String seat = "DELETE from a319\n"+" where seat_number = ? and date = ? and flightno = ? and class = ?;";
                                 PreparedStatement pstmt = conn.prepareStatement(seat);
-                                pstmt.setString(1, seatno);
+                                pstmt.setInt(1, seatnumber);
                                 pstmt.setString(2, date);
                                 pstmt.setString(3, flightno);
                                 pstmt.setString(4, ebclass);
-                                int row = pstmt.executeUpdate();
-                                System.out.println(row);
+                                 pstmt.executeUpdate();
+                                //System.out.println(row);
                                 break;
                             }
                             case "B787": {
-                                String seat = "DELETE from b787 where seat_number = ? and date = ? and flightno = ? and class = ?";
+                                String seat = "DELETE from b787\n"+" where seat_number = ? and date = ? and flightno = ? and class = ?;";
                                 PreparedStatement pstmt = conn.prepareStatement(seat);
-                                pstmt.setString(1, seatno);
+                                pstmt.setInt(1, seatnumber);
                                 pstmt.setString(2, date);
                                 pstmt.setString(3, flightno);
                                 pstmt.setString(4, ebclass);
-                                int row = pstmt.executeUpdate();
-                                System.out.println(row);
+                                 pstmt.executeUpdate();
+                                //System.out.println(row);
                                 break;
                             }
                             case "B777-ER": {
-                                String seat = "DELETE from b777 where seat_number = ? and date = ? and flightno = ? and class = ?";
+                                String seat = "DELETE from b777_er\n"+" where seat_number = ? and date = ? and flightno = ? and class = ?;";
                                 PreparedStatement pstmt = conn.prepareStatement(seat);
-                                pstmt.setString(1, seatno);
+                                pstmt.setInt(1, seatnumber);
                                 pstmt.setString(2, date);
                                 pstmt.setString(3, flightno);
                                 pstmt.setString(4, ebclass);
-                                int row = pstmt.executeUpdate();
-                                System.out.println(row);
+                                 pstmt.executeUpdate();
+                               // System.out.println(row);
                                 break;
                             }
                             default:
                                 break;
                         }
-                    }
+
 
                     try {
-                        String SQLQuery1 = "DELETE from reservation where bcode = ? and name = ?;";
+                        String SQLQuery1 = "DELETE from reservation\n"+" where bcode = ? and name = ?;";
                         PreparedStatement pst = conn.prepareStatement(SQLQuery1);
                         pst.setString(1, refno);
                         pst.setString(2, name);
-                        pst.execute();
+                        pst.executeUpdate();
                     } catch (SQLException ex) {
                         Logger.getLogger(show_booking.class.getName()).log(Level.SEVERE, null, ex);
                     }
