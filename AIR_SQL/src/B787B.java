@@ -40,7 +40,7 @@ public class B787B extends javax.swing.JFrame {
         System.out.println(date);
         System.out.println(ebclass);
         initComponents();
-         final String SEATQuery = "SELECT * from b787\n" + "WHERE flightno = ? and date = ? and class = ?";
+         final String SEATQuery = "SELECT * from b787\n" + "WHERE flightno = ? and date = ? and class = ?;";
         PreparedStatement seatps= conn.prepareStatement(SEATQuery);
         seatps.setString(1, flightno);
         seatps.setString(2, date);
@@ -51,19 +51,19 @@ public class B787B extends javax.swing.JFrame {
             System.out.println(rs.getInt("seat_number"));
             if (rs.getInt("seat_number") == 1) {
                 jToggleButton1.setBackground(Color.RED);
-                jToggleButton1.setSelected(true);
+                jToggleButton1.setEnabled(false);
             }
             if (rs.getInt("seat_number") == 2) {
                 jToggleButton2.setBackground(Color.RED);
-                jToggleButton2.setSelected(true);
+                jToggleButton2.setEnabled(false);
             }
             if (rs.getInt("seat_number") == 3) {
                 jToggleButton3.setBackground(Color.RED);
-                jToggleButton3.setSelected(true);
+                jToggleButton3.setEnabled(false);
             }
             if (rs.getInt("seat_number") == 4) {
                 jToggleButton4.setBackground(Color.RED);
-                jToggleButton4.setSelected(true);
+                jToggleButton4.setEnabled(false);
             }
             
         }
@@ -210,7 +210,7 @@ public class B787B extends javax.swing.JFrame {
                      pstmt.setString(3, flightno);
                      pstmt.setString(4, ebclass);
                      pstmt.setString(5, date);
-                     pstmt.execute();
+                     pstmt.executeQuery();
                  } else if (jToggleButton2.getBackground() == Color.GREEN) {
                      final String status = "T";
                      final String SQLUpdateQuery = "INSERT into b787\n" + "values(?, ?, ?, ?, ?)";
@@ -220,7 +220,7 @@ public class B787B extends javax.swing.JFrame {
                      pstmt.setString(3, flightno);
                      pstmt.setString(4, ebclass);
                      pstmt.setString(5, date);
-                     pstmt.execute();
+                     pstmt.executeQuery();
                  } else if (jToggleButton3.getBackground() == Color.GREEN) {
                      final String status = "T";
                      final String SQLUpdateQuery = "INSERT into b787\n" + "values(?, ?, ?, ?, ?)";
@@ -230,7 +230,7 @@ public class B787B extends javax.swing.JFrame {
                      pstmt.setString(3, flightno);
                      pstmt.setString(4, ebclass);
                      pstmt.setString(5, date);
-                     pstmt.execute();
+                     pstmt.executeQuery();
                  }else {
                      final String status = "T";
                      final String SQLUpdateQuery = "INSERT into b787\n" + "values(?, ?, ?, ?, ?)";
@@ -240,7 +240,7 @@ public class B787B extends javax.swing.JFrame {
                      pstmt.setString(3, flightno);
                      pstmt.setString(4, ebclass);
                      pstmt.setString(5, date);
-                     pstmt.execute();
+                     pstmt.executeQuery();
                  }
              } catch (final Exception ex) {
                  Logger.getLogger(B787B.class.getName()).log(Level.SEVERE, null, ex);
@@ -322,7 +322,7 @@ public class B787B extends javax.swing.JFrame {
             int i = pst.executeUpdate();
             System.out.println(i);
         } catch (SQLException ex) {
-            Logger.getLogger(A319B.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(B787B.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_formWindowClosing
 

@@ -39,7 +39,7 @@ public class A319E extends javax.swing.JFrame {
         System.out.println(date);
         System.out.println(ebclass);
         initComponents();
-        final String SEATQuery = "SELECT * from a319\n" + "WHERE flightno = ? and date = ? and class = ?";
+        final String SEATQuery = "SELECT * from a319\n" + "WHERE flightno = ? and date = ? and class = ?;";
         PreparedStatement seatps= conn.prepareStatement(SEATQuery);
         seatps.setString(1, flightno);
         seatps.setString(2, date);
@@ -50,43 +50,43 @@ public class A319E extends javax.swing.JFrame {
             System.out.println(rs.getInt("seat_number"));
             if (rs.getInt("seat_number") == 1) {
                 jToggleButton1.setBackground(Color.RED);
-                jToggleButton1.setSelected(true);
+                jToggleButton1.setEnabled(false);
             }
             if (rs.getInt("seat_number") == 2) {
                 jToggleButton2.setBackground(Color.RED);
-                jToggleButton2.setSelected(true);
+                jToggleButton2.setEnabled(false);
             }
             if (rs.getInt("seat_number") == 3) {
                 jToggleButton3.setBackground(Color.RED);
-                jToggleButton3.setSelected(true);
+                jToggleButton3.setEnabled(false);
             }
             if (rs.getInt("seat_number") == 4) {
                 jToggleButton4.setBackground(Color.RED);
-                jToggleButton4.setSelected(true);
+                jToggleButton4.setEnabled(false);
             }
             if (rs.getInt("seat_number") == 5) {
                 jToggleButton5.setBackground(Color.RED);
-                jToggleButton5.setSelected(true);
+                jToggleButton5.setEnabled(false);
             }
             if (rs.getInt("seat_number") == 6) {
                 jToggleButton6.setBackground(Color.RED);
-                jToggleButton6.setSelected(true);
+                jToggleButton6.setEnabled(false);
             }
             if (rs.getInt("seat_number") == 7) {
                 jToggleButton7.setBackground(Color.RED);
-                jToggleButton7.setSelected(true);
+                jToggleButton7.setEnabled(false);
             }
             if (rs.getInt("seat_number") == 8) {
                 jToggleButton8.setBackground(Color.RED);
-                jToggleButton8.setSelected(true);
+                jToggleButton8.setEnabled(false);
             }
             if (rs.getInt("seat_number") == 9) {
                 jToggleButton9.setBackground(Color.RED);
-                jToggleButton9.setSelected(true);
+                jToggleButton9.setEnabled(false);
             }
             if (rs.getInt("seat_number") == 10) {
                 jToggleButton10.setBackground(Color.RED);
-                jToggleButton10.setSelected(true);
+                jToggleButton10.setEnabled(false);
             }
         }
     }
@@ -300,97 +300,97 @@ public class A319E extends javax.swing.JFrame {
                  
                  if (jToggleButton1.getBackground() == Color.GREEN) {
                      final String status = "T";
-                     final String SQLUpdateQuery = "INSERT into a319\n" + "values(?, ?, ?, ?, ?)";
+                     final String SQLUpdateQuery = "INSERT into a319\n" + "values(?, ?, ?, ?, ?);";
                      final PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
                      pstmt.setInt(1, seat_number);
                      pstmt.setString(2, status);
                      pstmt.setString(3, flightno);
                      pstmt.setString(4, ebclass);
                      pstmt.setString(5, date);
-                     pstmt.execute();
+                     pstmt.executeQuery();
                  } else if (jToggleButton2.getBackground() == Color.GREEN) {
                      final String status = "T";
-                     final String SQLUpdateQuery = "INSERT into a319\n" + "values(?, ?, ?, ?, ?)";
+                     final String SQLUpdateQuery = "INSERT into a319\n" + "values(?, ?, ?, ?, ?);";
                      final PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
                      pstmt.setInt(1, seat_number);
                      pstmt.setString(2, status);
                      pstmt.setString(3, flightno);
                      pstmt.setString(4, ebclass);
                      pstmt.setString(5, date);
-                     pstmt.execute();
+                     pstmt.executeQuery();
                  } else if (jToggleButton3.getBackground() == Color.GREEN) {
                      final String status = "T";
-                     final String SQLUpdateQuery = "INSERT into a319\n" + "values(?, ?, ?, ?, ?)";
+                     final String SQLUpdateQuery = "INSERT into a319\n" + "values(?, ?, ?, ?, ?);";
                      final PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
                      pstmt.setInt(1, seat_number);
                      pstmt.setString(2, status);
                      pstmt.setString(3, flightno);
                      pstmt.setString(4, ebclass);
                      pstmt.setString(5, date);
-                     pstmt.execute();
+                     pstmt.executeQuery();
                  } else if (jToggleButton4.getBackground() == Color.GREEN) {
                      final String status = "T";
-                     final String SQLUpdateQuery = "INSERT into a319\n" + "values(?, ?, ?, ?, ?)";
+                     final String SQLUpdateQuery = "INSERT into a319\n" + "values(?, ?, ?, ?, ?);";
                      final PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
                      pstmt.setInt(1, seat_number);
                      pstmt.setString(2, status);
                      pstmt.setString(3, flightno);
                      pstmt.setString(4, ebclass);
                      pstmt.setString(5, date);
-                     pstmt.execute();
+                     pstmt.executeQuery();
                  } else if (jToggleButton5.getBackground() == Color.GREEN) {
                      final String status = "T";
-                     final String SQLUpdateQuery = "INSERT into a319\n" + "values(?, ?, ?, ?, ?)";
+                     final String SQLUpdateQuery = "INSERT into a319\n" + "values(?, ?, ?, ?, ?);";
                      final PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
                      pstmt.setInt(1, seat_number);
                      pstmt.setString(2, status);
                      pstmt.setString(3, flightno);
                      pstmt.setString(4, ebclass);
                      pstmt.setString(5, date);
-                     pstmt.execute();
+                     pstmt.executeQuery();
                  } else if (jToggleButton6.getBackground() == Color.GREEN) {
                      final String status = "T";
-                     final String SQLUpdateQuery = "INSERT into a319\n" + "values(?, ?, ?, ?, ?)";
+                     final String SQLUpdateQuery = "INSERT into a319\n" + "values(?, ?, ?, ?, ?);";
                      final PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
                      pstmt.setInt(1, seat_number);
                      pstmt.setString(2, status);
                      pstmt.setString(3, flightno);
                      pstmt.setString(4, ebclass);
                      pstmt.setString(5, date);
-                     pstmt.execute();
+                     pstmt.executeQuery();
                  } else if (jToggleButton7.getBackground() == Color.GREEN) {
                      final String status = "T";
-                     final String SQLUpdateQuery = "INSERT into a319\n" + "values(?, ?, ?, ?, ?)";
+                     final String SQLUpdateQuery = "INSERT into a319\n" + "values(?, ?, ?, ?, ?);";
                      final PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
                      pstmt.setInt(1, seat_number);
                      pstmt.setString(2, status);
                      pstmt.setString(3, flightno);
                      pstmt.setString(4, ebclass);
                      pstmt.setString(5, date);
-                     pstmt.execute();
+                     pstmt.executeQuery();
                  } else if (jToggleButton8.getBackground() == Color.GREEN) {
                      final String status = "T";
-                     final String SQLUpdateQuery = "INSERT into a319\n" + "values(?, ?, ?, ?, ?)";
+                     final String SQLUpdateQuery = "INSERT into a319\n" + "values(?, ?, ?, ?, ?);";
                      final PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
                      pstmt.setInt(1, seat_number);
                      pstmt.setString(2, status);
                      pstmt.setString(3, flightno);
                      pstmt.setString(4, ebclass);
                      pstmt.setString(5, date);
-                     pstmt.execute();
+                     pstmt.executeQuery();
                  }  else if (jToggleButton9.getBackground() == Color.GREEN) {
                      final String status = "T";
-                     final String SQLUpdateQuery = "INSERT into a319\n" + "values(?, ?, ?, ?, ?)";
+                     final String SQLUpdateQuery = "INSERT into a319\n" + "values(?, ?, ?, ?, ?);";
                      final PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
                      pstmt.setInt(1, seat_number);
                      pstmt.setString(2, status);
                      pstmt.setString(3, flightno);
                      pstmt.setString(4, ebclass);
                      pstmt.setString(5, date);
-                     pstmt.execute();
+                     pstmt.executeQuery();
                  } else {
                      final String status = "T";
-                     final String SQLUpdateQuery = "INSERT into a319\n" + "values(?, ?, ?, ?, ?)";
+                     final String SQLUpdateQuery = "INSERT into a319\n" + "values(?, ?, ?, ?, ?);";
                      final PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
                      pstmt.setInt(1, seat_number);
                      pstmt.setString(2, status);

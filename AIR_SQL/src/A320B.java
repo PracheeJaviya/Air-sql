@@ -317,7 +317,7 @@ public class A320B extends javax.swing.JFrame {
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         try {
-            String delete = "DELETE FROM reservation where seatno = ?;";
+            String delete = "DELETE FROM reservation\n"+" where seatno = ?;";
             String seatno = "10-A";
             PreparedStatement pst = conn.prepareStatement(delete);
             pst.setString(1, seatno);

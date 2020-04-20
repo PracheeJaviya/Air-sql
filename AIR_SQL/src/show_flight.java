@@ -24,7 +24,7 @@ public class show_flight extends javax.swing.JFrame {
     String arr;
     String dep;
     String s_passng;
-    String refno;
+//    String refno;
     String flightno;
     String s_index;
     String fare;
@@ -36,6 +36,7 @@ public class show_flight extends javax.swing.JFrame {
     int i_passng;
     int total;
     Connection conn = null;
+    String refno = BCode.bcode(5);
 
     public show_flight() {
         initComponents();
@@ -290,272 +291,272 @@ public class show_flight extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void submit_showflightsActionPerformed(java.awt.event.ActionEvent evt) throws SQLException {//GEN-FIRST:event_submit_showflightsActionPerformed
-        refno = BCode.bcode(5);
+
         i_passng = Integer.parseInt(JOptionPane.showInputDialog("Number of Passengers : "));
         int i;
-//        if(aircraft.compareTo("B787")==0)
-//        {
-//            String SQLQUERY="Select count(class) from b787\n"+"where class = 'Economy';";
-//            PreparedStatement pt = conn.prepareStatement(SQLQUERY,ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-//            ResultSet rs = pt.executeQuery();
-////            rs.beforeFirst();
-//            while (rs.next())
-//            {
-//                if(i_passng<(8-(rs.getInt("count")))  ) {
-//                    for (i = 0; i < i_passng; i++) {
-//                        try {
-//                            passng_details pd1;
-//                            pd1 = new passng_details(s_index, refno, ebclass, s_date);
-//                            pd1.setVisible(true);
-//                            pd1.setLocationRelativeTo(null);
-//                            dispose();
-//
-//                        } catch (SQLException ex) {
-//                            Logger.getLogger(show_flight.class.getName()).log(Level.SEVERE, null, ex);
-//                        }
-//                        System.out.println(i_passng);
-//                    }
-//                }
-//                else
-//                {
-//                    JOptionPane.showMessageDialog(null, "Not enough seats available");
-//
-//                }
-//            }
-//
-//        }
-//        if(aircraft.compareTo("B787")==0)
-//        {
-//            String SQLQUERY="Select count(class) from b787\n"+"where class ='Business';";
-//            PreparedStatement pt = conn.prepareStatement(SQLQUERY,ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-//            ResultSet rs = pt.executeQuery();
-//            rs.beforeFirst();
-//            while (rs.next())
-//            {
-//                if(i_passng<(4-(rs.getInt("count")))  ) {
-//                    for (i = 0; i < i_passng; i++) {
-//                        try {
-//                            passng_details pd1;
-//                            pd1 = new passng_details(s_index, refno, ebclass, s_date);
-//                            pd1.setVisible(true);
-//                            pd1.setLocationRelativeTo(null);
-//                            dispose();
-//
-//                        } catch (SQLException ex) {
-//                            Logger.getLogger(show_flight.class.getName()).log(Level.SEVERE, null, ex);
-//                        }
-//                        System.out.println(i_passng);
-//                    }
-//                }
-//                else
-//                {
-//                    JOptionPane.showMessageDialog(null, "Not enough seats available");
-//
-//                }
-//            }
-//
-//        }
-//        if(aircraft.compareTo("A-319")==0)
-//        {
-//            String SQLQUERY="Select count(class) from a319\n"+"where class ='Economy';";
-//            PreparedStatement pt = conn.prepareStatement(SQLQUERY,ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-//            ResultSet rs = pt.executeQuery();
-//            rs.beforeFirst();
-//            while (rs.next())
-//            {
-//                if(i_passng<(10-(rs.getInt("count")))  ) {
-//                    for (i = 0; i < i_passng; i++) {
-//                        try {
-//                            passng_details pd1;
-//                            pd1 = new passng_details(s_index, refno, ebclass, s_date);
-//                            pd1.setVisible(true);
-//                            pd1.setLocationRelativeTo(null);
-//                            dispose();
-//
-//                        } catch (SQLException ex) {
-//                            Logger.getLogger(show_flight.class.getName()).log(Level.SEVERE, null, ex);
-//                        }
-//                        System.out.println(i_passng);
-//                    }
-//                }
-//                else
-//                {
-//                    JOptionPane.showMessageDialog(null, "Not enough seats available");
-//
-//                }
-//            }
-//
-//        }
-//        if(aircraft.compareTo("A-319")==0)
-//        {
-//            String SQLQUERY="Select count(class) from a319\n"+"where class ='Business';";
-//            PreparedStatement pt = conn.prepareStatement(SQLQUERY,ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-//            ResultSet rs = pt.executeQuery();
-//            rs.beforeFirst();
-//            while (rs.next())
-//            {
-//                if(i_passng<(6-(rs.getInt("count")))  ) {
-//                    for (i = 0; i < i_passng; i++) {
-//                        try {
-//                            passng_details pd1;
-//                            pd1 = new passng_details(s_index, refno, ebclass, s_date);
-//                            pd1.setVisible(true);
-//                            pd1.setLocationRelativeTo(null);
-//                            dispose();
-//
-//                        } catch (SQLException ex) {
-//                            Logger.getLogger(show_flight.class.getName()).log(Level.SEVERE, null, ex);
-//                        }
-//                        System.out.println(i_passng);
-//                    }
-//                }
-//                else
-//                {
-//                    JOptionPane.showMessageDialog(null, "Not enough seats available");
-//
-//                }
-//            }
-//
-//        }
-//        if(aircraft.compareTo("A-320")==0)
-//        {
-//            String SQLQUERY="Select count(class) from a320\n"+"where class ='Economy';";
-//            PreparedStatement pt = conn.prepareStatement(SQLQUERY,ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-//            ResultSet rs = pt.executeQuery();
-//            rs.beforeFirst();
-//            while (rs.next())
-//            {
-//                if(i_passng<(10-(rs.getInt("count")))  ) {
-//                    for (i = 0; i < i_passng; i++) {
-//                        try {
-//                            passng_details pd1;
-//                            pd1 = new passng_details(s_index, refno, ebclass, s_date);
-//                            pd1.setVisible(true);
-//                            pd1.setLocationRelativeTo(null);
-//                            dispose();
-//
-//                        } catch (SQLException ex) {
-//                            Logger.getLogger(show_flight.class.getName()).log(Level.SEVERE, null, ex);
-//                        }
-//                        System.out.println(i_passng);
-//                    }
-//                }
-//                else
-//                {
-//                    JOptionPane.showMessageDialog(null, "Not enough seats available");
-//
-//                }
-//            }
-//
-//        }
-//        if(aircraft.compareTo("A-320")==0)
-//        {
-//            String SQLQUERY="Select count(class) from a320\n"+"where class ='Business';";
-//            PreparedStatement pt = conn.prepareStatement(SQLQUERY,ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-//            ResultSet rs = pt.executeQuery();
-//            rs.beforeFirst();
-//            while (rs.next())
-//            {
-//                if(i_passng<(4-(rs.getInt("count")))  ) {
-//                    for (i = 0; i < i_passng; i++) {
-//                        try {
-//                            passng_details pd1;
-//                            pd1 = new passng_details(s_index, refno, ebclass, s_date);
-//                            pd1.setVisible(true);
-//                            pd1.setLocationRelativeTo(null);
-//                            dispose();
-//
-//                        } catch (SQLException ex) {
-//                            Logger.getLogger(show_flight.class.getName()).log(Level.SEVERE, null, ex);
-//                        }
-//                        System.out.println(i_passng);
-//                    }
-//                }
-//                else
-//                {
-//                    JOptionPane.showMessageDialog(null, "Not enough seats available");
-//
-//                }
-//            }
-//
-//        }
-//        if(aircraft.compareTo("B777-ER")==0)
-//        {
-//            String SQLQUERY="Select count(class) from b777_er\n"+"where class ='Economy';";
-//            PreparedStatement pt = conn.prepareStatement(SQLQUERY,ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-//            ResultSet rs = pt.executeQuery();
-////            rs.beforeFirst();
-//            while (rs.next())
-//            {
-//                if(i_passng<(10-(rs.getInt("count")))  ) {
-//                    for (i = 0; i < i_passng; i++) {
-//                        try {
-//                            passng_details pd1;
-//                            pd1 = new passng_details(s_index, refno, ebclass, s_date);
-//                            pd1.setVisible(true);
-//                            pd1.setLocationRelativeTo(null);
-//                            dispose();
-//
-//                        } catch (SQLException ex) {
-//                            Logger.getLogger(show_flight.class.getName()).log(Level.SEVERE, null, ex);
-//                        }
-//                        System.out.println(i_passng);
-//                    }
-//                }
-//                else
-//                {
-//                    JOptionPane.showMessageDialog(null, "Not enough seats available");
-//
-//                }
-//            }
-//
-//        }
-//        if(aircraft.compareTo("B777-ER")==0)
-//        {
-//            String SQLQUERY="Select count(class) from b777_er\n"+"where class ='Business';";
-//            PreparedStatement pt = conn.prepareStatement(SQLQUERY,ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-//            ResultSet rs = pt.executeQuery();
-//            rs.beforeFirst();
-//            while (rs.next())
-//            {
-//                if(i_passng<(8-(rs.getInt("count")))  ) {
-//                    for (i = 0; i < i_passng; i++) {
-//                        try {
-//                            passng_details pd1;
-//                            pd1 = new passng_details(s_index, refno, ebclass, s_date);
-//                            pd1.setVisible(true);
-//                            pd1.setLocationRelativeTo(null);
-//                            dispose();
-//
-//                        } catch (SQLException ex) {
-//                            Logger.getLogger(show_flight.class.getName()).log(Level.SEVERE, null, ex);
-//                        }
-//                        System.out.println(i_passng);
-//                    }
-//                }
-//                else
-//                {
-//                    JOptionPane.showMessageDialog(null, "Not enough seats available");
-//
-//                }
-//            }
-//
-//        }
+        if(aircraft.compareTo("B787")==0 && (ebclass.compareTo("Economy")==0))
+        {
+            String SQLQUERY="Select count(class) from b787\n"+"where class = 'Economy';";
+            PreparedStatement pt = conn.prepareStatement(SQLQUERY,ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            ResultSet rs = pt.executeQuery();
 
+            while (rs.next())
+            {
+                if(i_passng<(8-(rs.getInt("count")))  ) {
+                    for (i = 0; i < i_passng; i++) {
+                        try {
+                            passng_details pd1;
+                            pd1 = new passng_details(s_index, refno, ebclass, s_date);
+                            pd1.setVisible(true);
+                            pd1.setLocationRelativeTo(null);
+                            dispose();
 
-        for (i = 0; i < i_passng; i++) {
-            try {
-                passng_details pd1;
-                pd1 = new passng_details(s_index, refno, ebclass, s_date);
-                pd1.setVisible(true);
-                pd1.setLocationRelativeTo(null);
-                dispose();
+                        } catch (SQLException ex) {
+                            Logger.getLogger(show_flight.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        System.out.println(i_passng);
+                        try
+                        {
+                            B787E model;
+                            model = new B787E(flightno,s_date,ebclass, refno,s_passng);
+                            model.setVisible(true);
+                            model.setLocationRelativeTo(null);
 
-            } catch (SQLException ex) {
-                Logger.getLogger(show_flight.class.getName()).log(Level.SEVERE, null, ex);
+                        }catch(Exception e)
+                        {
+                            Logger.getLogger(show_flight.class.getName()).log(Level.SEVERE, null, e);
+
+                        }
+                    }
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null, "Not enough seats available");
+
+                }
             }
-            System.out.println(i_passng);
+
         }
+        if(aircraft.compareTo("B787")==0&& (ebclass.compareTo("Business")==0))
+        {
+            String SQLQUERY="Select count(class) from b787\n"+"where class ='Business';";
+            PreparedStatement pt = conn.prepareStatement(SQLQUERY,ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            ResultSet rs = pt.executeQuery();
+            rs.beforeFirst();
+            while (rs.next())
+            {
+                if(i_passng<(4-(rs.getInt("count")))  ) {
+                    for (i = 0; i < i_passng; i++) {
+                        try {
+                            passng_details pd1;
+                            pd1 = new passng_details(s_index, refno, ebclass, s_date);
+                            pd1.setVisible(true);
+                            pd1.setLocationRelativeTo(null);
+                            dispose();
+
+                        } catch (SQLException ex) {
+                            Logger.getLogger(show_flight.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        System.out.println(i_passng);
+
+                    }
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null, "Not enough seats available");
+
+                }
+            }
+
+        }
+        if(aircraft.compareTo("A-319")==0&& (ebclass.compareTo("Economy")==0))
+        {
+            String SQLQUERY="Select count(class) from a319\n"+"where class ='Economy';";
+            PreparedStatement pt = conn.prepareStatement(SQLQUERY,ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            ResultSet rs = pt.executeQuery();
+            rs.beforeFirst();
+            while (rs.next())
+            {
+                if(i_passng<(10-(rs.getInt("count")))  ) {
+                    for (i = 0; i < i_passng; i++) {
+                        try {
+                            passng_details pd1;
+                            pd1 = new passng_details(s_index, refno, ebclass, s_date);
+                            pd1.setVisible(true);
+                            pd1.setLocationRelativeTo(null);
+                            dispose();
+
+                        } catch (SQLException ex) {
+                            Logger.getLogger(show_flight.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        System.out.println(i_passng);
+                    }
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null, "Not enough seats available");
+
+                }
+            }
+
+        }
+        if(aircraft.compareTo("A-319")==0&& (ebclass.compareTo("Business")==0))
+        {
+            String SQLQUERY="Select count(class) from a319\n"+"where class ='Business';";
+            PreparedStatement pt = conn.prepareStatement(SQLQUERY,ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            ResultSet rs = pt.executeQuery();
+            rs.beforeFirst();
+            while (rs.next())
+            {
+                if(i_passng<(6-(rs.getInt("count")))  ) {
+                    for (i = 0; i < i_passng; i++) {
+                        try {
+                            passng_details pd1;
+                            pd1 = new passng_details(s_index, refno, ebclass, s_date);
+                            pd1.setVisible(true);
+                            pd1.setLocationRelativeTo(null);
+                            dispose();
+
+                        } catch (SQLException ex) {
+                            Logger.getLogger(show_flight.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        System.out.println(i_passng);
+                    }
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null, "Not enough seats available");
+
+                }
+            }
+
+        }
+        if(aircraft.compareTo("A-320")==0&& (ebclass.compareTo("Economy")==0))
+        {
+            String SQLQUERY="Select count(class) from a320\n"+"where class ='Economy';";
+            PreparedStatement pt = conn.prepareStatement(SQLQUERY,ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            ResultSet rs = pt.executeQuery();
+            rs.beforeFirst();
+            while (rs.next())
+            {
+                if(i_passng<(10-(rs.getInt("count")))  ) {
+                    for (i = 0; i < i_passng; i++) {
+                        try {
+                            passng_details pd1;
+                            pd1 = new passng_details(s_index, refno, ebclass, s_date);
+                            pd1.setVisible(true);
+                            pd1.setLocationRelativeTo(null);
+                            dispose();
+
+                        } catch (SQLException ex) {
+                            Logger.getLogger(show_flight.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        System.out.println(i_passng);
+                    }
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null, "Not enough seats available");
+
+                }
+            }
+
+        }
+        if(aircraft.compareTo("A-320")==0&& (ebclass.compareTo("Business")==0))
+        {
+            String SQLQUERY="Select count(class) from a320\n"+"where class ='Business';";
+            PreparedStatement pt = conn.prepareStatement(SQLQUERY,ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            ResultSet rs = pt.executeQuery();
+            rs.beforeFirst();
+            while (rs.next())
+            {
+                if(i_passng<(4-(rs.getInt("count")))  ) {
+                    for (i = 0; i < i_passng; i++) {
+                        try {
+                            passng_details pd1;
+                            pd1 = new passng_details(s_index, refno, ebclass, s_date);
+                            pd1.setVisible(true);
+                            pd1.setLocationRelativeTo(null);
+                            dispose();
+
+                        } catch (SQLException ex) {
+                            Logger.getLogger(show_flight.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        System.out.println(i_passng);
+                    }
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null, "Not enough seats available");
+
+                }
+            }
+
+        }
+        if(aircraft.compareTo("B777-ER")==0&& (ebclass.compareTo("Economy")==0))
+        {
+            String SQLQUERY="Select count(class) from b777_er\n"+"where class ='Economy';";
+            PreparedStatement pt = conn.prepareStatement(SQLQUERY,ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            ResultSet rs = pt.executeQuery();
+//            rs.beforeFirst();
+            while (rs.next())
+            {
+                if(i_passng<(10-(rs.getInt("count")))  ) {
+                    for (i = 0; i < i_passng; i++) {
+                        try {
+                            passng_details pd1;
+                            pd1 = new passng_details(s_index, refno, ebclass, s_date);
+                            pd1.setVisible(true);
+                            pd1.setLocationRelativeTo(null);
+                            dispose();
+
+                        } catch (SQLException ex) {
+                            Logger.getLogger(show_flight.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        System.out.println(i_passng);
+                    }
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null, "Not enough seats available");
+
+                }
+            }
+
+        }
+        if(aircraft.compareTo("B777-ER")==0&& (ebclass.compareTo("Business")==0))
+        {
+            String SQLQUERY="Select count(class) from b777_er\n"+"where class ='Business';";
+            PreparedStatement pt = conn.prepareStatement(SQLQUERY,ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            ResultSet rs = pt.executeQuery();
+            rs.beforeFirst();
+            while (rs.next())
+            {
+                if(i_passng<(8-(rs.getInt("count")))  ) {
+                    for (i = 0; i < i_passng; i++) {
+                        try {
+                            passng_details pd1;
+                            pd1 = new passng_details(s_index, refno, ebclass, s_date);
+                            pd1.setVisible(true);
+                            pd1.setLocationRelativeTo(null);
+                            dispose();
+
+                        } catch (SQLException ex) {
+                            Logger.getLogger(show_flight.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        System.out.println(i_passng);
+                    }
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null, "Not enough seats available");
+
+                }
+            }
+
+        }
+
+
     }//GEN-LAST:event_submit_showflightsActionPerformed
 
     /**

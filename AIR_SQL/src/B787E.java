@@ -42,46 +42,47 @@ public class B787E extends javax.swing.JFrame {
         System.out.println(flightno);
         System.out.println(date);
         System.out.println(ebclass);
-        final String SEATQuery = "SELECT * from B787\n" + "WHERE flightno = ? and date = ? and class = ?";
+        final String SEATQuery = "SELECT * from b787\n" + "WHERE flightno = ? and date = ? and class = ?;";
         PreparedStatement seatps = conn.prepareStatement(SEATQuery, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
         seatps.setString(1, flightno);
         seatps.setString(2, date);
         seatps.setString(3, ebclass);
-
         final ResultSet rs = seatps.executeQuery();
+
         while (rs.next()) {
             System.out.println(rs.getInt("seat_number"));
             if (rs.getInt("seat_number") == 1) {
                 jToggleButton1.setBackground(Color.RED);
-                jToggleButton1.setSelected(true);
+                jToggleButton1.setEnabled(false);
+//                jToggleButton1.setSelected(true);
             }
             if (rs.getInt("seat_number") == 2) {
                 jToggleButton2.setBackground(Color.RED);
-                jToggleButton2.setSelected(true);
+                jToggleButton2.setEnabled(false);
             }
             if (rs.getInt("seat_number") == 3) {
                 jToggleButton3.setBackground(Color.RED);
-                jToggleButton3.setSelected(true);
+                jToggleButton3.setEnabled(false);
             }
             if (rs.getInt("seat_number") == 4) {
                 jToggleButton4.setBackground(Color.RED);
-                jToggleButton4.setSelected(true);
+                jToggleButton4.setEnabled(false);
             }
             if (rs.getInt("seat_number") == 5) {
                 jToggleButton5.setBackground(Color.RED);
-                jToggleButton5.setSelected(true);
+                jToggleButton5.setEnabled(false);
             }
             if (rs.getInt("seat_number") == 6) {
                 jToggleButton6.setBackground(Color.RED);
-                jToggleButton6.setSelected(true);
+                jToggleButton6.setEnabled(false);
             }
             if (rs.getInt("seat_number") == 7) {
                 jToggleButton7.setBackground(Color.RED);
-                jToggleButton7.setSelected(true);
+                jToggleButton7.setEnabled(false);
             }
             if (rs.getInt("seat_number") == 8) {
                 jToggleButton8.setBackground(Color.RED);
-                jToggleButton8.setSelected(true);
+                jToggleButton8.setEnabled(false);
             }
         }
     }
@@ -390,85 +391,93 @@ public class B787E extends javax.swing.JFrame {
             try {
                 
                 if (jToggleButton1.getBackground() == Color.GREEN) {
+                    System.out.println("BUTT1");
                     final String status = "T";
-                    final String SQLUpdateQuery = "INSERT into b787\n" + "values(?, ?, ?, ?, ?)";
+                    final String SQLUpdateQuery = "INSERT into b787\n" + "values(?, ?, ?, ?, ?);";
                     final PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
                     pstmt.setInt(1, seat_number);
                     pstmt.setString(2, status);
                     pstmt.setString(3, flightno);
                     pstmt.setString(4, ebclass);
                     pstmt.setString(5, date);
-                    pstmt.execute();
+                    pstmt.executeQuery();
                 } else if (jToggleButton2.getBackground() == Color.GREEN) {
+                    System.out.println("BUTT2");
                     final String status = "T";
-                    final String SQLUpdateQuery = "INSERT into b787\n" + "values(?, ?, ?, ?, ?)";
+                    final String SQLUpdateQuery = "INSERT into b787\n" + "values(?, ?, ?, ?, ?);";
                     final PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
                     pstmt.setInt(1, seat_number);
                     pstmt.setString(2, status);
                     pstmt.setString(3, flightno);
                     pstmt.setString(4, ebclass);
                     pstmt.setString(5, date);
-                    pstmt.execute();
+                    pstmt.executeQuery();
                 } else if (jToggleButton3.getBackground() == Color.GREEN) {
+                    System.out.println("BUTT3");
                     final String status = "T";
-                    final String SQLUpdateQuery = "INSERT into b787\n" + "values(?, ?, ?, ?, ?)";
+                    final String SQLUpdateQuery = "INSERT into b787\n" + "values(?, ?, ?, ?, ?);";
                     final PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
                     pstmt.setInt(1, seat_number);
                     pstmt.setString(2, status);
                     pstmt.setString(3, flightno);
                     pstmt.setString(4, ebclass);
                     pstmt.setString(5, date);
-                    pstmt.execute();
+                    pstmt.executeQuery();
                 } else if (jToggleButton4.getBackground() == Color.GREEN) {
+                    System.out.println("BUTT4");
                     final String status = "T";
-                    final String SQLUpdateQuery = "INSERT into b787\n" + "values(?, ?, ?, ?, ?)";
+                    final String SQLUpdateQuery = "INSERT into b787\n" + "values(?, ?, ?, ?, ?);";
                     final PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
                     pstmt.setInt(1, seat_number);
                     pstmt.setString(2, status);
                     pstmt.setString(3, flightno);
                     pstmt.setString(4, ebclass);
                     pstmt.setString(5, date);
-                    pstmt.execute();
+                    pstmt.executeQuery();
                 } else if (jToggleButton5.getBackground() == Color.GREEN) {
+                    System.out.println("BUTT5");
                     final String status = "T";
-                    final String SQLUpdateQuery = "INSERT into b787\n" + "values(?, ?, ?, ?, ?)";
+                    final String SQLUpdateQuery = "INSERT into b787\n" + "values(?, ?, ?, ?, ?);";
                     final PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
                     pstmt.setInt(1, seat_number);
                     pstmt.setString(2, status);
                     pstmt.setString(3, flightno);
                     pstmt.setString(4, ebclass);
                     pstmt.setString(5, date);
-                    pstmt.execute();
+                    pstmt.executeQuery();
                 } else if (jToggleButton6.getBackground() == Color.GREEN) {
+                    System.out.println("BUTT6");
                     final String status = "T";
-                    final String SQLUpdateQuery = "INSERT into b787\n" + "values(?, ?, ?, ?, ?)";
+                    final String SQLUpdateQuery = "INSERT into b787\n" + "values(?, ?, ?, ?, ?);";
                     final PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
                     pstmt.setInt(1, seat_number);
                     pstmt.setString(2, status);
                     pstmt.setString(3, flightno);
                     pstmt.setString(4, ebclass);
                     pstmt.setString(5, date);
-                    pstmt.execute();
+                    pstmt.executeQuery();
                 } else if (jToggleButton7.getBackground() == Color.GREEN) {
+                    System.out.println("BUTT7");
                     final String status = "T";
-                    final String SQLUpdateQuery = "INSERT into b787\n" + "values(?, ?, ?, ?, ?)";
+                    final String SQLUpdateQuery = "INSERT into b787\n" + "values(?, ?, ?, ?, ?);";
                     final PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
                     pstmt.setInt(1, seat_number);
                     pstmt.setString(2, status);
                     pstmt.setString(3, flightno);
                     pstmt.setString(4, ebclass);
                     pstmt.setString(5, date);
-                    pstmt.execute();
+                    pstmt.executeQuery();
                 } else if (jToggleButton8.getBackground() == Color.GREEN) {
+                    System.out.println("BUTT7");
                     final String status = "T";
-                    final String SQLUpdateQuery = "INSERT into b787\n" + "values(?, ?, ?, ?, ?)";
+                    final String SQLUpdateQuery = "INSERT into b787\n" + "values(?, ?, ?, ?, ?);";
                     final PreparedStatement pstmt = conn.prepareStatement(SQLUpdateQuery);
                     pstmt.setInt(1, seat_number);
                     pstmt.setString(2, status);
                     pstmt.setString(3, flightno);
                     pstmt.setString(4, ebclass);
                     pstmt.setString(5, date);
-                    pstmt.execute();
+                    pstmt.executeQuery();
                 }
             } catch (final Exception ex) {
                 Logger.getLogger(B787E.class.getName()).log(Level.SEVERE, null, ex);
@@ -476,7 +485,7 @@ public class B787E extends javax.swing.JFrame {
             }
             String SQLQuery = "Update reservation\n"
                     + "set seatno = ?\n"
-                    + "where bcode = ? and name = ?";
+                    + "where bcode = ? and name = ?;";
             PreparedStatement pst = conn.prepareStatement(SQLQuery);
             pst.setString(1, String.valueOf(seat_number));
             pst.setString(2, refno);
@@ -499,7 +508,7 @@ public class B787E extends javax.swing.JFrame {
             int i = pst.executeUpdate();
             System.out.println(i);
         } catch (SQLException ex) {
-            Logger.getLogger(A319B.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(B787E.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_formWindowClosing
     /**
