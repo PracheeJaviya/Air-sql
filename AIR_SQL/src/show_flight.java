@@ -302,7 +302,7 @@ public class show_flight extends javax.swing.JFrame {
 
             while (rs.next())
             {
-                if(i_passng<(8-(rs.getInt("count")))  ) {
+                if(i_passng<=(8-(rs.getInt("count")))  ) {
                     for (i = 0; i < i_passng; i++) {
                         try {
                             passng_details pd1;
@@ -345,7 +345,7 @@ public class show_flight extends javax.swing.JFrame {
             rs.beforeFirst();
             while (rs.next())
             {
-                if(i_passng<(4-(rs.getInt("count")))  ) {
+                if(i_passng<=(4-(rs.getInt("count")))  ) {
                     for (i = 0; i < i_passng; i++) {
                         try {
                             passng_details pd1;
@@ -377,7 +377,7 @@ public class show_flight extends javax.swing.JFrame {
             rs.beforeFirst();
             while (rs.next())
             {
-                if(i_passng<(10-(rs.getInt("count")))  ) {
+                if(i_passng<=(10-(rs.getInt("count")))  ) {
                     for (i = 0; i < i_passng; i++) {
                         try {
                             passng_details pd1;
@@ -408,7 +408,7 @@ public class show_flight extends javax.swing.JFrame {
             rs.beforeFirst();
             while (rs.next())
             {
-                if(i_passng<(6-(rs.getInt("count")))  ) {
+                if(i_passng<=(6-(rs.getInt("count")))  ) {
                     for (i = 0; i < i_passng; i++) {
                         try {
                             passng_details pd1;
@@ -439,7 +439,7 @@ public class show_flight extends javax.swing.JFrame {
             rs.beforeFirst();
             while (rs.next())
             {
-                if(i_passng<(10-(rs.getInt("count")))  ) {
+                if(i_passng<=(10-(rs.getInt("count")))  ) {
                     for (i = 0; i < i_passng; i++) {
                         try {
                             passng_details pd1;
@@ -470,7 +470,7 @@ public class show_flight extends javax.swing.JFrame {
             rs.beforeFirst();
             while (rs.next())
             {
-                if(i_passng<(4-(rs.getInt("count")))  ) {
+                if(i_passng<=(4-(rs.getInt("count")))  ) {
                     for (i = 0; i < i_passng; i++) {
                         try {
                             passng_details pd1;
@@ -501,7 +501,7 @@ public class show_flight extends javax.swing.JFrame {
 //            rs.beforeFirst();
             while (rs.next())
             {
-                if(i_passng<(10-(rs.getInt("count")))  ) {
+                if(i_passng<=(10-(rs.getInt("count")))  ) {
                     for (i = 0; i < i_passng; i++) {
                         try {
                             passng_details pd1;
@@ -532,7 +532,7 @@ public class show_flight extends javax.swing.JFrame {
             rs.beforeFirst();
             while (rs.next())
             {
-                if(i_passng<(8-(rs.getInt("count")))  ) {
+                if(i_passng<=(8-(rs.getInt("count")))  ) {
                     for (i = 0; i < i_passng; i++) {
                         try {
                             passng_details pd1;

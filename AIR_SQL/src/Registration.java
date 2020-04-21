@@ -284,6 +284,14 @@ public class Registration extends javax.swing.JFrame {
                   JOptionPane.showMessageDialog(null, "City does not exist");
               else if(mobret==1 && usnmret==0 && mailret==1 && passret==1 && ageret==1 && cityret==1) {
                   pst.executeQuery();
+                  try {
+                      Login lg1 = new Login();
+                      lg1.setVisible(true);
+                      lg1.setLocationRelativeTo(null);
+
+                  } catch (SQLException ex) {
+                      Logger.getLogger(Registration.class.getName()).log(Level.SEVERE, null, ex);
+                  }
                   dispose();
 
               }

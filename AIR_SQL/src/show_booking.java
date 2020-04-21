@@ -429,8 +429,9 @@ public class show_booking extends javax.swing.JFrame {
             String s_age = String.valueOf(age);
             try {
                 fs1 = new final_save(refno, name, s_age, gender, origin, dest, dep, arr, seatno, flightno, date);
-                fs1.setVisible(true);
+               // fs1.setVisible(true);
                 fs1.setLocationRelativeTo(null);
+                dispose();
             } catch (Exception ex) {
                 Logger.getLogger(final_save.class.getName()).log(Level.SEVERE, null, ex);
             }

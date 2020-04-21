@@ -2,6 +2,8 @@
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.nio.file.InvalidPathException;
+import java.nio.file.Paths;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -21,11 +23,23 @@ public class final_save extends javax.swing.JFrame {
     String refno;
     String name;
     String age;
-    String gender, origin, dest, dep, arr, seatno, flightno, date;
+    String gender, origin, dest, dep, arr, seatno, flightno, date,path;
 
     public final_save() {
         initComponents();
 
+    }
+    public boolean isPathValid(String path) {
+
+        try {
+
+            Paths.get(path);
+
+        } catch (InvalidPathException ex) {
+            return false;
+        }
+
+        return true;
     }
 
     public final_save(String refno, String name, String age, String gender, String origin, String dest, String dep, String arr, String seatno, String flightno, String date) {
@@ -65,9 +79,14 @@ public class final_save extends javax.swing.JFrame {
                 BufferedImage image = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_RGB);
                 Graphics2D graphics2D = image.createGraphics();
                 f1.paint(graphics2D);
-                //change the directory here
-                ImageIO.write(image, "png", new File("C:\\Users\\prach\\OneDrive\\Documents\\Air-sql\\TICKETS\\Saved.png"));
-                JOptionPane.showMessageDialog(null, "Ticket Saved");
+                path = JOptionPane.showInputDialog("Enter path: ");
+
+                if(isPathValid(path)==true) {
+                    String path1 = path.concat("\\Saved.png");
+                    ImageIO.write(image, "png", new File(path1));
+                    JOptionPane.showMessageDialog(null, "Ticket Saved");
+                }else
+                    JOptionPane.showMessageDialog(null,"Path invalid");
 
             } catch (Exception exception) {
                 System.out.println("heeheheeh");
