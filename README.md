@@ -39,3 +39,9 @@ On successful logins you will see the following windows one after the other :
 ![Windows](https://github.com/PracheeJaviya/Air-sql/blob/master/1.PNG "Windows")
 
 ![Seating Arrangement](https://github.com/PracheeJaviya/Air-sql/blob/master/seat_selection.png)
+
+Changes in the code:
+File : DBConnect.java
+Username, password(postgres) and url to the database
+
+![Changes](https://github.com/PracheeJaviya/Air-sql/blob/master/2.PNG)
