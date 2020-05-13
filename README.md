@@ -27,3 +27,12 @@ using BeautifulSoup4 and pandas . The scrapped file is converted into a .csv fil
 - Connecting the python file to the SQL server is done by writing a config file (which contains the
 .ini file with parameters [name of the database, user, password, host]) and calling it in the main
 file which connects it to the database by using psycopg2 python library.
+
+- Fare table
+ 
+![fare](https://github.com/PracheeJaviya/Air-sql/blob/master/Capture.PNG "fare table")
+
+After populating the tables, begin running the program from login.java.
+
+On successful logins you will see the following windows one after the other : 
+
