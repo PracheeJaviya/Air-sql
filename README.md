@@ -36,3 +36,6 @@ After populating the tables, begin running the program from login.java.
 
 On successful logins you will see the following windows one after the other : 
 
+![Windows](https://github.com/PracheeJaviya/Air-sql/blob/master/1.PNG "Windows")
+
+![Seating Arrangement](https://github.com/PracheeJaviya/Air-sql/blob/master/seat_selection.png)
